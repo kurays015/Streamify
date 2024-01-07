@@ -96,7 +96,9 @@ export default function Form() {
           </form>
         </div>
       </div>
-      <button onClick={() => signIn("github")}>sign in with github</button>
+      <button onClick={() => signIn("github")} className="text-white">
+        sign in with github
+      </button>
     </>
   );
 }

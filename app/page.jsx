@@ -7,8 +7,10 @@ export default async function Home() {
   // console.log(session);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>hello!</h1>
-      <Link href="/Login">Login</Link>
+      <h1 className="text-white">hello!</h1>
+      <Link href="/signin" className="text-white">
+        Login
+      </Link>
     </main>
   );
 }
