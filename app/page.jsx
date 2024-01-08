@@ -1,7 +1,7 @@
 export default async function Home() {
   return (
     <main className="">
-      <head>home page!</head>
+      <h1>home page!</h1>
     </main>
   );
 }
