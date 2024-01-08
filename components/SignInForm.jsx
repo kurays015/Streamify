@@ -1,13 +1,21 @@
 "use client";
 
 import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { FaGithub } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 
 export default function Form() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const router = useRouter();
+  const { data: session } = useSession();
+
+  if (session) {
+    router.push("/private");
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -94,11 +102,28 @@ export default function Form() {
               </button>
             </div>
           </form>
+          <div className="flex items-center justify-between my-5">
+            <hr className="w-full border-gray-300 border-1" />
+            <span className="text-sm text-gray-400 px-4">or</span>
+            <hr className="w-full border-gray-300 border-1" />
+          </div>
+          <div className="text-white flex flex-col gap-3">
+            <Button
+              variant="outline"
+              className="w-full flex gap-3 rounded-full"
+            >
+              Sign in with <FaGoogle className="text-xl" />
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full flex gap-3 rounded-full"
+              onClick={() => signIn("github")}
+            >
+              Sign in with <FaGithub className="text-xl" />
+            </Button>
+          </div>
         </div>
       </div>
-      <button onClick={() => signIn("github")} className="text-white">
-        sign in with github
-      </button>
     </>
   );
 }

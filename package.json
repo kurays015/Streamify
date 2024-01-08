@@ -9,13 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.307.0",
     "mongoose": "^8.0.3",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^4.12.0",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
