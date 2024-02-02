@@ -19,7 +19,7 @@ export default async function TrendingTvShows() {
   return (
     <div className="max-w-7xl mx-auto mt-16 mb-5">
       <h1 className="text-2xl text-yellow-300 text-start mb-5 font-semibold">
-        Trending Tv Shows
+        Trending TV Shows
       </h1>
       <AnimeSlider data={trendingTvShows} />
     </div>
