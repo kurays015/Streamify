@@ -2,13 +2,19 @@
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-        pathname: "/*/**",
-      },
+    domains: [
+      "img.movieshd.watch",
+      "gogocdn.net",
+      "s4.anilist.co",
+      "meo.comick.pictures",
     ],
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "**",
+    //     pathname: "/*/**",
+    //   },
+    // ],
   },
   async headers() {
     return [

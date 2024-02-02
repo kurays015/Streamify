@@ -2,11 +2,11 @@ import titleHandler from "@/lib/titleHandler";
 import Image from "next/image";
 import React from "react";
 
-export default function Card({ image, title, episodeNumber }) {
+export default function Card({ image, title, episodeNumber, coverImage }) {
   return (
     <>
       <Image
-        src={image}
+        src={image ? image : coverImage}
         alt={titleHandler(title)}
         width={200}
         height={200}

@@ -3,7 +3,7 @@ import { AnimeSlider } from "../CardCarousel";
 
 async function getTrendingMovies() {
   try {
-    const moviesHd = new movies.FlixHQ();
+    const moviesHd = new movies.MovieHdWatch();
     const trending = await moviesHd.fetchTrendingMovies();
     if (!trending) {
       throw new Error("Error fetching trending movies.");

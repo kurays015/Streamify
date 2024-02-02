@@ -3,7 +3,7 @@ import { AnimeSlider } from "../CardCarousel";
 
 async function getRecentTvShows() {
   try {
-    const moviesHd = new movies.FlixHQ();
+    const moviesHd = new movies.MovieHdWatch();
     const recentTvShows = await moviesHd.fetchRecentTvShows();
     if (!recentTvShows) {
       throw new Error("Error fetching recent tv shows.");

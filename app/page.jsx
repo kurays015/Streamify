@@ -9,11 +9,13 @@ import RecentMovies from "@/components/tmdb/RecentMovies";
 import RecentTvShows from "@/components/tmdb/RecentTvShows";
 import TrendingTvShows from "@/components/tmdb/TrendingTvShows";
 import Footer from "@/components/Footer";
+import RecentManga from "@/components/anify(manga)/RecentManga";
 
 export default async function Home() {
   return (
     <main className="">
       <Header />
+      <Cover />
       <div className="h-[550px] max-w-7xl mx-auto relative">
         {/* <h1 className="text-4xl ">
           What would you like to watch this afternoon?
@@ -27,7 +29,7 @@ export default async function Home() {
       <Trending />
       <TopAiring />
       <Popular />
-      <Cover />
+      <RecentManga />
       <Footer />
     </main>
   );
