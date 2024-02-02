@@ -1,38 +1,36 @@
-import { Loader2 } from "lucide-react";
-import { signIn } from "next-auth/react";
+"use client";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerSchema } from "@/models/register";
+import handleRegister from "@/actions/register";
+import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import RegisterError from "./RegisterError";
 
-export default function Form() {
+export default function RegisterForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({ resolver: zodResolver(registerSchema) });
+
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    const form = new FormData(e.currentTarget);
+  const onSubmit = async data => {
     try {
-      setLoading(true);
-      const res = await signIn("credentials", {
-        username: form.get("username"),
-        password: form.get("password"),
-        redirect: false,
-      });
-      if (res.ok) {
-        router.push("/lounge");
-      } else {
-        throw new Error("Invalid Credentials");
+      //server action
+      const user = await handleRegister(data);
+      if (user) {
+        router.push("/signin");
       }
     } catch (error) {
-      setLoading(false);
-      setError(error.message);
+      console.log(error, "ERROR christ!");
     }
-  }
+  };
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit}>
+    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label
           htmlFor="username"
@@ -44,7 +42,7 @@ export default function Form() {
           <input
             placeholder="enter your username"
             id="username"
-            name="username"
+            {...register("username")}
             type="text"
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
           />
@@ -58,48 +56,54 @@ export default function Form() {
           >
             Password
           </label>
-          <div className="text-sm">
-            <a
-              href="#"
-              className="font-semibold text-indigo-400 hover:text-indigo-300"
-              onClick={() => alert("not yet working...")}
-            >
-              Forgot password?
-            </a>
-          </div>
         </div>
         <div className="mt-2">
           <input
             placeholder="enter your password"
             id="password"
-            name="password"
+            {...register("password")}
             type="password"
-            autoComplete="current-password"
-            required
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
           />
-          <p className="text-xs text-red-500 my-1">{error}</p>
         </div>
+        <div className="mt-2">
+          <div className="flex items-center justify-between">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium leading-6 text-white"
+            >
+              Confirm Password
+            </label>
+          </div>
+          <input
+            placeholder="confirm your password"
+            id="confirmPassword"
+            {...register("confirmPassword")}
+            type="password"
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+          />
+        </div>
+        <RegisterError errors={errors} />
       </div>
       <div>
         <p className="text-gray-200 text-xs mb-2">
-          Don&apos;t have an account?
-          <Link href="/register" className="text-indigo-400 font-medium ml-1">
-            Register
+          Already have an account?
+          <Link href="/signin" className="text-indigo-400 font-medium ml-1">
+            Sign in
           </Link>
         </p>
         <button
-          disabled={loading}
+          disabled={isSubmitting}
           type="submit"
           className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50"
         >
-          {loading ? (
+          {isSubmitting ? (
             <span className="flex items-center">
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              <span>Signing in...</span>
+              Registering...
             </span>
           ) : (
-            "Sign in"
+            "Register"
           )}
         </button>
       </div>

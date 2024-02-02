@@ -4,16 +4,13 @@ import GitHubProvider from "next-auth/providers/github";
 import User from "../../../../models/user";
 import githubUser from "../../../../models/github";
 import { compare } from "bcrypt";
+import { mongoDbConnection } from "@/lib/mongoose";
 
 export const authOptions = {
   pages: {
     signIn: "/signin",
   },
   providers: [
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     CredentialsProvider({
       credentials: {
         email: {},
@@ -21,22 +18,24 @@ export const authOptions = {
       },
       async authorize(credentials) {
         try {
-          const { email, password } = credentials;
+          await mongoDbConnection();
 
-          const user = await User.findOne({ email });
+          const { username, password } = credentials;
+
+          const user = await User.findOne({ username });
 
           if (!user) {
             throw new Error("User doesn't exist!");
           }
 
-          if (!email || !password) {
+          if (!username || !password) {
             throw new Error("All fields are required.");
           }
 
           const isPasswordMatch = await compare(password, user.password);
 
           if (!isPasswordMatch) {
-            throw new Error("Password doesn't match!");
+            throw new Error("Wrong password!");
           }
 
           return user;
@@ -46,21 +45,30 @@ export const authOptions = {
         return null;
       },
     }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
   ],
   callbacks: {
-    async signIn({ user }) {
-      try {
-        const { email, name } = user;
+    async signIn({ profile, account }) {
+      if (account.provider === "github" || account.provider === "google") {
+        await mongoDbConnection();
+        try {
+          const user = await githubUser.findOne({ username: profile?.login });
 
-        const User = await githubUser.findOne({ email });
+          if (user) {
+            throw new Error("User already exist!");
+          }
 
-        if (!User) {
-          await githubUser.create({ email, name });
+          await githubUser.create({
+            username: profile?.login,
+            avatar: profile?.avatar_url,
+          });
+        } catch (error) {
+          console.log(error);
         }
-      } catch (err) {
-        console.log(err);
       }
-
       return true;
     },
   },

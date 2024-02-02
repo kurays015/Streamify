@@ -1,12 +1,8 @@
-import { mongoDbConnection } from "@/app/lib/mongoose";
 import mongoose, { Schema } from "mongoose";
-
-mongoDbConnection();
-mongoose.Promise = global.Promise;
 
 const userSchema = new Schema(
   {
-    email: {
+    username: {
       type: String,
       required: true,
       unique: true,

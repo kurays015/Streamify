@@ -1,3 +1,14 @@
-export { default } from "next-auth/middleware";
+import { getToken } from "next-auth/jwt";
+import { NextResponse } from "next/server";
 
-export const config = { matcher: ["/private"] };
+export default async function middleware(req) {
+  const token = await getToken({ req });
+
+  if (!token && req.nextUrl.pathname.startsWith("/lounge")) {
+    return NextResponse.redirect(new URL("/signin", req.url));
+  }
+
+  if (token && req.nextUrl.pathname.startsWith("/signin")) {
+    return NextResponse.redirect(new URL("/", req.url));
+  }
+}
