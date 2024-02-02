@@ -8,6 +8,7 @@ import TrendingMovies from "@/components/tmdb/TrendingMovies";
 import RecentMovies from "@/components/tmdb/RecentMovies";
 import RecentTvShows from "@/components/tmdb/RecentTvShows";
 import TrendingTvShows from "@/components/tmdb/TrendingTvShows";
+import Footer from "@/components/Footer";
 
 export default async function Home() {
   return (
@@ -27,6 +28,7 @@ export default async function Home() {
       <TopAiring />
       <Popular />
       <Cover />
+      <Footer />
     </main>
   );
 }
