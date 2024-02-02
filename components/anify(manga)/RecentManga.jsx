@@ -1,9 +1,9 @@
-import { AnimeSlider } from "../CardCarousel";
+import { CardCarousel } from "../CardCarousel";
 
 async function getManga() {
   try {
     const res =
-      await fetch(`${process.env.ANIFY_URL}/recent?type=manga&page=1&perPage=20&fields=[id, title, coverImage, bannerImage, description, year, type, genres, chapters, averageRating, averagePopularity, status ]
+      await fetch(`${process.env.ANIFY_URL}/recent?type=manga&page=1&perPage=20&fields=[id, title, coverImage, bannerImage, description, year, type, genres, chapters, averageRating, averagePopularity, status]
     `);
     if (!res.ok) {
       throw new Error("Error fetching manga.");
@@ -21,7 +21,7 @@ export default async function RecentManga() {
       <h1 className="text-2xl text-red-300 text-start mb-5 font-semibold">
         Recent Manga
       </h1>
-      <AnimeSlider data={manga} />
+      <CardCarousel data={manga} />
     </div>
   );
 }

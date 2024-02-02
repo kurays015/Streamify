@@ -1,5 +1,5 @@
 import { movies } from "@/lib/constants";
-import { AnimeSlider } from "../CardCarousel";
+import { CardCarousel } from "../CardCarousel";
 
 async function getTrendingMovies() {
   try {
@@ -21,7 +21,7 @@ export default async function TrendingMovies() {
       <h1 className="text-2xl text-amber-300 text-start mb-5 font-semibold">
         Trending Today
       </h1>
-      <AnimeSlider data={trendingMovies} />
+      <CardCarousel data={trendingMovies} />
     </div>
   );
 }

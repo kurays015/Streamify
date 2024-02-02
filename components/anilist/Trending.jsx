@@ -1,4 +1,4 @@
-import { AnimeSlider } from "../CardCarousel";
+import { CardCarousel } from "../CardCarousel";
 
 async function getTrending() {
   try {
@@ -21,7 +21,7 @@ export default async function popular() {
       <h1 className="text-2xl text-trending text-start mb-5 font-semibold">
         Trending Anime
       </h1>
-      <AnimeSlider data={trending?.results} />
+      <CardCarousel data={trending?.results} />
     </div>
   );
 }

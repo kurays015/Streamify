@@ -3,24 +3,19 @@ import RecentEpisodes from "@/components/ganime/RecentEpisodes";
 import TopAiring from "@/components/ganime/TopAiring";
 import Popular from "@/components/anilist/Popular";
 import Trending from "@/components/anilist/Trending";
-import Cover from "@/components/Cover";
 import TrendingMovies from "@/components/tmdb/TrendingMovies";
 import RecentMovies from "@/components/tmdb/RecentMovies";
 import RecentTvShows from "@/components/tmdb/RecentTvShows";
 import TrendingTvShows from "@/components/tmdb/TrendingTvShows";
 import Footer from "@/components/Footer";
 import RecentManga from "@/components/anify(manga)/RecentManga";
+import { TrendingMoviesCarousel } from "@/components/tmdb/TrendingMoviesCarousel";
 
 export default async function Home() {
   return (
     <main className="">
       <Header />
-      <Cover />
-      <div className="h-[550px] max-w-7xl mx-auto relative">
-        {/* <h1 className="text-4xl ">
-          What would you like to watch this afternoon?
-        </h1> */}
-      </div>
+      <TrendingMoviesCarousel />
       <TrendingMovies />
       <RecentMovies />
       <RecentTvShows />

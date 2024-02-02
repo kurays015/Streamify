@@ -10,7 +10,7 @@ import Card from "./Card";
 import Link from "next/link";
 import infoUrl from "@/lib/infoUrl";
 
-export function AnimeSlider({ data }) {
+export function CardCarousel({ data }) {
   return (
     <Carousel className="w-full lg:max-w-7xl mx-auto relative group">
       <CarouselContent className="-ml-1 flex gap-2">

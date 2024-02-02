@@ -5,6 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Autoplay from "embla-carousel-autoplay";
 
 const CarouselContext = React.createContext(null);
 
@@ -34,9 +35,11 @@ const Carousel = React.forwardRef(
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
+        loop: true,
         axis: orientation === "horizontal" ? "x" : "y",
       },
-      plugins
+
+      [Autoplay({ delay: 10000 })]
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
@@ -87,7 +90,6 @@ const Carousel = React.forwardRef(
       onSelect(api);
       api.on("reInit", onSelect);
       api.on("select", onSelect);
-
       return () => {
         api?.off("select", onSelect);
       };

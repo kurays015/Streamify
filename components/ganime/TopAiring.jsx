@@ -1,4 +1,4 @@
-import { AnimeSlider } from "../CardCarousel";
+import { CardCarousel } from "../CardCarousel";
 
 async function getTopAiring() {
   try {
@@ -20,7 +20,7 @@ export default async function TopAiring() {
       <h1 className="text-2xl text-topAiring text-start mb-5 font-semibold">
         Top Airing Anime
       </h1>
-      <AnimeSlider data={topAiring?.results} />
+      <CardCarousel data={topAiring?.results} />
     </div>
   );
 }

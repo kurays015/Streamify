@@ -1,4 +1,4 @@
-import { AnimeSlider } from "../CardCarousel";
+import { CardCarousel } from "../CardCarousel";
 
 async function getRecentEpisodes() {
   try {
@@ -20,7 +20,7 @@ export default async function RecentEpisodes() {
       <h1 className="text-2xl text-recent text-start mb-5 font-semibold">
         Recent Anime Episodes
       </h1>
-      <AnimeSlider data={recentEpisodes?.results} />
+      <CardCarousel data={recentEpisodes?.results} />
     </div>
   );
 }
