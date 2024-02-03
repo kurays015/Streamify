@@ -13,7 +13,7 @@ export default function TrendingCarouselContent({
       <div>
         <h1
           className={`${
-            index % 2 === 0 ? "text-[#fc7889]" : "text-[#7B8FFC]"
+            index % 2 === 0 ? "text-[#FFE57F]" : "text-[#7B8FFC]"
           } text-5xl font-bold`}
         >
           {title}
