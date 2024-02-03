@@ -18,7 +18,7 @@ export default async function TrendingMovies() {
   const trendingMovies = await getTrendingMovies();
   return (
     <div className="max-w-7xl mx-auto mt-16 mb-5 relative z-10">
-      <h1 className="text-2xl text-amber-300 text-start mb-5 font-semibold">
+      <h1 className="text-3xl text-amber-300 text-start mb-5 font-semibold">
         Trending Today
       </h1>
       <CardCarousel data={trendingMovies} />

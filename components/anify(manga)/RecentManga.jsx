@@ -18,7 +18,7 @@ export default async function RecentManga() {
   const manga = await getManga();
   return (
     <div className="max-w-7xl mx-auto mt-16 mb-5">
-      <h1 className="text-2xl text-red-300 text-start mb-5 font-semibold">
+      <h1 className="text-3xl text-red-300 text-start mb-5 font-semibold">
         Recent Manga
       </h1>
       <CardCarousel data={manga} />

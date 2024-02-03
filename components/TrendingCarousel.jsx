@@ -9,7 +9,7 @@ import TrendingCarouselContent from "./TrendingCarouselContent";
 export function TrendingCarousel({ data }) {
   return (
     <>
-      <div className="h-[550px]"></div>
+      <div className="h-[600px]"></div>
       <Carousel className="absolute inset-0" opts={{ loop: true }}>
         <CarouselContent className="-ml-1">
           {data?.map((result, index) => (

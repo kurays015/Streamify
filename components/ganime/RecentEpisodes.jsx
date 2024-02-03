@@ -17,7 +17,7 @@ export default async function RecentEpisodes() {
   const recentEpisodes = await getRecentEpisodes();
   return (
     <div className="max-w-7xl mx-auto mt-16 mb-5">
-      <h1 className="text-2xl text-recent text-start mb-5 font-semibold">
+      <h1 className="text-3xl text-recent text-start mb-5 font-semibold">
         Recent Anime Episodes
       </h1>
       <CardCarousel data={recentEpisodes?.results} />

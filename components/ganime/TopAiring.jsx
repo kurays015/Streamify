@@ -17,7 +17,7 @@ export default async function TopAiring() {
 
   return (
     <div className="max-w-7xl mx-auto mt-16 mb-5">
-      <h1 className="text-2xl text-topAiring text-start mb-5 font-semibold">
+      <h1 className="text-3xl text-topAiring text-start mb-5 font-semibold">
         Top Airing Anime
       </h1>
       <CardCarousel data={topAiring?.results} />

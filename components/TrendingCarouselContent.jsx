@@ -9,7 +9,7 @@ export default function TrendingCarouselContent({
   index,
 }) {
   return (
-    <div className="absolute top-[20%] left-[17%] max-w-3xl py-5 w-full">
+    <div className="absolute top-1/4 left-[17%] max-w-3xl py-5 w-full">
       <div>
         <h1
           className={`${
@@ -24,7 +24,7 @@ export default function TrendingCarouselContent({
             {genres.map(genre => genre).join(", ")}
           </p>
         </div>
-        <p className="text-gray-300 text-lg font-medium">{description}</p>
+        <p className="text-gray-300 text-xl font-medium">{description}</p>
         <div className="flex items-center gap-3 my-5">
           <Button
             variant="secondary"

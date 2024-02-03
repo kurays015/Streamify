@@ -41,11 +41,6 @@ async function getTrendingCarouselData() {
   }
 }
 
-export async function TrendingCarouselContent() {
-  const carouselData = await getTrendingCarouselData();
-  return <div className="text-white text-3xl max-w-7xl mx-auto"></div>;
-}
-
 export async function TrendingMoviesCarousel() {
   const carouselData = await getTrendingCarouselData();
   return (
