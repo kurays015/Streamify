@@ -1,7 +1,10 @@
+import infoUrl from "@/lib/infoUrl";
 import { Button } from "./ui/button";
 import { FaPlay } from "react-icons/fa";
+import Link from "next/link";
 
 export default function TrendingCarouselContent({
+  id,
   title,
   description,
   releaseDate,
@@ -33,12 +36,14 @@ export default function TrendingCarouselContent({
             <FaPlay className="text-lg mr-2" />
             Play
           </Button>
-          <Button
-            variant="outline"
-            className="text-white text-xl font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all"
-          >
-            More Info
-          </Button>
+          <Link href={infoUrl(id)}>
+            <Button
+              variant="outline"
+              className="text-white text-xl font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all"
+            >
+              More Info
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
