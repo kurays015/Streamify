@@ -4,26 +4,28 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import TrendingCarouselContent from "./TrendingCarouselContent";
 
 export function TrendingCarousel({ data }) {
   return (
-    <Carousel className="absolute">
-      <CarouselContent className="-ml-1">
-        {data
-          ?.filter(result => result.title !== "Shaun the Sheep Movie")
-          .map(result => (
-            <CarouselItem key={result.id} className="pl-1 relative">
-              <div className="absolute h-full top-0 bottom-0 left-0 right-0 w-full bg-customTransparent z-10 test"></div>
-              <div className="text-white text-2xl">{result.title}</div>
+    <>
+      <div className="h-[550px]"></div>
+      <Carousel className="absolute inset-0" opts={{ loop: true }}>
+        <CarouselContent className="-ml-1">
+          {data?.map((result, index) => (
+            <CarouselItem key={result.id} className="pl-1 gap-0 relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900 to-black opacity-75"></div>
               <div
                 style={{
                   backgroundImage: `url("${result.cover}")`,
                 }}
-                className="h-screen w-full bg-no-repeat bg-cover"
+                className="h-screen w-full bg-no-repeat bg-cover "
               ></div>
+              <TrendingCarouselContent {...result} index={index} />
             </CarouselItem>
           ))}
-      </CarouselContent>
-    </Carousel>
+        </CarouselContent>
+      </Carousel>
+    </>
   );
 }

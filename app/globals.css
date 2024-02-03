@@ -74,8 +74,8 @@
     @apply bg-background text-foreground;
   }
 }
-.test {
-  box-shadow: 4px -18px 47px 16px rgba(0, 0, 0, 0.68) inset;
-  -webkit-box-shadow: 4px -18px 47px 16px rgba(0, 0, 0, 0.68) inset;
-  -moz-box-shadow: 4px -18px 47px 16px rgba(0, 0, 0, 0.68) inset;
+.customShadow {
+  box-shadow: 9px -17px 60px 44px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 9px -17px 60px 44px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 9px -17px 60px 44px rgba(0, 0, 0, 0.75) inset;
 }

@@ -12,7 +12,10 @@ import infoUrl from "@/lib/infoUrl";
 
 export function CardCarousel({ data }) {
   return (
-    <Carousel className="w-full lg:max-w-7xl mx-auto relative group">
+    <Carousel
+      className="w-full lg:max-w-7xl mx-auto relative group z-50"
+      opts={{ dragFree: true, loop: false }}
+    >
       <CarouselContent className="-ml-1 flex gap-2">
         {data?.map(result => (
           <CarouselItem

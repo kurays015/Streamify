@@ -13,7 +13,7 @@ import { TrendingMoviesCarousel } from "@/components/tmdb/TrendingMoviesCarousel
 
 export default async function Home() {
   return (
-    <main className="">
+    <main className="relative">
       <Header />
       <TrendingMoviesCarousel />
       <TrendingMovies />
@@ -29,7 +29,3 @@ export default async function Home() {
     </main>
   );
 }
-
-// https://image.tmdb.org/t/p/original/4MCKNAc6AbWjEsM2h9Xc29owo4z.jpg
-
-// https://wallpapercave.com/uwp/uwp3589179.jpeg

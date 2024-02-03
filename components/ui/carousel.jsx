@@ -35,11 +35,9 @@ const Carousel = React.forwardRef(
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
-        loop: true,
         axis: orientation === "horizontal" ? "x" : "y",
       },
-
-      [Autoplay({ delay: 10000 })]
+      [Autoplay({ delay: 15000 })]
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);

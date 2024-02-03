@@ -1,17 +1,14 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { categories } from "@/lib/constants";
-import Image from "next/image";
+
 import { CgScreen } from "react-icons/cg";
+import Categories from "./Categories";
 
 export function CategoryDropdown() {
   return (
@@ -29,21 +26,7 @@ export function CategoryDropdown() {
           Select Category
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {categories.map(({ name, icon }) => (
-          <DropdownMenuCheckboxItem
-            key={name}
-            className="cursor-pointer hover:bg-emerald-700"
-          >
-            <div className="flex items-center gap-2">
-              {name === "Anime" ? (
-                <Image src={icon} alt="Anime" width={25} height={25} />
-              ) : (
-                <span className="text-2xl">{icon}</span>
-              )}
-              <span>{name}</span>
-            </div>
-          </DropdownMenuCheckboxItem>
-        ))}
+        <Categories />
       </DropdownMenuContent>
     </DropdownMenu>
   );
