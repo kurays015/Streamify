@@ -13,7 +13,7 @@ export function TrendingCarousel({ data }) {
       <Carousel className="absolute inset-0" opts={{ loop: true }}>
         <CarouselContent className="-ml-1">
           {data?.map((result, index) => (
-            <CarouselItem key={result.id} className="pl-1 gap-0 relative">
+            <CarouselItem key={result.id} className="p-0 relative">
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900 to-black opacity-75"></div>
               <div
                 style={{
