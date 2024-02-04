@@ -2,7 +2,7 @@ import { CardCarousel } from "../CardCarousel";
 
 async function getTopAiring() {
   try {
-    const res = await fetch(`${process.env.API_BASE_URL}/top-airing`);
+    const res = await fetch(`${process.env.GOGO_ANIME_URL}/top-airing`);
     if (!res.ok) {
       throw new Error("Error fetching top airing.");
     }
