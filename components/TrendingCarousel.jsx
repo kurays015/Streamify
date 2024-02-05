@@ -10,7 +10,7 @@ export function TrendingCarousel({ data }) {
   return (
     <>
       <div className="h-[600px]"></div>
-      <Carousel className="absolute inset-0" opts={{ loop: true }}>
+      <Carousel className="absolute h-screen inset-0" opts={{ loop: true }}>
         <CarouselContent className="-ml-1">
           {data?.map((result, index) => (
             <CarouselItem key={result.id} className="p-0 relative">
