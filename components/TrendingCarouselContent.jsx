@@ -1,7 +1,7 @@
 import { Button } from "./ui/button";
 import { FaPlay } from "react-icons/fa";
 import Link from "next/link";
-import { watchUrl } from "@/lib/infoUrl";
+import GenresBadge from "./GenresBadge";
 
 export default function TrendingCarouselContent({
   id,
@@ -24,18 +24,16 @@ export default function TrendingCarouselContent({
         </h1>
         <div className="font-semibold text-slate-200 text-base my-6">
           <p>{releaseDate}</p>
-          <p className="text-slate-200">
-            {genres.map(genre => genre).join(", ")}
-          </p>
+          <GenresBadge genres={genres} />
         </div>
         <p className="text-gray-300 text-xl font-medium">{description}</p>
         <div className="flex items-center gap-3 my-5">
-          <Link href={""} className="flex items-center gap-2">
+          <Link href={""}>
             <Button
               variant="secondary"
               className="text-xl font-semibold py-6 px-10 hover:scale-105 transition-all"
             >
-              <FaPlay className="text-lg" />
+              <FaPlay className="text-lg mr-1" />
               <span>Play</span>
             </Button>
           </Link>
