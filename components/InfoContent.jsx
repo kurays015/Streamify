@@ -16,18 +16,21 @@ export default function InfoContent({ infoData, type }) {
         <IoIosReturnLeft />
       </Link>
       <Overlay />
-      {infoData.cover && (
-        <div
-          style={{
-            backgroundImage: `url("${infoData.cover}")`,
-          }}
-          className="absolute h-screen -top-36 w-full bg-no-repeat bg-cover bg-center "
-        ></div>
-      )}
+      {infoData.cover ||
+        (infoData.bannerImage && (
+          <div
+            style={{
+              backgroundImage: `url("${
+                infoData.cover || infoData.bannerImage
+              }")`,
+            }}
+            className="absolute h-screen -top-36 w-full bg-no-repeat bg-cover bg-center "
+          ></div>
+        ))}
       <div className="relative top-[37%] z-10 max-w-7xl mx-auto pb-24">
         <div className="flex gap-24">
           <Image
-            src={infoData.image}
+            src={infoData.image ? infoData.image : infoData.coverImage}
             height={500}
             width={500}
             alt={titleHandler(infoData.title)}
