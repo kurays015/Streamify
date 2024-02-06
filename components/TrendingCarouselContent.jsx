@@ -23,7 +23,7 @@ export default function TrendingCarouselContent({
           {title}
         </h1>
         <div className="font-semibold text-slate-200 text-base my-6">
-          <p>{releaseDate}</p>
+          <p className="mb-2">{releaseDate}</p>
           <GenresBadge genres={genres} />
         </div>
         <p className="text-gray-300 text-xl font-medium">{description}</p>
