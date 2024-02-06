@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function InfoDescription({ description, maxLength }) {
   const [seeMore, setSeeMore] = useState(false);
   return (
-    <div className="text-gray-300 text-lg leading-8 font-medium max-w-2xl overflow-auto h-64 scrollbar-gray">
+    <div className="text-gray-300 text-lg leading-8 font-medium max-w-2xl overflow-auto max-h-64 scrollbar-gray">
       {seeMore ? (
         <>
           <p className="">{description}</p>
