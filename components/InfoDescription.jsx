@@ -6,26 +6,31 @@ export default function InfoDescription({ description, maxLength }) {
   return (
     <div className="text-gray-300 text-lg leading-8 font-medium max-w-2xl overflow-auto max-h-64 scrollbar-gray">
       {seeMore ? (
-        <>
-          <p className="">{description}</p>
+        <span>
+          {description}
           <span
             onClick={() => setSeeMore(false)}
-            className="text-yellow-300 text-sm cursor-pointer"
+            className="text-yellow-500 text-xs cursor-pointer"
           >
-            see less
+            See less
           </span>
-        </>
+        </span>
       ) : (
-        <p className="">
-          {description.slice(0, maxLength)}
-          {description.length > maxLength && "..."}
-          <span
-            onClick={() => setSeeMore(prev => !prev)}
-            className="text-yellow-300 text-sm cursor-pointer"
-          >
-            See More
-          </span>
-        </p>
+        <>
+          {description.length > maxLength ? (
+            <span>{description.slice(0, maxLength)}...</span>
+          ) : (
+            description
+          )}
+          {description.length > maxLength && (
+            <span
+              onClick={() => setSeeMore(prev => !prev)}
+              className="text-yellow-500 text-xs cursor-pointer"
+            >
+              See more
+            </span>
+          )}
+        </>
       )}
     </div>
   );
