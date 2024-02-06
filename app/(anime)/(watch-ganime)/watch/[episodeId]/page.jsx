@@ -1,3 +1,3 @@
 export default function page() {
-  return <div>LOUNGE</div>;
+  return <div>watch page</div>;
 }

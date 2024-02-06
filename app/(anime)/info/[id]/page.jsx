@@ -1,5 +1,5 @@
+import InfoContent from "@/components/InfoContent";
 import { fetchInfo } from "@/lib/infoUrl";
-import titleHandler from "@/lib/titleHandler";
 
 async function getInfo(id) {
   try {
@@ -17,6 +17,6 @@ async function getInfo(id) {
 }
 
 export default async function page({ params }) {
-  const infos = await getInfo(params.id);
-  return <div className="text-2xl text-white">{titleHandler(infos.title)}</div>;
+  const animeInfo = await getInfo(params.id);
+  return <InfoContent infoData={animeInfo} />;
 }

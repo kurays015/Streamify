@@ -1,17 +1,19 @@
 import titleHandler from "@/lib/titleHandler";
 import Image from "next/image";
-import React from "react";
 
 export default function Card({ image, title, episodeNumber, coverImage }) {
   return (
-    <>
-      <Image
-        src={image ? image : coverImage}
-        alt={titleHandler(title)}
-        width={200}
-        height={200}
-        className="w-full h-[90%]  rounded-lg"
-      />
+    <div className="">
+      <div className="overflow-hidden rounded-lg relative group">
+        <Image
+          src={image ? image : coverImage}
+          alt={titleHandler(title)}
+          width={500}
+          height={500}
+          className="w-full h-[300px] hover:scale-105 transition-all"
+          priority
+        />
+      </div>
       <h1 className="text-center text-white text-base font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2">
         {titleHandler(title)}
       </h1>
@@ -20,6 +22,6 @@ export default function Card({ image, title, episodeNumber, coverImage }) {
           Episode {episodeNumber}
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import TrendingCarouselContent from "./TrendingCarouselContent";
+import Overlay from "./Overlay";
 
 export function TrendingCarousel({ data }) {
   return (
@@ -14,12 +15,12 @@ export function TrendingCarousel({ data }) {
         <CarouselContent className="-ml-1">
           {data?.map((result, index) => (
             <CarouselItem key={result.id} className="p-0 relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900 to-black opacity-75"></div>
+              <Overlay />
               <div
                 style={{
                   backgroundImage: `url("${result.cover}")`,
                 }}
-                className="h-screen w-full bg-no-repeat bg-cover "
+                className="h-screen w-full bg-no-repeat bg-cover"
               ></div>
               <TrendingCarouselContent {...result} index={index} />
             </CarouselItem>
