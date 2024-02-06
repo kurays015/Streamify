@@ -3,6 +3,7 @@ import GenresBadge from "./GenresBadge";
 import InfoPlayAndAddToWatchlist from "./InfoPlayAndAddToWatchlist";
 import { FaStar } from "react-icons/fa6";
 import ratingHandler from "@/lib/ratingHandler";
+import InfoDescription from "./InfoDescription";
 
 export default function Details({ infoData, type }) {
   return (
@@ -21,9 +22,7 @@ export default function Details({ infoData, type }) {
         </div>
         <GenresBadge genres={infoData.genres} />
       </div>
-      <p className="text-gray-300 text-lg leading-8 font-medium max-w-2xl">
-        {infoData.description}
-      </p>
+      <InfoDescription description={infoData.description} maxLength={300} />
       <div className="text-yellow-500 font-semibold my-2">
         {type ? (
           <div className="flex items-center gap-3">
