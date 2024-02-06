@@ -35,10 +35,11 @@ export default function InfoContent({ infoData, type }) {
             width={500}
             alt={titleHandler(infoData.title)}
             className="w-1/4 rounded-md h-[480px]"
+            priority
           />
           <Details type={type} infoData={infoData} />
         </div>
-        <YouMayLike infoData={infoData} />
+        {infoData.recommendations && <YouMayLike infoData={infoData} />}
       </div>
     </div>
   );
