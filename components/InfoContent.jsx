@@ -31,7 +31,7 @@ export default function InfoContent({ infoData, type }) {
             height={500}
             width={500}
             alt={titleHandler(infoData.title)}
-            className="w-1/4 rounded-md max-h-[480px]"
+            className="w-1/4 rounded-md h-[480px]"
           />
           <Details type={type} infoData={infoData} />
         </div>

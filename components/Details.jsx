@@ -31,7 +31,10 @@ export default function Details({ infoData, type }) {
             <div>{infoData.duration}</div>
           </>
         ) : (
-          <> {infoData.releaseDate}</>
+          <>
+            <span>{infoData.releaseDate}</span>
+            <span>{infoData.status}</span>
+          </>
         )}
       </div>
       <InfoPlayAndAddToWatchlist />
