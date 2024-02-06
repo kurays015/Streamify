@@ -12,14 +12,16 @@ export default function Details({ infoData, type }) {
         {titleHandler(infoData.title)}
       </h1>
       <div className="flex items-center gap-5 my-5 text-white">
-        <div className="flex items-center gap-2 text-lg">
-          <div>
-            <FaStar className="text-[#e8b647] text-xl" />
+        {infoData.rating && (
+          <div className="flex items-center gap-2 text-lg">
+            <div>
+              <FaStar className="text-[#e8b647] text-xl" />
+            </div>
+            <div className="text-base font-medium">
+              {ratingHandler(infoData.rating)}
+            </div>
           </div>
-          <div className="text-base font-medium">
-            {ratingHandler(infoData.rating)}
-          </div>
-        </div>
+        )}
         <GenresBadge genres={infoData.genres} />
       </div>
       <InfoDescription description={infoData.description} maxLength={300} />
