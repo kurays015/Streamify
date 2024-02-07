@@ -5,10 +5,10 @@ import { IoIosReturnLeft } from "react-icons/io";
 import YouMayLike from "./YouMayLike";
 import Details from "./Details";
 import Overlay from "./Overlay";
-import GridEpisodes from "./GridEpisodes";
-import SelectEpisode from "./SelectEpisode";
+import EpisodesAndChapterContainer from "./EpisodesAndChaptersContainer";
 
 export default function InfoContent({ infoData, type }) {
+  const coverImages = infoData.cover || infoData.bannerImage;
   return (
     <div className="relative h-screen inset-0 ">
       <Link
@@ -18,7 +18,7 @@ export default function InfoContent({ infoData, type }) {
         <IoIosReturnLeft />
       </Link>
       <Overlay />
-      {(infoData.cover || infoData.bannerImage) && (
+      {coverImages && (
         <div
           style={{
             backgroundImage: `url("${infoData.cover || infoData.bannerImage}")`,
@@ -38,12 +38,7 @@ export default function InfoContent({ infoData, type }) {
           />
           <Details type={type} infoData={infoData} />
         </div>
-        <div className="my-12">
-          {infoData.episodes && !type && <GridEpisodes infoData={infoData} />}
-          {(infoData.chapters || infoData.type === "TV Series") && (
-            <SelectEpisode infoData={infoData} />
-          )}
-        </div>
+        <EpisodesAndChapterContainer infoData={infoData} type={type} />
         {infoData.recommendations && <YouMayLike infoData={infoData} />}
       </div>
     </div>

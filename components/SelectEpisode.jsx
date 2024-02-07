@@ -5,34 +5,43 @@ import {
   Select,
   SelectContent,
   SelectGroup,
-  SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import titleHandler from "@/lib/titleHandler";
+import Season from "./Season";
+import Chapters from "./Chapters";
+import { useEpisodeContext } from "@/app/hooks/useEpisodeContext";
 
 export default function SelectEpisode({ infoData }) {
-  const content = infoData.episodes
-    ? infoData.episodes
-    : infoData.chapters.data[0].chapters;
+  const { setFilteredEpisodes } = useEpisodeContext();
+
+  React.useEffect(() => {
+    setFilteredEpisodes([]);
+  }, [infoData]);
+
   return (
-    <Select>
+    <Select
+      onValueChange={value => {
+        if (infoData.type === "TV Series") {
+          const filteredEpisode = infoData.episodes.filter(
+            episode => episode.season === value
+          );
+          setFilteredEpisodes(filteredEpisode);
+        }
+      }}
+    >
       <SelectTrigger className="w-[180px] text-white">
         <SelectValue
-          placeholder={infoData.episodes ? "Episodes" : "Chapters"}
+          placeholder={infoData.type === "TV Series" ? "Seasons" : "Chapters"}
         />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {content.map(({ id, number, title }, index) => (
-            <SelectItem
-              value={id}
-              key={id}
-              className=" focus:bg-slate-800 focus:text-slate-200 cursor-pointer"
-            >
-              {index + 1}. {titleHandler(title)}
-            </SelectItem>
-          ))}
+          {infoData.type === "TV Series" ? (
+            <Season infoData={infoData} />
+          ) : (
+            <Chapters infoData={infoData} />
+          )}
         </SelectGroup>
       </SelectContent>
     </Select>

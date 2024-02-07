@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NextAuthProvider from "./(providers)/NextAuthProvider";
+import { EpisodeContextProvider } from "./context/EpisodesContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,9 @@ export default async function RootLayout({ children }) {
         className={`${inter.className} bg-[#111827]`}
         suppressHydrationWarning
       >
-        <NextAuthProvider>{children}</NextAuthProvider>
+        <NextAuthProvider>
+          <EpisodeContextProvider>{children}</EpisodeContextProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );

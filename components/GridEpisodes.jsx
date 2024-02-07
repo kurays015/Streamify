@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function GridEpisodes({ infoData, type }) {
+export default function GridEpisodes({ infoData }) {
   return (
     <div className="my-12">
       <h1 className="text-white text-3xl font-semibold mb-5">Episodes</h1>
