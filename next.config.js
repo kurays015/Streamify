@@ -1,20 +1,36 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // images: {
+  //   formats: ["image/avif", "image/webp"],
+  //   // domains: [
+  //   //   "img.movieshd.watch",
+  //   //   "gogocdn.net",
+  //   //   "s4.anilist.co",
+  //   //   "meo.comick.pictures",
+  //   //   "media.kitsu.io",
+  //   // ],
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "**",
+  //       port: "",
+  //       pathname: "/*/**",
+  //     },
+  //   ],
+  // },
   images: {
-    formats: ["image/avif", "image/webp"],
-    domains: [
-      "img.movieshd.watch",
-      "gogocdn.net",
-      "s4.anilist.co",
-      "meo.comick.pictures",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+        pathname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+        pathname: "**",
+      },
     ],
-    // remotePatterns: [
-    //   {
-    //     protocol: "https",
-    //     hostname: "**",
-    //     pathname: "/*/**",
-    //   },
-    // ],
   },
   async headers() {
     return [
