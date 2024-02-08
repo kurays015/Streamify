@@ -3,7 +3,7 @@ import { CardCarousel } from "../CardCarousel";
 async function getManga() {
   try {
     const res =
-      await fetch(`${process.env.ANIFY_URL}/recent?type=manga&page=1&perPage=20&fields=[id, title, coverImage, bannerImage, description, year, type, genres, chapters, averageRating, averagePopularity, status]
+      await fetch(`${process.env.ANIFY_URL}/recent?type=manga&fields=[id, title, coverImage, bannerImage, description, year, type, genres, chapters, averageRating, averagePopularity, status]
     `);
     if (!res.ok) {
       throw new Error("Error fetching manga.");

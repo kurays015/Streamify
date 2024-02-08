@@ -2,7 +2,7 @@ import { CardCarousel } from "../CardCarousel";
 
 async function getTrending() {
   try {
-    const res = await fetch(`${process.env.META_URL}/trending?page=1&perPage=20
+    const res = await fetch(`${process.env.META_URL}/trending
     `);
 
     if (!res.ok) {

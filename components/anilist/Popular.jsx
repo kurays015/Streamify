@@ -2,7 +2,7 @@ import { CardCarousel } from "../CardCarousel";
 
 async function getPopular() {
   try {
-    const res = await fetch(`${process.env.META_URL}/popular?page=1&perPage=20
+    const res = await fetch(`${process.env.META_URL}/popular
     `);
 
     if (!res.ok) {

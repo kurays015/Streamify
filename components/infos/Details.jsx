@@ -1,5 +1,5 @@
 import titleHandler from "@/lib/titleHandler";
-import GenresBadge from "./GenresBadge";
+import GenresBadge from "../GenresBadge";
 import InfoPlayAndAddToWatchlist from "./InfoPlayAndAddToWatchlist";
 import { FaStar } from "react-icons/fa6";
 import ratingHandler from "@/lib/ratingHandler";
@@ -41,7 +41,7 @@ export default function Details({ infoData, type }) {
           </div>
         )}
       </div>
-      <InfoPlayAndAddToWatchlist infoData={infoData} />
+      <InfoPlayAndAddToWatchlist chapters={infoData.chapters} />
     </div>
   );
 }

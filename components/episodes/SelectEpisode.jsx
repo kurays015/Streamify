@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react";
 
 import {
@@ -8,16 +7,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Season from "./Season";
-import Chapters from "./Chapters";
-import { useEpisodeContext } from "@/app/hooks/useEpisodeContext";
+import Season from "../Season";
+import Chapters from "../Chapters";
 
-export default function SelectEpisode({ infoData }) {
-  const { setFilteredEpisodes } = useEpisodeContext();
-
+export default function SelectEpisode({ infoData, setFilteredEpisodes }) {
   React.useEffect(() => {
     setFilteredEpisodes([]);
-  }, [infoData]);
+  }, []);
 
   return (
     <Select

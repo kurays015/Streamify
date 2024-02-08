@@ -1,5 +1,5 @@
 import { movies } from "@/lib/constants";
-import InfoContent from "@/components/InfoContent";
+import MainInfoContent from "@/components/infos/MainInfoContent";
 
 async function getMovieInfo(params) {
   try {
@@ -18,5 +18,5 @@ async function getMovieInfo(params) {
 
 export default async function Info({ params }) {
   const movieInfo = await getMovieInfo(params);
-  return <InfoContent infoData={movieInfo} type={params.type} />;
+  return <MainInfoContent infoData={movieInfo} type={params.type} />;
 }

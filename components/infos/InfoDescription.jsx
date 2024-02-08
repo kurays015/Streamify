@@ -24,7 +24,7 @@ export default function InfoDescription({ description, maxLength }) {
           )}
           {description.length > maxLength && (
             <span
-              onClick={() => setSeeMore(prev => !prev)}
+              onClick={() => setSeeMore(true)}
               className="text-yellow-500 text-xs cursor-pointer"
             >
               See more

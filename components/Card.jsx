@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Card({ image, title, episodeNumber, coverImage }) {
   return (
-    <div className="">
+    <div>
       <div className="overflow-hidden rounded-lg relative group">
         <Image
           src={image ? image : coverImage}

@@ -1,4 +1,4 @@
-import InfoContent from "@/components/InfoContent";
+import MainInfoContent from "@/components/infos/MainInfoContent";
 import { fetchInfo } from "@/lib/infoUrl";
 
 async function getInfo(id) {
@@ -18,5 +18,5 @@ async function getInfo(id) {
 
 export default async function page({ params }) {
   const animeInfo = await getInfo(params.id);
-  return <InfoContent infoData={animeInfo} />;
+  return <MainInfoContent infoData={animeInfo} />;
 }
