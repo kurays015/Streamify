@@ -18,5 +18,6 @@ async function getInfo(id) {
 
 export default async function page({ params }) {
   const animeInfo = await getInfo(params.id);
+
   return <MainInfoContent infoData={animeInfo} />;
 }

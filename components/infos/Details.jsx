@@ -41,7 +41,7 @@ export default function Details({ infoData, type }) {
           </div>
         )}
       </div>
-      <InfoPlayAndAddToWatchlist chapters={infoData.chapters} />
+      <InfoPlayAndAddToWatchlist infoData={infoData} />
     </div>
   );
 }
