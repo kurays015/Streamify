@@ -2,7 +2,7 @@ import { CardCarousel } from "../CardCarousel";
 
 async function getRecentEpisodes() {
   try {
-    const res = await fetch(`${process.env.GOGO_ANIME_URL}/recent-episodes
+    const res = await fetch(`${process.env.META_URL}/recent-episodes
     `);
     if (!res.ok) {
       throw new Error("Error fetching recent episodes.");

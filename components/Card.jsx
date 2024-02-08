@@ -1,7 +1,7 @@
 import titleHandler from "@/lib/titleHandler";
 import Image from "next/image";
 
-export default function Card({ image, title, episodeNumber, coverImage }) {
+export default function Card({ image, title, episodeTitle, coverImage }) {
   return (
     <div>
       <div className="overflow-hidden rounded-lg relative group">
@@ -17,9 +17,9 @@ export default function Card({ image, title, episodeNumber, coverImage }) {
       <h1 className="text-center text-white text-base font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2">
         {titleHandler(title)}
       </h1>
-      {episodeNumber && (
+      {episodeTitle && (
         <div className="absolute bottom-10 left-3 bg-red-500 text-white text-xs font-semibold p-2 rounded md">
-          Episode {episodeNumber}
+          {episodeTitle}
         </div>
       )}
     </div>

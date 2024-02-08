@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
-import RecentEpisodes from "@/components/ganime/RecentEpisodes";
-// import TopAiring from "@/components/ganime/TopAiring";
+import RecentEpisodes from "@/components/anilist/RecentEpisodes";
 import Popular from "@/components/anilist/Popular";
 import Trending from "@/components/anilist/Trending";
 import TrendingMovies from "@/components/tmdb/TrendingMovies";
@@ -22,7 +21,6 @@ export default async function Home() {
       <TrendingTvShows />
       <RecentEpisodes />
       <Trending />
-      {/* <TopAiring /> */}
       <Popular />
       <RecentManga />
       <Footer />
