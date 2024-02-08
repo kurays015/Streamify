@@ -74,12 +74,6 @@
     @apply bg-background text-foreground;
   }
 }
-/* .customShadow {
-  box-shadow: 9px -17px 60px 44px rgba(0, 0, 0, 0.75) inset;
-  -webkit-box-shadow: 9px -17px 60px 44px rgba(0, 0, 0, 0.75) inset;
-  -moz-box-shadow: 9px -17px 60px 44px rgba(0, 0, 0, 0.75) inset;
-} */
-
 .scrollbar-gray::-webkit-scrollbar {
   width: 5px;
   height: 5px;
