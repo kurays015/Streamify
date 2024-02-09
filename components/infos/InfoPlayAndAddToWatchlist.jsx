@@ -6,7 +6,10 @@ import { watchUrl } from "@/lib/infoUrl";
 export default function InfoPlayAndAddToWatchlist({ infoData }) {
   return (
     <div className="flex items-center gap-3 my-5">
-      <Link href={watchUrl(infoData)}>
+      <Link
+        href={watchUrl(infoData)}
+        className={`${infoData.type === "TV Series" ? "hidden" : ""}`}
+      >
         <Button
           variant="secondary"
           className="text-base font-semibold py-6 px-10 hover:scale-105 transition-all"

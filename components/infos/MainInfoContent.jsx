@@ -5,6 +5,7 @@ import InfoDetails from "./InfoDetails";
 
 export default function MainInfoContent({ infoData, type }) {
   const coverImages = infoData.cover || infoData.bannerImage;
+
   return (
     <div className="relative h-screen inset-0 ">
       <Link

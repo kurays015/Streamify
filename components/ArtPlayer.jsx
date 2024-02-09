@@ -20,6 +20,7 @@ function playM3u8(video, url, art) {
 
 const Player = ({ option, getInstance, ...rest }) => {
   const artRef = useRef();
+
   useEffect(() => {
     const art = new Artplayer({
       ...option,
@@ -33,7 +34,7 @@ const Player = ({ option, getInstance, ...rest }) => {
           width: 250,
           tooltip: "",
           selector: option.subtitles.map((subtitle, index) => ({
-            default: index === 0,
+            default: false,
             html: `<span style="color:lightblue">${subtitle.lang}</span>`,
             url: subtitle.url,
           })),
@@ -47,7 +48,7 @@ const Player = ({ option, getInstance, ...rest }) => {
           width: 150,
           tooltip: "Auto",
           selector: option.sources.map((source, index) => ({
-            default: index === 0,
+            default: source.quality === "auto" || source.quality === "default",
             html: source.quality,
             url: source.url,
           })),
@@ -78,10 +79,10 @@ const Player = ({ option, getInstance, ...rest }) => {
   return <div ref={artRef} {...rest}></div>;
 };
 
-export default function VideoPlayer({ episodeSources }) {
+export default function VideoPlayer({ videoSources }) {
   //**2nd option for selecting qualities**
 
-  // const sources = episodeSources?.sources?.map(item => {
+  // const sources = videoSources?.sources?.map(item => {
   //   const { url, quality } = item;
   //   const videoSrc = {
   //     html: quality.toUpperCase(),
@@ -90,7 +91,7 @@ export default function VideoPlayer({ episodeSources }) {
   //   return videoSrc;
   // });
 
-  // const subtitles = episodeSources.subtitles.map(sub => ({
+  // const subtitles = videoSources.subtitles.map(sub => ({
   //   url: sub.url,
   //   lang: sub.lang,
   // }));
@@ -106,8 +107,8 @@ export default function VideoPlayer({ episodeSources }) {
     >
       <Player
         option={{
-          subtitles: episodeSources?.subtitles || [],
-          sources: episodeSources?.sources || [],
+          subtitles: videoSources?.subtitles || [],
+          sources: videoSources?.sources || [],
           layers: [
             {
               html: "",

@@ -8,24 +8,43 @@ async function getMoviesAndSeries(params) {
 
   try {
     const data = await moviesHd.fetchEpisodeSources(idNumber, `${type}/${id}`);
+
     if (!data) {
       throw new Error("Error fetching movie/series episodes.");
     }
+
     return data;
   } catch (error) {
     console.log(error);
   }
 }
+
+// async function getServers(params) {
+//   try {
+//     const { type, id } = params;
+//     const moviesHd = new movies.MovieHdWatch();
+//     const idNumber = id.match(/\d+/)[0];
+
+//     const servers = await moviesHd.fetchEpisodeServers(
+//       idNumber,
+//       `${type}/${id}`
+//     );
+
+//     if (!servers) {
+//       throw new Error("Error fetching servers.");
+//     }
+//     return servers;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
 export default async function page({ params }) {
   const sources = await getMoviesAndSeries(params);
 
-  if (!sources) {
-    return <div className="text-white">Error Watching!</div>;
-  }
-
   return (
     <div className="text-white text-5xl">
-      <VideoPlayer episodeSources={sources} />
+      <VideoPlayer videoSources={sources} />
     </div>
   );
 }

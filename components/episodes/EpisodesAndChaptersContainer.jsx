@@ -2,6 +2,8 @@
 import { useState } from "react";
 import GridEpisodes from "./GridEpisodes";
 import SelectEpisode from "./SelectEpisode";
+import Link from "next/link";
+import { watchUrl } from "@/lib/infoUrl";
 
 export default function EpisodesAndChaptersContainer({ infoData, type }) {
   const [filteredEpisodes, setFilteredEpisodes] = useState([]);
@@ -18,9 +20,13 @@ export default function EpisodesAndChaptersContainer({ infoData, type }) {
       )}
       <div className="grid grid-cols-5">
         {filteredEpisodes.map(episode => (
-          <div key={episode.id} className="text-white">
+          <Link
+            href={watchUrl(infoData)}
+            key={episode.id}
+            className="text-white"
+          >
             {episode.title}
-          </div>
+          </Link>
         ))}
       </div>
     </div>
