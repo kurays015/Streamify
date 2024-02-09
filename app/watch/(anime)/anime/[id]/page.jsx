@@ -1,3 +1,5 @@
+import VideoPlayer from "@/components/ArtPlayer";
+
 async function getAnimeEpisodes(id) {
   try {
     const res = await fetch(`${process.env.META_URL}/watch/${id}`);
@@ -12,6 +14,9 @@ async function getAnimeEpisodes(id) {
 
 export default async function page({ params }) {
   const episodes = await getAnimeEpisodes(params.id);
-  console.log(episodes, "EPISODE");
-  return <div className="text-white text-5xl">{params.id}</div>;
+  return (
+    <div>
+      <VideoPlayer videoSources={episodes} />
+    </div>
+  );
 }
