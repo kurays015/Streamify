@@ -1,5 +1,5 @@
 import MainInfoContent from "@/components/infos/MainInfoContent";
-import { fetchInfo } from "@/lib/infoUrl";
+import { fetchInfo } from "@/lib/fetchInfo";
 
 async function getInfo(id) {
   try {
