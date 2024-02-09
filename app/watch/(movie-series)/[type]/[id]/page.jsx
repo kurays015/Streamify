@@ -43,7 +43,7 @@ export default async function page({ params }) {
   const sources = await getMoviesAndSeries(params);
 
   return (
-    <div className="text-white text-5xl">
+    <div>
       <VideoPlayer videoSources={sources} />
     </div>
   );

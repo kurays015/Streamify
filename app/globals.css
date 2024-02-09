@@ -93,3 +93,8 @@
 .scrollbar-gray::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+
+.art-video-player {
+  height: 100vh !important;
+  width: 100vw !important;
+}
