@@ -20,7 +20,7 @@ async function getTrendingCarouselData() {
     const moviesHd = new movies.MovieHdWatch();
 
     const trendingData = trendings.map(async trending => {
-      const { id, title, cover, description, releaseDate, genres, episodes } =
+      const { id, title, cover, description, releaseDate, genres } =
         await moviesHd.fetchMediaInfo(trending.id);
       return {
         id,
@@ -30,7 +30,6 @@ async function getTrendingCarouselData() {
         description,
         releaseDate,
         genres,
-        episodes,
       };
     });
 

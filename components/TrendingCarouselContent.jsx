@@ -9,9 +9,10 @@ export default function TrendingCarouselContent({
   description,
   releaseDate,
   genres,
-  episodes,
   index,
 }) {
+  const watchPath = id.split("/");
+
   return (
     <div className="absolute top-1/4 left-[17%] max-w-3xl py-5 w-full">
       <div>
@@ -28,7 +29,7 @@ export default function TrendingCarouselContent({
         </div>
         <p className="text-gray-300 text-xl font-medium">{description}</p>
         <div className="flex items-center gap-3 my-5">
-          <Link href={""}>
+          <Link href={`/watch/${watchPath[0]}/${watchPath[1]}`}>
             <Button
               variant="secondary"
               className="text-xl font-semibold py-6 px-10 hover:scale-105 transition-all"
