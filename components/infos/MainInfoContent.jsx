@@ -9,7 +9,7 @@ export default function MainInfoContent({ infoData, type }) {
   return (
     <div className="relative h-screen inset-0 ">
       <Link
-        href=".."
+        href="/"
         className="absolute text-white text-5xl top-10 left-16 z-20 hover:scale-110 transition-all cursor-pointer"
       >
         <IoIosReturnLeft />
