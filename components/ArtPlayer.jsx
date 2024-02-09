@@ -33,7 +33,7 @@ const Player = ({ option, getInstance, ...rest }) => {
           html: "Subtitle",
           width: 250,
           tooltip: "",
-          selector: option.subtitles.map((subtitle, index) => ({
+          selector: option.subtitles.map(subtitle => ({
             default: false,
             html: `<span style="color:lightblue">${subtitle.lang}</span>`,
             url: subtitle.url,
@@ -47,7 +47,7 @@ const Player = ({ option, getInstance, ...rest }) => {
           html: "Quality",
           width: 150,
           tooltip: "Auto",
-          selector: option.sources.map((source, index) => ({
+          selector: option.sources.map(source => ({
             default: source.quality === "auto" || source.quality === "default",
             html: source.quality,
             url: source.url,
