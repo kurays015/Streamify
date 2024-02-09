@@ -12,7 +12,7 @@ export default function Details({ infoData, type }) {
         {titleHandler(infoData.title)}
       </h1>
       <div className="flex items-center gap-5 my-5 text-white">
-        {infoData.rating && (
+        {!isNaN(infoData.rating) && (
           <div className="flex items-center gap-2 text-lg">
             <div>
               <FaStar className="text-[#e8b647] text-xl" />
