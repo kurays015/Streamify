@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaPlay, FaPlus } from "react-icons/fa6";
 import { Button } from "../ui/button";
-import { watchUrl } from "@/lib/infoUrl";
+import watchUrl from "@/lib/watchUrl";
 
 export default function InfoPlayAndAddToWatchlist({ infoData }) {
   return (

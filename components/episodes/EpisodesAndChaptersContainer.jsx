@@ -3,7 +3,7 @@ import { useState } from "react";
 import GridEpisodes from "./GridEpisodes";
 import SelectEpisode from "./SelectEpisode";
 import Link from "next/link";
-import { watchUrl } from "@/lib/infoUrl";
+import watchUrl from "@/lib/watchUrl";
 
 export default function EpisodesAndChaptersContainer({ infoData, type }) {
   const [filteredEpisodes, setFilteredEpisodes] = useState([]);

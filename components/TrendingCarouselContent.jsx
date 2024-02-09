@@ -38,7 +38,7 @@ export default function TrendingCarouselContent({
             </Button>
           </Link>
 
-          <Link href={id}>
+          <Link href={`/movie-series/${id}`}>
             <Button
               variant="outline"
               className="text-white text-xl font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all"
