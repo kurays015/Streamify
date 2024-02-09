@@ -27,9 +27,9 @@ export default function Details({ infoData, type }) {
       <InfoDescription description={infoData.description} maxLength={300} />
       <div className="text-yellow-500 font-semibold my-2">
         {type ? (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-5">
             <div>{infoData.releaseDate}</div>
-            <span>-</span>
+            <span>{infoData.type}</span>
             <div>{infoData.duration}</div>
           </div>
         ) : (
