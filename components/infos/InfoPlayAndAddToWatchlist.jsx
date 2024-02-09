@@ -8,7 +8,11 @@ export default function InfoPlayAndAddToWatchlist({ infoData }) {
     <div className="flex items-center gap-3 my-5">
       <Link
         href={watchUrl(infoData)}
-        className={`${infoData.type === "TV Series" ? "hidden" : ""}`}
+        className={`${
+          infoData.type === "TV Series" || infoData.type === "TV"
+            ? "hidden"
+            : ""
+        }`}
       >
         <Button
           variant="secondary"
