@@ -18,12 +18,12 @@ export default function EpisodesAndChaptersContainer({ infoData, type }) {
           setFilteredEpisodes={setFilteredEpisodes}
         />
       )}
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-5 gap-2 my-5">
         {filteredEpisodes.map(episode => (
           <Link
             href={watchUrl(infoData)}
             key={episode.id}
-            className="text-white"
+            className="text-slate-400 text-center font-medium border border-slate-700 p-2 rounded-md hover:bg-slate-300 hover:text-slate-900 transition-all text-ellipsis overflow-hidden whitespace-nowrap w-full"
           >
             {episode.title}
           </Link>
