@@ -25,12 +25,13 @@ const Player = ({ option, getInstance, ...rest }) => {
     const art = new Artplayer({
       ...option,
       container: artRef.current,
-      screenshot: true,
       pip: true,
       theme: "#69DEF6",
       settings: [
         {
-          html: "Subtitle",
+          html: option.subtitles.length
+            ? "Subtitles"
+            : "No subtitles available",
           width: 250,
           tooltip: "",
           selector: option.subtitles.map(subtitle => ({
@@ -40,20 +41,6 @@ const Player = ({ option, getInstance, ...rest }) => {
           })),
           onSelect: function (item) {
             art.subtitle.url = item.url;
-            return item.html;
-          },
-        },
-        {
-          html: "Quality",
-          width: 150,
-          tooltip: "Auto",
-          selector: option.sources.map(source => ({
-            default: source.quality === "auto" || source.quality === "default",
-            html: source.quality,
-            url: source.url,
-          })),
-          onSelect: function (item) {
-            art.switchQuality(item.url, item.html);
             return item.html;
           },
         },
@@ -73,11 +60,6 @@ const Player = ({ option, getInstance, ...rest }) => {
       ],
     });
 
-    art.switchQuality(
-      option.sources[option.sources.length - 1].url,
-      option.sources[option.sources.length - 1].quality
-    );
-
     if (getInstance && typeof getInstance === "function") {
       getInstance(art);
     }
@@ -93,31 +75,19 @@ const Player = ({ option, getInstance, ...rest }) => {
 };
 
 export default function VideoPlayer({ videoSources }) {
-  //**2nd option for selecting qualities**
+  const sources = videoSources?.sources.map(source => ({
+    html: source.quality,
+    url: source.url,
+  }));
 
-  // const sources = videoSources?.sources?.map(item => {
-  //   const { url, quality } = item;
-  //   const videoSrc = {
-  //     html: quality.toUpperCase(),
-  //     url,
-  //   };
-  //   return videoSrc;
-  // });
-
-  // const subtitles = videoSources.subtitles.map(sub => ({
-  //   url: sub.url,
-  //   lang: sub.lang,
-  // }));
-
-  // const definition = sources.find(item => {
-  //   item.html === "AUTO" || item.html === "DEFAULT";
-  // });
+  const definition = sources?.find(
+    item => item.html === "auto" || item.html === "default"
+  );
 
   return (
     <Player
       option={{
         subtitles: videoSources?.subtitles || [],
-        sources: videoSources?.sources || [],
         download: videoSources?.download,
         layers: [
           {
@@ -128,9 +98,8 @@ export default function VideoPlayer({ videoSources }) {
             },
           },
         ],
-        //**2nd option for selecting qualities**
-        // url: definition?.url || "",
-        // quality: sources || [],
+        url: definition?.url || "",
+        quality: sources || [],
         type: "m3u8",
         customType: {
           m3u8: playM3u8,
