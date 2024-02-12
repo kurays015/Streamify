@@ -18,7 +18,7 @@ export default function EpisodesAndChaptersContainer({ infoData, type }) {
           setFilteredEpisodes={setFilteredEpisodes}
         />
       )}
-      <div className="grid grid-cols-5 gap-2 my-5">
+      <div className="grid grid-cols-5 gap-2 my-5 max-h-96 overflow-auto scrollbar-gray">
         {filteredEpisodes.map(episode => (
           <Link
             href={watchUrl(infoData)}
