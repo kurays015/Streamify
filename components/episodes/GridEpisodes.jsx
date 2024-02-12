@@ -6,7 +6,7 @@ export default function GridEpisodes({ infoData }) {
   return (
     <div className="my-12">
       <h1 className="text-white text-3xl font-semibold mb-5">Episodes</h1>
-      <div className="grid grid-cols-4 gap-3 max-h-[600px] overflow-auto">
+      <div className="grid grid-cols-4 gap-3 max-h-[600px] overflow-auto scrollbar-gray">
         {infoData.episodes.map(episode => (
           <Link href={watchUrl(episode.id)} key={episode.id}>
             <div className="relative">
