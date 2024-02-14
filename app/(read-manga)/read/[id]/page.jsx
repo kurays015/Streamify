@@ -1,11 +1,10 @@
 import ChaptersContent from "@/components/ChaptersContent";
-import { Suspense } from "react";
 
 async function getChaptersPages(id, searchParams) {
-  const { chapter, provider, readId } = searchParams;
+  const { chapter, readId } = searchParams;
   try {
     const res = await fetch(
-      `${process.env.ANIFY_URL}/pages/${id}/${chapter}/${provider}/${readId}`
+      `${process.env.ANIFY_URL}/pages/${id}/${chapter}/comick/${readId}`
     );
     if (!res.ok) {
       throw new Error("Error fetching chapter pages.");
@@ -19,14 +18,13 @@ async function getChaptersPages(id, searchParams) {
 export default async function MangaMainContent({ params, searchParams }) {
   const chaptersContent = await getChaptersPages(params.id, searchParams);
   const { chapter } = searchParams;
-  if (!chaptersContent) {
-    return (
-      <h1 className="text-white">No content available, try another provider</h1>
-    );
-  }
+
   return (
     <div className="text-white">
-      <ChaptersContent chaptersContent={chaptersContent} chapter={chapter} />
+      <ChaptersContent
+        chaptersContent={chaptersContent}
+        chapterNumber={chapter}
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import BackToHomeBtn from "@/components/BackToHomeBtn";
-import SelectProvider from "@/components/SelectProvider";
+import Chapters from "@/components/Chapters";
 
 async function getChapters(id) {
   try {
@@ -15,11 +15,14 @@ async function getChapters(id) {
 
 export default async function ReadLayout({ children, params }) {
   const providers = await getChapters(params.id);
+  const comick = providers.find(provider => provider.providerId === "comick");
+  console.log(comick);
+
   return (
     <main className="text-white max-w-7xl mx-auto mt-12">
       <BackToHomeBtn />
       <div className="flex gap-12">
-        <SelectProvider providers={providers} />
+        <Chapters chapters={comick.chapters} />
         <div>{children}</div>
       </div>
     </main>

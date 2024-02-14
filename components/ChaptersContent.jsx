@@ -1,13 +1,11 @@
-"use client";
 import Image from "next/image";
 
-export default function ChaptersContent({ chaptersContent, chapter }) {
-  console.log(chaptersContent, "CONTENT HERE!");
+export default function ChaptersContent({ chaptersContent, chapterNumber }) {
   return (
     <div>
-      {chapter && (
+      {chapterNumber && (
         <h1 className="text-emerald-500 text-center mb-5 font-bold text-4xl">
-          Chapter {chapter}
+          Chapter {chapterNumber}
         </h1>
       )}
       {chaptersContent?.map(content => (

@@ -1,15 +1,15 @@
+"use client";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-export default function Chapters({ chapters, provider }) {
+export default function Chapters({ chapters }) {
   const searchParams = useSearchParams();
   const currentChapter = searchParams.get("chapter");
-  console.log(typeof currentChapter);
   return (
-    <div className="sticky top-0 overflow-auto max-h-screen scrollbar-gray p-2">
+    <div className="overflow-auto max-h-screen scrollbar-gray p-2">
       {chapters.map(chapter => (
         <Link
-          href={`?chapter=${chapter.number}&provider=${provider}&readId=${chapter.id}`}
+          href={`?chapter=${chapter.number}&readId=${chapter.id}`}
           key={chapter.id}
           className={`${
             chapter.number === parseFloat(currentChapter) ? "text-blue-400" : ""
