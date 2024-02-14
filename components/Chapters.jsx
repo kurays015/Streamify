@@ -15,7 +15,7 @@ export default function Chapters({ chapters }) {
           <div
             className={`bg-slate-800 my-1 font-bold hover:bg-slate-200 hover:text-black transition-all ${
               chapter.number === parseFloat(currentChapter)
-                ? "bg-amber-300 text-slate-900"
+                ? "text-amber-300"
                 : ""
             }`}
           >
