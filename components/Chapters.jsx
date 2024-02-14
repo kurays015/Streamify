@@ -15,7 +15,7 @@ export default function Chapters({ chapters, provider }) {
             chapter.number === parseFloat(currentChapter) ? "text-blue-400" : ""
           } font-medium`}
         >
-          <div>{chapter.number}</div>
+          <div>{chapter.title}</div>
         </Link>
       ))}
     </div>
