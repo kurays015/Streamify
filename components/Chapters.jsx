@@ -19,7 +19,7 @@ export default function Chapters({ chapters }) {
                 : ""
             }`}
           >
-            {chapter.title}
+            Chapter {chapter.number}
           </div>
         </Link>
       ))}
