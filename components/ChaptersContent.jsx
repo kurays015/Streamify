@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 
 export default function ChaptersContent({ chaptersContent, chapter }) {
+  console.log(chaptersContent, "CONTENT HERE!");
   return (
     <div>
       {chapter && (
