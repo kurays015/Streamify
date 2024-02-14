@@ -9,13 +9,13 @@ export default function ChaptersContent({ chaptersContent, chapterNumber }) {
         </h1>
       )}
       {chaptersContent?.map(content => (
-        <div key={content.index} className="flex justify-center">
+        <div key={content.index} className="">
           <Image
             src={content.url}
             alt="content-img"
             width={800}
             height={500}
-            className="w-full"
+            // className="w-full"
             unoptimized
           />
         </div>

@@ -21,7 +21,7 @@ export default async function ReadLayout({ children, params }) {
   return (
     <main className="text-white max-w-7xl mx-auto mt-12">
       <BackToHomeBtn />
-      <div className="flex gap-12">
+      <div className="flex justify-evenly">
         <Chapters chapters={comick.chapters} />
         <div>{children}</div>
       </div>
