@@ -12,7 +12,7 @@ async function getMoviesAndSeries(params) {
     if (!data) {
       throw new Error("Error fetching movie/series episodes.");
     }
-
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -41,7 +41,7 @@ async function getMoviesAndSeries(params) {
 
 export default async function page({ params }) {
   const sources = await getMoviesAndSeries(params);
-
+  console.log(sources);
   return (
     <div>
       <VideoPlayer videoSources={sources} />

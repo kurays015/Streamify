@@ -1,18 +1,23 @@
-import titleHandler from "@/lib/titleHandler";
-import { SelectItem } from "./ui/select";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-export default function Chapters({ infoData }) {
+export default function Chapters({ chapters, provider }) {
+  const searchParams = useSearchParams();
+  const currentChapter = searchParams.get("chapter");
+  console.log(typeof currentChapter);
   return (
-    <>
-      {infoData.chapters.data[0].chapters.map(({ id, title }) => (
-        <SelectItem
-          value={id}
-          key={id}
-          className=" focus:bg-slate-800 focus:text-slate-200 cursor-pointer"
+    <div className="sticky top-0 overflow-auto max-h-screen scrollbar-gray p-2">
+      {chapters.map(chapter => (
+        <Link
+          href={`?chapter=${chapter.number}&provider=${provider}&readId=${chapter.id}`}
+          key={chapter.id}
+          className={`${
+            chapter.number === parseFloat(currentChapter) ? "text-blue-400" : ""
+          } font-medium`}
         >
-          {titleHandler(title)}
-        </SelectItem>
+          <div>{chapter.number}</div>
+        </Link>
       ))}
-    </>
+    </div>
   );
 }

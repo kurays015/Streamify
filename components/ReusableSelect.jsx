@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import {
   Select,
   SelectContent,
@@ -7,12 +6,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Season from "../Season";
-import Chapters from "../Chapters";
+import Season from "./Season";
+import MangaProvider from "./MangaProvider";
 
-export default function SelectEpisode({ infoData, setFilteredEpisodes }) {
+export default function ResusableSelect({
+  infoData,
+  setFilteredEpisodes,
+  setChapters,
+  setProvider,
+}) {
   React.useEffect(() => {
-    setFilteredEpisodes([]);
+    setFilteredEpisodes && setFilteredEpisodes([]);
   }, []);
 
   return (
@@ -22,21 +26,26 @@ export default function SelectEpisode({ infoData, setFilteredEpisodes }) {
           const filteredEpisode = infoData.episodes.filter(
             episode => episode.season === value
           );
-          setFilteredEpisodes(filteredEpisode);
+          setFilteredEpisodes && setFilteredEpisodes(filteredEpisode);
+        } else {
+          setChapters && setChapters(value.chapters);
+          setProvider && setProvider(value.providerId);
         }
       }}
     >
       <SelectTrigger className="w-[180px] text-white">
         <SelectValue
-          placeholder={infoData.type === "TV Series" ? "Seasons" : "Chapters"}
+          placeholder={
+            infoData.type === "TV Series" ? "Seasons" : "Select Provider"
+          }
         />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {infoData.type === "TV Series" ? (
+          {infoData.type ? (
             <Season infoData={infoData} />
           ) : (
-            <Chapters infoData={infoData} />
+            <MangaProvider infoData={infoData} />
           )}
         </SelectGroup>
       </SelectContent>

@@ -1,19 +1,19 @@
 "use client";
 import { useState } from "react";
 import GridEpisodes from "./GridEpisodes";
-import SelectEpisode from "./SelectEpisode";
 import Link from "next/link";
 import watchUrl from "@/lib/watchUrl";
+import ReusableSelect from "../ReusableSelect";
 
 export default function EpisodesAndChaptersContainer({ infoData, type }) {
   const [filteredEpisodes, setFilteredEpisodes] = useState([]);
   const animeEpisodes = infoData.episodes && !type;
-  const seriesOrChapters = infoData.chapters || infoData.type === "TV Series";
+  const tvSeries = infoData.type === "TV Series";
   return (
     <div className="my-12">
       {animeEpisodes && <GridEpisodes infoData={infoData} />}
-      {seriesOrChapters && (
-        <SelectEpisode
+      {tvSeries && (
+        <ReusableSelect
           infoData={infoData}
           setFilteredEpisodes={setFilteredEpisodes}
         />

@@ -45,19 +45,19 @@ const Player = ({ option, getInstance, ...rest }) => {
           },
         },
       ],
-      controls: [
-        {
-          name: "Download",
-          position: "right",
-          html: option.download
-            ? `<a href="${option.download}" target="_blank">Download</a>`
-            : "",
-          tooltip: "You can download anime here!",
-          style: {
-            color: "white",
-          },
-        },
-      ],
+      controls: option.download
+        ? [
+            {
+              name: "Download",
+              position: "right",
+              html: `<a href="${option.download}" target="_blank">Download</a>`,
+              tooltip: "You can download anime here!",
+              style: {
+                color: "white",
+              },
+            },
+          ]
+        : [],
     });
 
     if (getInstance && typeof getInstance === "function") {
