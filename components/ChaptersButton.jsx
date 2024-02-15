@@ -4,10 +4,9 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { useSearchParams } from "next/navigation";
 
-export default function ChaptersButton({ chapters }) {
+export default function ChaptersButton({ reverseChapters }) {
   const [currentIndex, setCurrentIndex] = useState(1);
   const searchParams = useSearchParams();
-  const reverseChapters = chapters.sort((a, b) => a.number - b.number);
   const chapterNumber = searchParams.get("chapter");
   const searchedParams = `?chapter=${reverseChapters[currentIndex].number}&readId=${reverseChapters[currentIndex].id}`;
 

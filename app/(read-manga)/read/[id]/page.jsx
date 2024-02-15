@@ -1,9 +1,9 @@
 import ChaptersButton from "@/components/ChaptersButton";
 import ChaptersContent from "@/components/ChaptersContent";
 
-async function getChaptersPages(id, searchParams, comickChapters) {
+async function getChaptersPages(id, searchParams, reverseChapters) {
   const { chapter, readId } = searchParams;
-  const firstChapterReadId = comickChapters.chapters[0].id;
+  const firstChapterReadId = reverseChapters[0].id;
   try {
     const res = await fetch(
       `${process.env.ANIFY_URL}/pages/${id}/${chapter ? chapter : 1}/comick/${
@@ -36,21 +36,24 @@ export default async function MangaMainContent({ params, searchParams }) {
   const comickChapters = providers.find(
     provider => provider.providerId === "comick"
   );
+  const reverseChapters = comickChapters.chapters.sort(
+    (a, b) => a.number - b.number
+  );
   const chaptersPages = await getChaptersPages(
     params.id,
     searchParams,
-    comickChapters
+    reverseChapters
   );
 
   return (
     <div className="text-white">
-      <ChaptersButton chapters={comickChapters.chapters} />
+      <ChaptersButton reverseChapters={reverseChapters} />
       {chaptersPages ? (
         <ChaptersContent chaptersContent={chaptersPages} />
       ) : (
         <h1>No content available at the moment, try again later.</h1>
       )}
-      <ChaptersButton chapters={comickChapters.chapters} />
+      <ChaptersButton reverseChapters={reverseChapters} />
     </div>
   );
 }
