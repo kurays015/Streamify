@@ -35,7 +35,7 @@ async function getChapters(id) {
 
 export default async function MangaMainContent({ params, searchParams }) {
   const providers = await getChapters(params.id);
-  const comickChapters = providers.find(
+  const comickChapters = providers?.find(
     provider => provider.providerId === "comick"
   );
   const reverseChapters = comickChapters.chapters.sort(
