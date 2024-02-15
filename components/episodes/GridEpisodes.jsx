@@ -2,12 +2,12 @@ import watchUrl from "@/lib/watchUrl";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function GridEpisodes({ infoData }) {
+export default function GridEpisodes({ info }) {
   return (
     <div className="my-12">
       <h1 className="text-white text-3xl font-semibold mb-5">Episodes</h1>
       <div className="grid grid-cols-4 gap-3 max-h-[600px] overflow-auto scrollbar-gray">
-        {infoData.episodes.map(episode => (
+        {info.episodes.map(episode => (
           <Link href={watchUrl(episode.id)} key={episode.id}>
             <div className="relative">
               <Image

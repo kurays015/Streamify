@@ -2,9 +2,9 @@ import Overlay from "../Overlay";
 import InfoDetails from "./InfoDetails";
 import BackToHomeBtn from "../BackToHomeBtn";
 
-export default function MainInfoContent({ info, type }) {
-  const infoData = info && info;
-  const coverImages = infoData.cover || infoData.bannerImage;
+export default function MainInfoContent({ infoData, type }) {
+  const info = infoData && infoData;
+  const coverImages = info.cover || info.bannerImage;
 
   return (
     <div className="relative h-screen inset-0 ">
@@ -13,12 +13,12 @@ export default function MainInfoContent({ info, type }) {
       {coverImages && (
         <div
           style={{
-            backgroundImage: `url("${infoData.cover || infoData.bannerImage}")`,
+            backgroundImage: `url("${info.cover || info.bannerImage}")`,
           }}
           className="absolute h-screen -top-36 w-full bg-no-repeat bg-cover bg-center "
         ></div>
       )}
-      <InfoDetails infoData={infoData} type={type} />
+      <InfoDetails info={info} type={type} />
     </div>
   );
 }

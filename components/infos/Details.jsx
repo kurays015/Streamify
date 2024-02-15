@@ -5,43 +5,41 @@ import { FaStar } from "react-icons/fa6";
 import ratingHandler from "@/lib/ratingHandler";
 import InfoDescription from "./InfoDescription";
 
-export default function Details({ infoData, type }) {
+export default function Details({ info, type }) {
   return (
     <div>
       <h1 className="font-bold text-4xl text-white">
-        {titleHandler(infoData.title)}
+        {titleHandler(info.title)}
       </h1>
       <div className="flex items-center gap-5 my-5 text-white">
-        {!isNaN(infoData.rating) && (
+        {!isNaN(info.rating) && (
           <div className="flex items-center gap-2 text-lg">
             <div>
               <FaStar className="text-[#e8b647] text-xl" />
             </div>
             <div className="text-base font-medium">
-              {ratingHandler(infoData.rating)}
+              {ratingHandler(info.rating)}
             </div>
           </div>
         )}
-        <GenresBadge genres={infoData.genres} />
+        <GenresBadge genres={info.genres} />
       </div>
-      <InfoDescription description={infoData.description} maxLength={300} />
+      <InfoDescription description={info.description} maxLength={300} />
       <div className="text-yellow-500 font-semibold my-2">
         {type ? (
           <div className="flex items-center gap-5">
-            <div>{infoData.releaseDate}</div>
-            <span>{infoData.type}</span>
-            <div>{infoData.duration}</div>
+            <div>{info.releaseDate}</div>
+            <span>{info.type}</span>
+            <div>{info.duration}</div>
           </div>
         ) : (
-          <div
-            className={`flex items-center ${infoData.releaseDate && "gap-3"}`}
-          >
-            <span>{infoData.releaseDate}</span>
-            <span>{infoData.status}</span>
+          <div className={`flex items-center ${info.releaseDate && "gap-3"}`}>
+            <span>{info.releaseDate}</span>
+            <span>{info.status}</span>
           </div>
         )}
       </div>
-      <InfoPlayAndAddToWatchlist infoData={infoData} />
+      <InfoPlayAndAddToWatchlist info={info} />
     </div>
   );
 }

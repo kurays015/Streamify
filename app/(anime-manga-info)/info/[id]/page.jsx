@@ -22,5 +22,5 @@ export default async function page({ params }) {
 
   if (!animeInfo) return <WatchAndInfoError />;
 
-  return <MainInfoContent info={animeInfo} />;
+  return <MainInfoContent infoData={animeInfo} />;
 }
