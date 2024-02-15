@@ -10,6 +10,7 @@ export default function Card({ image, title, episodeTitle, coverImage }) {
           alt={titleHandler(title)}
           width={500}
           height={500}
+          priority
           className="w-full h-[300px] hover:scale-105 transition-all"
         />
       </div>
