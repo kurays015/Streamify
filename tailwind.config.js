@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        customSm: "320px",
+      },
       backgroundColor: {
         customTransparent: "rgba(0, 0, 0, 0.5);",
         customTransparent2: "rgba(0, 0, 0, 0.7);",
