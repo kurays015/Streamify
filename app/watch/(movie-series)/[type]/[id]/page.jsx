@@ -19,26 +19,6 @@ async function getMoviesAndSeries(params) {
   }
 }
 
-// async function getServers(params) {
-//   try {
-//     const { type, id } = params;
-//     const moviesHd = new movies.MovieHdWatch();
-//     const idNumber = id.match(/\d+/)[0];
-
-//     const servers = await moviesHd.fetchEpisodeServers(
-//       idNumber,
-//       `${type}/${id}`
-//     );
-
-//     if (!servers) {
-//       throw new Error("Error fetching servers.");
-//     }
-//     return servers;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
 export default async function page({ params }) {
   const sources = await getMoviesAndSeries(params);
   console.log(sources);
