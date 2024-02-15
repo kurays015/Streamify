@@ -2,7 +2,8 @@ import Overlay from "../Overlay";
 import InfoDetails from "./InfoDetails";
 import BackToHomeBtn from "../BackToHomeBtn";
 
-export default function MainInfoContent({ infoData, type }) {
+export default function MainInfoContent({ info, type }) {
+  const infoData = info && info;
   const coverImages = infoData.cover || infoData.bannerImage;
 
   return (

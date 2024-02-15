@@ -9,7 +9,7 @@ async function getInfo(id) {
     });
 
     if (!res.ok) {
-      throw new Error("ERROR FETCHING THIS SHIT!");
+      throw new Error("Error fetching anime/manga info.");
     }
     return res.json();
   } catch (error) {
@@ -22,5 +22,5 @@ export default async function page({ params }) {
 
   if (!animeInfo) return <WatchAndInfoError />;
 
-  return <MainInfoContent infoData={animeInfo} />;
+  return <MainInfoContent info={animeInfo} />;
 }
