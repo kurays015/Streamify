@@ -1,6 +1,7 @@
 import ChaptersButton from "@/components/ChaptersButton";
 import ChaptersContent from "@/components/ChaptersContent";
 import NoContent from "@/components/NoContent";
+import WatchAndInfoError from "@/components/WatchAndInfoError";
 
 async function getChaptersPages(id, searchParams, reverseChapters) {
   const { chapter, readId } = searchParams;
