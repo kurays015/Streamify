@@ -31,25 +31,12 @@ async function getChapters(id) {
   }
 }
 
-export default async function MangaMainContent({ params, searchParams }) {
+export default async function MangaMainContent({ params }) {
   const chapters = await getChapters(params.id);
-  const comick = chapters.find(chapter => chapter.providerId === "comick");
-  const { chapter } = searchParams;
-  const chaptersContent = await getChaptersPages(
-    params.id,
-    searchParams,
-    comick.chapters
-  );
 
   return (
     <div className="text-white">
-      <div className="flex">
-        <Chapters chapters={comick.chapters} />
-        <ChaptersContent
-          chaptersContent={chaptersContent}
-          chapterNumber={chapter}
-        />
-      </div>
+      <h1>Test</h1>
     </div>
   );
 }

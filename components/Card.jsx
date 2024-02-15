@@ -11,7 +11,6 @@ export default function Card({ image, title, episodeTitle, coverImage }) {
           width={500}
           height={500}
           className="w-full h-[300px] hover:scale-105 transition-all"
-          priority
         />
       </div>
       <h1 className="text-center text-white text-base font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2">
