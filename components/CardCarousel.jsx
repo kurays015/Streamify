@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import {
   Carousel,
@@ -11,6 +12,7 @@ import Link from "next/link";
 import infoUrl from "@/lib/infoUrl";
 
 export function CardCarousel({ data }) {
+  console.log(data, "TAENA MO MANGA!");
   return (
     <Carousel
       className="w-full lg:max-w-7xl mx-auto relative group z-50"
