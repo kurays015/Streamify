@@ -21,7 +21,7 @@ export default async function RecentManga() {
       <h1 className="text-3xl text-red-300 text-start mb-5 font-semibold">
         Recent Manga
       </h1>
-      <CardCarousel data={manga} />
+      <CardCarousel data={manga && manga} />
     </div>
   );
 }
