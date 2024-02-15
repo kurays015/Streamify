@@ -1,5 +1,4 @@
 import BackToHomeBtn from "@/components/BackToHomeBtn";
-import NavBar from "@/components/NavBar";
 
 export default async function ReadLayout({ children }) {
   return (
