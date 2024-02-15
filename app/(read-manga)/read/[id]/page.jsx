@@ -46,6 +46,8 @@ export default async function MangaMainContent({ params, searchParams }) {
     reverseChapters
   );
 
+  if (!chaptersPages) return <WatchAndInfoError />;
+
   return (
     <div className="text-white">
       <ChaptersButton reverseChapters={reverseChapters} />

@@ -1,3 +1,4 @@
+import WatchAndInfoError from "@/components/WatchAndInfoError";
 import MainInfoContent from "@/components/infos/MainInfoContent";
 import fetchInfo from "@/lib/fetchInfo";
 
@@ -18,6 +19,8 @@ async function getInfo(id) {
 
 export default async function page({ params }) {
   const animeInfo = await getInfo(params.id);
+
+  if (!animeInfo) return <WatchAndInfoError />;
 
   return <MainInfoContent infoData={animeInfo} />;
 }

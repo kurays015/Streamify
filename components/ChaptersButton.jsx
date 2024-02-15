@@ -8,7 +8,7 @@ export default function ChaptersButton({ reverseChapters }) {
   const [currentIndex, setCurrentIndex] = useState(1);
   const searchParams = useSearchParams();
   const chapterNumber = searchParams.get("chapter");
-  const searchedParams = `?chapter=${reverseChapters[currentIndex].number}&readId=${reverseChapters[currentIndex].id}`;
+  const searchedParams = `?chapter=${reverseChapters[currentIndex]?.number}&readId=${reverseChapters[currentIndex]?.id}`;
 
   return (
     <div className="text-white flex items-center justify-between customSm:mt-24 customSm:mb-8 px-5">
