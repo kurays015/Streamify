@@ -1,5 +1,6 @@
 import ChaptersButton from "@/components/ChaptersButton";
 import ChaptersContent from "@/components/ChaptersContent";
+import NoContent from "@/components/NoContent";
 
 async function getChaptersPages(id, searchParams, reverseChapters) {
   const { chapter, readId } = searchParams;
@@ -51,7 +52,7 @@ export default async function MangaMainContent({ params, searchParams }) {
       {chaptersPages ? (
         <ChaptersContent chaptersContent={chaptersPages} />
       ) : (
-        <h1>No content available at the moment, try again later.</h1>
+        <NoContent />
       )}
       <ChaptersButton reverseChapters={reverseChapters} />
     </div>
