@@ -19,7 +19,7 @@ export default function InfoDetails({ info, type }) {
         />
         <Details type={type} info={info} />
       </div>
-      <Trailer {...info.trailer} />
+      {info.trailer && <Trailer {...info.trailer} />}
       <EpisodesAndChaptersContainer info={info} type={type} />
       {info.recommendations && <YouMayLike info={info} />}
     </div>
