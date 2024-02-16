@@ -19,6 +19,8 @@ module.exports = {
     extend: {
       screens: {
         customSm: "320px",
+        customSemiMd: "460px",
+        customSemiMd2: "650px",
       },
       backgroundColor: {
         customTransparent: "rgba(0, 0, 0, 0.5);",

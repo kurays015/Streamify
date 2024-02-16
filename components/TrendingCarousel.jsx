@@ -10,8 +10,11 @@ import Overlay from "./Overlay";
 export function TrendingCarousel({ data }) {
   return (
     <>
-      <div className="h-[600px]"></div>
-      <Carousel className="absolute h-screen inset-0" opts={{ loop: true }}>
+      <div className="h-[600px] customSm:h-[550px]"></div>
+      <Carousel
+        className="absolute inset-0 customSm:h-[80vh] lg:h-screen"
+        opts={{ loop: true }}
+      >
         <CarouselContent className="-ml-1">
           {data?.map((result, index) => (
             <CarouselItem key={result.id} className="p-0 relative">
@@ -20,7 +23,7 @@ export function TrendingCarousel({ data }) {
                 style={{
                   backgroundImage: `url("${result.cover}")`,
                 }}
-                className="h-screen w-full bg-no-repeat bg-cover"
+                className="w-full bg-no-repeat bg-cover customSm:h-[80vh] customSm:bg-center lg:h-screen"
               ></div>
               <TrendingCarouselContent {...result} index={index} />
             </CarouselItem>

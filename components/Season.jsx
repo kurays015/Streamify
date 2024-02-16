@@ -1,7 +1,7 @@
 import { SelectItem } from "./ui/select";
 
-export default function Season({ infoData }) {
-  const uniqueSeasons = infoData.episodes.reduce((seasons, currentValue) => {
+export default function Season({ info }) {
+  const uniqueSeasons = info.episodes.reduce((seasons, currentValue) => {
     return !seasons.includes(currentValue.season)
       ? [...seasons, currentValue.season]
       : seasons;

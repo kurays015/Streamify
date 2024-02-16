@@ -17,8 +17,8 @@ async function getPopular() {
 export default async function Popular() {
   const popular = await getPopular();
   return (
-    <div className="max-w-7xl mx-auto mt-16 mb-5">
-      <h1 className="text-3xl text-violet-300 text-start mb-5 font-semibold">
+    <div className="max-w-7xl mx-auto mt-16 mb-5 customSm:px-2">
+      <h1 className="text-3xl text-violet-300 text-start mb-5 font-semibold customSm:text-2xl lg:text-3xl">
         Popular Anime
       </h1>
       <CardCarousel data={popular?.results} />

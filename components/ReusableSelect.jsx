@@ -9,7 +9,7 @@ import {
 import Season from "./Season";
 
 export default function ResusableSelect({
-  infoData,
+  info,
   setFilteredEpisodes,
   setChapters,
 }) {
@@ -20,8 +20,8 @@ export default function ResusableSelect({
   return (
     <Select
       onValueChange={value => {
-        if (infoData.type === "TV Series") {
-          const filteredEpisode = infoData.episodes.filter(
+        if (info.type === "TV Series") {
+          const filteredEpisode = info.episodes.filter(
             episode => episode.season === value
           );
           setFilteredEpisodes && setFilteredEpisodes(filteredEpisode);
@@ -35,7 +35,7 @@ export default function ResusableSelect({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <Season infoData={infoData} />
+          <Season info={info} />
         </SelectGroup>
       </SelectContent>
     </Select>

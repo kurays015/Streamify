@@ -11,10 +11,10 @@ export default function Card({ image, title, episodeTitle, coverImage }) {
           width={500}
           height={500}
           priority
-          className="w-full h-[300px] hover:scale-105 transition-all"
+          className="w-full hover:scale-105 transition-all customSm:h-[200px] md:h-[250px] lg:h-[300px]"
         />
       </div>
-      <h1 className="text-center text-white text-base font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2">
+      <h1 className="text-center text-white font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2 customSm:text-sm lg:text-base">
         {titleHandler(title)}
       </h1>
       {episodeTitle && (

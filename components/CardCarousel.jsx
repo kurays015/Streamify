@@ -16,11 +16,11 @@ export function CardCarousel({ data }) {
       className="w-full lg:max-w-7xl mx-auto relative group z-50"
       opts={{ dragFree: true, loop: false }}
     >
-      <CarouselContent className="-ml-1 flex gap-2">
+      <CarouselContent className="-ml-1 flex customSm:gap-1 lg:gap-2">
         {data?.map(result => (
           <CarouselItem
             key={result.id}
-            className="pl-1 md:basis-1/5 lg:basis-1/6 relative"
+            className="pl-1 relative customSm:basis-1/2 customSemiMd:basis-1/3 customSemiMd2:basis-1/4 md:basis-1/5 lg:basis-1/6"
           >
             <Link href={infoUrl(result)}>
               <Card {...result} />
