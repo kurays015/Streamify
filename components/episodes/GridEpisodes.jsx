@@ -7,8 +7,8 @@ export default function GridEpisodes({ info }) {
     <div className="my-12">
       <h1 className="text-white text-3xl font-semibold mb-5">Episodes</h1>
       <div
-        className={`grid grid-cols-4 ${
-          info.episodes.length > 100 ? "grid-cols-10" : ""
+        className={`grid  ${
+          info.episodes.length > 100 ? "grid-cols-10" : "grid-cols-4"
         } gap-3 max-h-[600px] overflow-auto scrollbar-gray`}
       >
         {info.episodes.map(episode => (
