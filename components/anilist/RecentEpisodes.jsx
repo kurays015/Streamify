@@ -2,7 +2,7 @@ import { CardCarousel } from "../CardCarousel";
 
 async function getRecentEpisodes() {
   try {
-    const res = await fetch(`${process.env.META_URL}/recent-episodes
+    const res = await fetch(`${process.env.SUGOI_PRIVATE_URL}/recent-episodes
     `);
     if (!res.ok) {
       throw new Error("Error fetching recent episodes.");
@@ -15,6 +15,7 @@ async function getRecentEpisodes() {
 
 export default async function RecentEpisodes() {
   const recentEpisodes = await getRecentEpisodes();
+  console.log(recentEpisodes);
   return (
     <div className="max-w-7xl mx-auto mt-16 mb-5">
       <h1 className="text-3xl text-recent text-start mb-5 font-semibold">

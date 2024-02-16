@@ -7,7 +7,7 @@ import RecentMovies from "@/components/tmdb/RecentMovies";
 import RecentTvShows from "@/components/tmdb/RecentTvShows";
 import TrendingTvShows from "@/components/tmdb/TrendingTvShows";
 import Footer from "@/components/Footer";
-import RecentManga from "@/components/anify(manga)/RecentManga";
+// import RecentManga from "@/components/anify(manga)/RecentManga";
 import { TrendingMoviesCarousel } from "@/components/tmdb/TrendingMoviesCarousel";
 
 export default async function Home() {
@@ -22,7 +22,7 @@ export default async function Home() {
       <RecentEpisodes />
       <Trending />
       <Popular />
-      <RecentManga />
+      {/* <RecentManga /> */}
       <Footer />
     </main>
   );
