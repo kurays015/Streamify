@@ -48,7 +48,7 @@ export default function TrendingCarouselContent({
               variant="outline"
               className="text-white font-semibold hover:text-white hover:scale-105 transition-all customSm:text-sm customSm:py-3 customSm:px-5 lg:text-xl lg:py-6 lg:px-12"
             >
-              <IoIosInformationCircleOutline className="text-lg mr-1" />
+              <IoIosInformationCircleOutline className="mr-1 customSm:text-lg lg:text-2xl" />
               <span>More Info</span>
             </Button>
           </Link>
