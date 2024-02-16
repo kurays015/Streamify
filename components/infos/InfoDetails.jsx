@@ -3,6 +3,7 @@ import Details from "./Details";
 import YouMayLike from "../YouMayLike";
 import EpisodesAndChaptersContainer from "../episodes/EpisodesAndChaptersContainer";
 import titleHandler from "@/lib/titleHandler";
+import Trailer from "../Trailer";
 
 export default function InfoDetails({ info, type }) {
   return (
@@ -18,6 +19,7 @@ export default function InfoDetails({ info, type }) {
         />
         <Details type={type} info={info} />
       </div>
+      <Trailer {...info.trailer} />
       <EpisodesAndChaptersContainer info={info} type={type} />
       {info.recommendations && <YouMayLike info={info} />}
     </div>
