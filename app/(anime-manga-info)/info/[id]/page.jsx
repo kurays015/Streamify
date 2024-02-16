@@ -19,7 +19,7 @@ async function getInfo(id) {
 
 export default async function page({ params }) {
   const animeInfo = await getInfo(params.id);
-
+  console.log(animeInfo, "ANIME INFO!");
   if (!animeInfo) return <WatchAndInfoError />;
 
   return <MainInfoContent infoData={animeInfo} />;
