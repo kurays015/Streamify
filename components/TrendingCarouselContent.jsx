@@ -29,7 +29,7 @@ export default function TrendingCarouselContent({
           <p className="mb-2 customSm:text-xs">{releaseDate}</p>
           <GenresBadge genres={genres} />
         </div>
-        <p className="text-gray-300 font-medium customSm:text-xs lg:text-xl">
+        <p className="text-gray-300 font-medium customSm:text-xs md:text-sm lg:text-xl">
           {description}
         </p>
         <div className="flex items-center gap-3 my-5">
