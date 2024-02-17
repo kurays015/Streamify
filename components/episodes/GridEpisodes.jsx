@@ -12,7 +12,7 @@ export default function GridEpisodes({ info }) {
         className={`grid  ${
           info.episodes.length > 100
             ? "customSm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10"
-            : "grid-cols-4"
+            : "grid-cols-5"
         } customSm:gap-2 lg:gap-3 max-h-[600px] overflow-auto scrollbar-gray`}
       >
         {info.episodes.map(({ id, image, title, number }) => (
