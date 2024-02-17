@@ -4,17 +4,20 @@ import { useState } from "react";
 export default function InfoDescription({ description, maxLength }) {
   const [seeMore, setSeeMore] = useState(false);
   return (
-    <div className="text-gray-300 text-lg leading-8 font-medium max-w-2xl overflow-auto max-h-64 scrollbar-gray">
+    <div className="text-gray-300 leading-8 font-medium max-w-2xl overflow-auto max-h-64 scrollbar-gray customSm:text-sm lg:text-lg">
       {seeMore ? (
-        <span>
-          {description}
-          <span
-            onClick={() => setSeeMore(false)}
-            className="text-yellow-500 text-xs cursor-pointer"
-          >
-            See less
-          </span>
-        </span>
+        <div>
+          <p>
+            {description}
+            <span
+              onClick={() => setSeeMore(false)}
+              className="text-yellow-500 cursor-pointer customSm:text-xs lg:text-sm"
+            >
+              {" "}
+              See less
+            </span>
+          </p>
+        </div>
       ) : (
         <>
           {description.length > maxLength ? (
@@ -25,7 +28,7 @@ export default function InfoDescription({ description, maxLength }) {
           {description.length > maxLength && (
             <span
               onClick={() => setSeeMore(true)}
-              className="text-yellow-500 text-xs cursor-pointer"
+              className="text-yellow-500 cursor-pointer customSm:text-xs lg:text-sm"
             >
               See more
             </span>

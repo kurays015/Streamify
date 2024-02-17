@@ -7,7 +7,7 @@ export default function MainInfoContent({ infoData, type }) {
   const coverImages = info.cover || info.bannerImage;
 
   return (
-    <div className="relative h-screen inset-0 ">
+    <div className="h-screen inset-0 relative">
       <BackToHomeBtn />
       <Overlay />
       {coverImages && (
@@ -15,7 +15,7 @@ export default function MainInfoContent({ infoData, type }) {
           style={{
             backgroundImage: `url("${info.cover || info.bannerImage}")`,
           }}
-          className="absolute h-screen -top-36 w-full bg-no-repeat bg-cover bg-center "
+          className="absolute h-screen -top-36 w-full bg-no-repeat bg-cover bg-center customSm:hidden lg:block"
         ></div>
       )}
       <InfoDetails info={info} type={type} />

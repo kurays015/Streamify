@@ -5,25 +5,25 @@ import watchUrl from "@/lib/watchUrl";
 
 export default function InfoPlayAndAddToWatchlist({ info }) {
   return (
-    <div className="flex items-center gap-3 my-5">
+    <div className="flex items-center gap-3 my-5 customSm:flex-col md:flex-row">
       <Link
         href={watchUrl(info)}
         className={`${
           info.type === "TV Series" || info.type === "TV" ? "hidden" : ""
-        }`}
+        } customSm:w-full md:w-auto`}
       >
         <Button
           variant="secondary"
-          className="text-base font-semibold py-6 px-10 hover:scale-105 transition-all"
+          className="text-base font-semibold py-6 px-10 hover:scale-105 transition-all customSm:w-full md:w-auto"
         >
           <FaPlay className="text-lg mr-1" />
           <span>{info.chapters ? "Read now" : "Play now"}</span>
         </Button>
       </Link>
-      <Link href={""}>
+      <Link href={""} className="customSm:w-full">
         <Button
           variant="outline"
-          className="text-white text-base font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all"
+          className="text-white text-base font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all customSm:w-full md:w-auto"
         >
           <FaPlus className="mr-1" />{" "}
           {info.chapters ? "Add to Readlist" : "Add to Watchlist"}

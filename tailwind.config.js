@@ -21,6 +21,7 @@ module.exports = {
         customSm: "320px",
         customSemiMd: "460px",
         customSemiMd2: "650px",
+        customGrid3: "550px",
       },
       backgroundColor: {
         customTransparent: "rgba(0, 0, 0, 0.5);",

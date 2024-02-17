@@ -7,8 +7,8 @@ import InfoDescription from "./InfoDescription";
 
 export default function Details({ info, type }) {
   return (
-    <div>
-      <h1 className="font-bold text-4xl text-white">
+    <div className="customSm:mx-2 md:mx-6 lg:mx-0">
+      <h1 className="font-bold text-white customSm:text-xl lg:text-4xl">
         {titleHandler(info.title)}
       </h1>
       <div className="flex items-center gap-5 my-5 text-white">

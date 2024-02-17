@@ -1,26 +1,26 @@
 import Image from "next/image";
 import Details from "./Details";
 import YouMayLike from "../YouMayLike";
-import EpisodesAndChaptersContainer from "../episodes/EpisodesAndChaptersContainer";
+import EpisodesContainer from "../episodes/EpisodesContainer";
 import titleHandler from "@/lib/titleHandler";
 import Trailer from "../Trailer";
 
 export default function InfoDetails({ info, type }) {
   return (
-    <div className="relative top-[37%] z-10 max-w-7xl mx-auto pb-24">
-      <div className="flex gap-24">
+    <div className="relative z-10 customSm:top-0 customSm:pb-8 lg:top-[37%] lg:pb-24 lg:max-w-7xl lg:mx-auto">
+      <div className="flex customSm:flex-col customSm:gap-8 lg:flex-row lg:gap-24 lg:mx-6 xl:mx-0">
         <Image
           src={info.image ? info.image : info.coverImage}
           height={500}
           width={500}
           alt={titleHandler(info.title)}
-          className="w-1/4 rounded-md h-[480px]"
+          className="w-1/4 customSm:w-full lg:w-auto lg:h-[480px] lg:rounded-md"
           priority
         />
         <Details type={type} info={info} />
       </div>
       {info.trailer && <Trailer {...info.trailer} />}
-      <EpisodesAndChaptersContainer info={info} type={type} />
+      {type !== "movie" && <EpisodesContainer info={info} type={type} />}
       {info.recommendations && <YouMayLike info={info} />}
     </div>
   );
