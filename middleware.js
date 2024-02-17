@@ -4,7 +4,10 @@ import { NextResponse } from "next/server";
 export default async function middleware(req) {
   const token = await getToken({ req });
 
-  if (!token && req.nextUrl.pathname.startsWith("/lounge")) {
+  if (
+    (!token && req.nextUrl.pathname.startsWith("/movie-series")) ||
+    req.nextUrl.pathname.startsWith("/info")
+  ) {
     return NextResponse.redirect(new URL("/signin", req.url));
   }
 
