@@ -1,5 +1,3 @@
-import watchUrl from "@/lib/watchUrl";
-import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
 
 export default function FilteredEpisodes({ filteredEpisodes, info }) {
