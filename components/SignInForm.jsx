@@ -21,7 +21,7 @@ export default function Form() {
         redirect: false,
       });
       if (res.ok) {
-        router.push("/lounge");
+        router.push("/");
       } else {
         throw new Error("Invalid Credentials");
       }
