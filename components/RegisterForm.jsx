@@ -25,7 +25,7 @@ export default function RegisterForm() {
         router.push("/signin");
       }
     } catch (error) {
-      console.log(error, "ERROR christ!");
+      console.log(error, "Error register.");
     }
   };
 

@@ -1,4 +1,4 @@
-import watchUrl from "@/lib/watchUrl";
+import watchAndReadRoute from "@/lib/watchAndReadRoute";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ export default function GridEpisodes({ info }) {
         } customSm:gap-2 lg:gap-3 max-h-[600px] overflow-auto scrollbar-gray`}
       >
         {info.episodes.map(({ id, image, title, number }) => (
-          <Link href={watchUrl(id)} key={id}>
+          <Link href={watchAndReadRoute(id)} key={id}>
             <div className="relative customSm:hidden lg:block">
               <Image
                 src={image}

@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { FaPlay, FaPlus } from "react-icons/fa6";
 import { Button } from "../ui/button";
-import watchUrl from "@/lib/watchUrl";
+import watchAndReadRoute from "@/lib/watchAndReadRoute";
 
 export default function InfoPlayAndAddToWatchlist({ info }) {
   return (
     <div className="flex items-center gap-3 my-5 customSm:flex-col md:flex-row">
       <Link
-        href={watchUrl(info)}
+        href={watchAndReadRoute(info)}
         className={`${
           info.type === "TV Series" || info.type === "TV" ? "hidden" : ""
         } customSm:w-full md:w-auto`}
