@@ -1,4 +1,3 @@
-"use client";
 import SignInForm from "@/components/SignInForm";
 import ProvidersButtons from "./ProvidersButtons";
 

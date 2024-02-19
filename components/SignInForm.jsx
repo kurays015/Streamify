@@ -1,3 +1,4 @@
+"use client";
 import { Loader2 } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";

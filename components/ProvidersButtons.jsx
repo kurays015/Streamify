@@ -1,8 +1,9 @@
+"use client";
 import { signIn } from "next-auth/react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Button } from "./ui/button";
 
-export default function LoginButtons() {
+export default function ProvidersButtons() {
   return (
     <div className="text-white flex flex-col gap-3">
       <Button
