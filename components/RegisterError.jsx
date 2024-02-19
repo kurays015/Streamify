@@ -1,5 +1,4 @@
 export default function RegisterError({ errors }) {
-  console.log(errors);
   return (
     <>
       {Object.keys(errors).length > 0 && (
