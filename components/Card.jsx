@@ -1,12 +1,12 @@
 import titleHandler from "@/lib/titleHandler";
 import Image from "next/image";
 
-export default function Card({ image, title, episodeTitle, coverImage }) {
+export default function Card({ image, title, episodeTitle }) {
   return (
     <div>
       <div className="overflow-hidden rounded-lg relative group">
         <Image
-          src={image ? image : coverImage}
+          src={image}
           alt={titleHandler(title)}
           width={500}
           height={500}
