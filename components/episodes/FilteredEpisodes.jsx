@@ -1,5 +1,6 @@
 import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
+import watchAndReadRoute from "@/lib/watchAndReadRoute";
 
 export default function FilteredEpisodes({ filteredEpisodes, info }) {
   return (
