@@ -1,9 +1,9 @@
 import { Button } from "./ui/button";
 import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-
 import Link from "next/link";
 import GenresBadge from "./GenresBadge";
+import watchAndReadRoute from "@/lib/watchAndReadRoute";
 
 export default function TrendingCarouselContent({
   id,
@@ -13,8 +13,6 @@ export default function TrendingCarouselContent({
   genres,
   index,
 }) {
-  const watchPath = id.split("/");
-
   return (
     <div className="absolute py-5 w-full customSm:left-0 customSm:bottom-0 customSm:max-w-full customSm:px-5 lg:top-1/4 lg:left-0 lg:max-w-3xl xl:left-[17%] xl:px-0">
       <div>
@@ -33,7 +31,7 @@ export default function TrendingCarouselContent({
           {description}
         </p>
         <div className="flex items-center gap-3 my-5">
-          <Link href={`/watch/${watchPath[0]}/${watchPath[1]}`}>
+          <Link href={`${watchAndReadRoute(id)}`}>
             <Button
               variant="secondary"
               className="font-semibold hover:scale-105 transition-all customSm:text-sm customSm:py-3 customSm:px-5 lg:text-xl lg:py-6 lg:px-12"
