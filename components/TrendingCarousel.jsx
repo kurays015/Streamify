@@ -11,7 +11,7 @@ import CoverImage from "./CoverImage";
 export function TrendingCarousel({ data }) {
   return (
     <>
-      <div className="h-[600px] customSm:h-[550px]"></div>
+      <div className="customSm:h-[550px] xl:h-[450px]"></div>
       <Carousel
         className="absolute inset-0 customSm:h-[80vh] lg:h-screen"
         opts={{ loop: true }}
