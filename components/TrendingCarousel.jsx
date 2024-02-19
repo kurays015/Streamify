@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/carousel";
 import TrendingCarouselContent from "./TrendingCarouselContent";
 import Overlay from "./Overlay";
+import CoverImage from "./CoverImage";
 
 export function TrendingCarousel({ data }) {
   return (
@@ -19,12 +20,7 @@ export function TrendingCarousel({ data }) {
           {data?.map((result, index) => (
             <CarouselItem key={result.id} className="p-0 relative">
               <Overlay />
-              <div
-                style={{
-                  backgroundImage: `url("${result.cover}")`,
-                }}
-                className="w-full bg-no-repeat bg-cover customSm:h-[80vh] customSm:bg-center lg:h-screen"
-              ></div>
+              <CoverImage cover={result.cover} />
               <TrendingCarouselContent {...result} index={index} />
             </CarouselItem>
           ))}
