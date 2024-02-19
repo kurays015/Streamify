@@ -12,9 +12,7 @@ export default function Header() {
       </div>
       <nav>
         <ul>
-          <li>
-            <CategoryDropdown />
-          </li>
+          <CategoryDropdown />
         </ul>
       </nav>
     </header>
