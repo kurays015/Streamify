@@ -10,7 +10,7 @@ export default function InfoDetails({ info, type }) {
     <div className="relative z-10 customSm:top-0 customSm:pb-8 lg:top-[37%] lg:pb-24 lg:max-w-7xl lg:mx-auto">
       <div className="flex customSm:flex-col customSm:gap-8 lg:flex-row lg:gap-24 lg:mx-6 xl:mx-0">
         <Image
-          src={info.image ? info.image : info.coverImage}
+          src={info.image}
           height={500}
           width={500}
           alt={titleHandler(info.title)}
