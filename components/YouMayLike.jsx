@@ -11,9 +11,7 @@ export default function YouMayLike({ info }) {
       <div className="grid customSm:grid-cols-2 customSm:gap-2 customGrid3:grid-cols-3 customGrid3:gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {info.recommendations.map(recommendation => (
           <Link href={infoUrl(recommendation)} key={recommendation.id}>
-            <div>
-              <Card {...recommendation} />
-            </div>
+            <Card {...recommendation} />
           </Link>
         ))}
       </div>
