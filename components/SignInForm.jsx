@@ -49,7 +49,7 @@ export default function Form() {
             id="username"
             name="username"
             type="text"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c]"
+            className="block outline-none w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c] focus:ring-2"
           />
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function Form() {
           <div className="text-sm">
             <a
               href="#"
-              className="font-semibold text-indigo-400 hover:text-indigo-300"
+              className="font-semibold text-blue-500 hover:text-blue-300"
               onClick={() => alert("not yet working...")}
             >
               Forgot password?
@@ -80,7 +80,7 @@ export default function Form() {
             type="password"
             autoComplete="current-password"
             required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c]"
+            className="block outline-none w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c] focus:ring-2"
           />
           <p className="text-xs text-red-500 my-1">{error}</p>
         </div>
@@ -88,14 +88,14 @@ export default function Form() {
       <div>
         <p className="text-gray-200 text-xs mb-2">
           Don&apos;t have an account?
-          <Link href="/register" className="text-indigo-400 font-medium ml-1">
+          <Link href="/register" className="text-blue-500 font-medium ml-1">
             Register
           </Link>
         </p>
         <button
           disabled={loading}
           type="submit"
-          className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50"
+          className="flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-70"
         >
           {loading ? (
             <span className="flex items-center">

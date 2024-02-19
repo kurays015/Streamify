@@ -45,7 +45,7 @@ export default function RegisterForm() {
             id="username"
             {...register("username")}
             type="text"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c]"
+            className="block outline-none w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm placeholder:text-gray-400   sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c] focus:ring-2"
           />
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function RegisterForm() {
             id="password"
             {...register("password")}
             type="password"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c]"
+            className="block outline-none w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c] focus:ring-2"
           />
         </div>
         <div className="mt-2">
@@ -83,7 +83,7 @@ export default function RegisterForm() {
             id="confirmPassword"
             {...register("confirmPassword")}
             type="password"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c]"
+            className="block outline-none w-full rounded-md border-0 py-1.5 text-gray-300 shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 px-2 bg-[#1c1c1c] focus:ring-2"
           />
         </div>
         {errors && <RegisterError errors={errors} />}
@@ -91,14 +91,14 @@ export default function RegisterForm() {
       <div>
         <p className="text-gray-200 text-xs mb-2">
           Already have an account?
-          <Link href="/signin" className="text-indigo-400 font-medium ml-1">
+          <Link href="/signin" className="text-blue-500 font-medium ml-1">
             Sign in
           </Link>
         </p>
         <button
           disabled={isSubmitting}
           type="submit"
-          className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50"
+          className="flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-70"
         >
           {isSubmitting ? (
             <span className="flex items-center">
