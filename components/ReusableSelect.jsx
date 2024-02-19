@@ -6,7 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Season from "./Season";
+import SeasonSelectButton from "./SeasonSelectButton";
 
 export default function ResusableSelect({
   info,
@@ -35,7 +35,7 @@ export default function ResusableSelect({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <Season info={info} />
+          <SeasonSelectButton info={info} />
         </SelectGroup>
       </SelectContent>
     </Select>
