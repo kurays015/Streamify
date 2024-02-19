@@ -1,6 +1,7 @@
 import watchAndReadRoute from "@/lib/watchAndReadRoute";
 import Image from "next/image";
 import Link from "next/link";
+import EpisodeNumber from "./EpisodeNumber";
 
 export default function GridEpisodes({ info }) {
   return (
@@ -29,8 +30,8 @@ export default function GridEpisodes({ info }) {
                 {number}
               </div>
             </div>
-            <div className="text-slate-400 text-center p-1 font-medium border border-slate-700 rounded-md hover:bg-slate-300 hover:text-slate-900 transition-all customSm:text-sm lg:hidden">
-              {number}
+            <div className="lg:hidden">
+              <EpisodeNumber number={number} />
             </div>
           </Link>
         ))}

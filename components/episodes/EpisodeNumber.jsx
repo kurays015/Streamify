@@ -1,14 +1,7 @@
-import watchAndReadRoute from "@/lib/watchAndReadRoute";
-import Link from "next/link";
-
-export default function EpisodeNumber({ id, number, info }) {
+export default function EpisodeNumber({ number }) {
   return (
-    <Link
-      href={watchAndReadRoute(info)}
-      key={id}
-      className="text-slate-400 text-center font-medium border border-slate-700 p-2 rounded-md hover:bg-slate-300 hover:text-slate-900 transition-all customSm:text-sm md:text-base"
-    >
+    <div className="text-slate-400 text-center font-medium border border-slate-700 p-2 rounded-md hover:bg-slate-300 hover:text-slate-900 transition-all customSm:text-sm md:text-base">
       {number}
-    </Link>
+    </div>
   );
 }
