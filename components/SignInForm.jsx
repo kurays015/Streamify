@@ -23,6 +23,7 @@ export default function Form() {
       });
       if (res.ok) {
         router.push("/");
+        router.replace("/signin");
       } else {
         throw new Error("Invalid Credentials");
       }
