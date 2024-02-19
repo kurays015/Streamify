@@ -40,6 +40,7 @@ export default function RegisterForm() {
         </label>
         <div className="mt-2">
           <input
+            disabled={isSubmitting}
             placeholder="enter your username"
             id="username"
             {...register("username")}
@@ -59,6 +60,7 @@ export default function RegisterForm() {
         </div>
         <div className="mt-2">
           <input
+            disabled={isSubmitting}
             placeholder="enter your password"
             id="password"
             {...register("password")}
@@ -76,6 +78,7 @@ export default function RegisterForm() {
             </label>
           </div>
           <input
+            disabled={isSubmitting}
             placeholder="confirm your password"
             id="confirmPassword"
             {...register("confirmPassword")}

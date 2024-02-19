@@ -43,6 +43,7 @@ export default function Form() {
         </label>
         <div className="mt-2">
           <input
+            disabled={loading}
             placeholder="enter your username"
             id="username"
             name="username"
@@ -71,6 +72,7 @@ export default function Form() {
         </div>
         <div className="mt-2">
           <input
+            disabled={loading}
             placeholder="enter your password"
             id="password"
             name="password"
