@@ -1,6 +1,7 @@
 import { categories } from "@/lib/constants";
 import { DropdownMenuCheckboxItem } from "./ui/dropdown-menu";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Categories() {
   return (
@@ -16,7 +17,9 @@ export default function Categories() {
             ) : (
               <span className="text-2xl">{icon}</span>
             )}
-            <span>{name}</span>
+            <Link href={name.toLowerCase()}>
+              <span>{name}</span>
+            </Link>
           </div>
         </DropdownMenuCheckboxItem>
       ))}
