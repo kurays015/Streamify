@@ -1,14 +1,13 @@
 import Header from "@/components/Header";
-import RecentEpisodes from "@/components/anilist(anime)/RecentEpisodes";
-import Popular from "@/components/anilist(anime)/Popular";
-import Trending from "@/components/anilist(anime)/Trending";
 import TrendingMovies from "@/components/tmdb/TrendingMovies";
 import RecentMovies from "@/components/tmdb/RecentMovies";
 import RecentTvShows from "@/components/tmdb/RecentTvShows";
 import TrendingTvShows from "@/components/tmdb/TrendingTvShows";
 import Footer from "@/components/Footer";
-// import RecentManga from "@/components/anify(manga)/RecentManga";
 import { TrendingMoviesCarousel } from "@/components/tmdb/TrendingMoviesCarousel";
+import RecentEpisodes from "@/components/anilist(anime)/RecentEpisodes";
+import Trending from "@/components/anilist(anime)/Trending";
+import Popular from "@/components/anilist(anime)/Popular";
 
 export default async function Home() {
   return (
@@ -22,7 +21,6 @@ export default async function Home() {
       <RecentEpisodes />
       <Trending />
       <Popular />
-      {/* <RecentManga /> */}
       <Footer />
     </main>
   );
