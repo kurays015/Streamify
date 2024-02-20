@@ -43,8 +43,8 @@ async function SearchResult({ searchParams }) {
   return (
     <div className="grid grid-cols-6 gap-3">
       {searchResults.map(result => (
-        <Link href={infoUrl(result)}>
-          <Card key={result.id} {...result} />
+        <Link href={infoUrl(result)} key={result.id}>
+          <Card {...result} />
         </Link>
       ))}
     </div>
