@@ -2,7 +2,7 @@ import { CardCarousel } from "../CardCarousel";
 
 async function getPopular() {
   try {
-    const res = await fetch(`${process.env.SUGOI_PRIVATE_URL}/popular
+    const res = await fetch(`${process.env.SOURCE_URL}/meta/anilist/popular
     `);
 
     if (!res.ok) {
