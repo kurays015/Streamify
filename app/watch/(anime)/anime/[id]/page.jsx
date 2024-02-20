@@ -2,7 +2,9 @@ import VideoPlayer from "@/components/ArtPlayer";
 
 async function getAnimeEpisodes(id) {
   try {
-    const res = await fetch(`${process.env.SUGOI_PRIVATE_URL}/watch/${id}`);
+    const res = await fetch(
+      `${process.env.SOURCE_URL}/meta/anilist/watch/${id}`
+    );
     if (!res.ok) {
       throw new Error("Error fetching anime episodes.");
     }
