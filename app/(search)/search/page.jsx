@@ -1,5 +1,4 @@
 import SearchBar from "@/components/SearchBar";
-import { movies } from "@/lib/constants";
 import Card from "@/components/Card";
 import { Suspense } from "react";
 import Link from "next/link";
@@ -8,7 +7,9 @@ import Header from "@/components/Header";
 
 async function getManga(query) {
   try {
-    const res = await fetch(`${process.env.SOURCE_URL}/meta/anilist/${query}`);
+    const res = await fetch(
+      `${process.env.SOURCE_URL}/meta/anilist-manga/${query}`
+    );
     if (!res.ok) {
       throw new Error("Error searching anime/manga.");
     }
@@ -18,27 +19,10 @@ async function getManga(query) {
   }
 }
 
-async function searchMovies(query) {
-  try {
-    const moviesHd = new movies.MovieHdWatch();
-    const searchedMovie = await moviesHd.search(query);
-    if (!searchedMovie) {
-      throw new Error("Error searching movie.");
-    }
-    return searchedMovie;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 async function SearchResult({ searchParams }) {
   const { query } = searchParams;
   const searchData = await getManga(query);
-  const movie = await searchMovies(query);
-  const searchResults = [
-    ...(searchData?.results || []),
-    ...(movie?.results || []),
-  ];
+  const searchResults = [...(searchData?.results || [])];
 
   return (
     <div className="grid grid-cols-6 gap-3">
