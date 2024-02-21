@@ -7,6 +7,7 @@ import {
 import TrendingCarouselContent from "./TrendingCarouselContent";
 import Overlay from "./Overlay";
 import CoverImage from "./CoverImage";
+import tmdbImgHandler from "@/lib/tmdbImg";
 
 export function TrendingCarousel({ data }) {
   return (
@@ -17,10 +18,10 @@ export function TrendingCarousel({ data }) {
         opts={{ loop: true }}
       >
         <CarouselContent className="-ml-1">
-          {data?.map((result, index) => (
+          {data.map((result, index) => (
             <CarouselItem key={result.id} className="p-0 relative">
               <Overlay />
-              <CoverImage cover={result.cover} />
+              <CoverImage cover={tmdbImgHandler(result.backdrop_path)} />
               <TrendingCarouselContent {...result} index={index} />
             </CarouselItem>
           ))}

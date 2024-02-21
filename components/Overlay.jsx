@@ -6,9 +6,7 @@ export default function Overlay() {
   return (
     <div
       className={`absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900 to-black opacity-75 ${
-        pathname.startsWith("/movie-series") || pathname.startsWith("/info")
-          ? "z-10"
-          : ""
+        pathname.startsWith("/info") ? "z-10" : ""
       }`}
     ></div>
   );

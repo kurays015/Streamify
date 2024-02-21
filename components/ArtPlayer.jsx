@@ -20,13 +20,17 @@ function playM3u8(video, url, art) {
 
 const Player = ({ option, getInstance, ...rest }) => {
   const artRef = useRef();
+  const defaultQuality = option.sources.find(
+    ({ quality }) => quality === "auto" || quality === "default"
+  );
 
   useEffect(() => {
     const art = new Artplayer({
       ...option,
       container: artRef.current,
       pip: true,
-      theme: "#69DEF6",
+      fastForward: true,
+
       settings: [
         {
           html: option.subtitles.length
@@ -41,6 +45,20 @@ const Player = ({ option, getInstance, ...rest }) => {
           })),
           onSelect: function (item) {
             art.subtitle.url = item.url;
+            return item.html;
+          },
+        },
+        {
+          html: "Quality",
+          width: 250,
+          tooltip: "",
+          selector: option.sources.map(({ quality, url }) => ({
+            default: quality === "auto" || quality === "default",
+            html: `<span style="color:lightblue">${quality}</span>`,
+            url,
+          })),
+          onSelect: function (item) {
+            art.switchQuality(item.url, item.html);
             return item.html;
           },
         },
@@ -60,6 +78,8 @@ const Player = ({ option, getInstance, ...rest }) => {
         : [],
     });
 
+    art.switchQuality(defaultQuality.url, defaultQuality.quality);
+
     if (getInstance && typeof getInstance === "function") {
       getInstance(art);
     }
@@ -75,18 +95,10 @@ const Player = ({ option, getInstance, ...rest }) => {
 };
 
 export default function VideoPlayer({ videoSources }) {
-  const sources = videoSources?.sources.map(source => ({
-    html: source.quality,
-    url: source.url,
-  }));
-
-  const definition = sources?.find(
-    item => item.html === "auto" || item.html === "default"
-  );
-
   return (
     <Player
       option={{
+        sources: videoSources?.sources || [],
         subtitles: videoSources?.subtitles || [],
         download: videoSources?.download,
         layers: [
@@ -98,8 +110,6 @@ export default function VideoPlayer({ videoSources }) {
             },
           },
         ],
-        url: definition?.url || "",
-        quality: sources || [],
         type: "m3u8",
         customType: {
           m3u8: playM3u8,
@@ -118,7 +128,7 @@ export default function VideoPlayer({ videoSources }) {
         fastForward: true,
         autoPlayback: true,
         autoOrientation: true,
-        theme: "#dc2626",
+        theme: "#69DEF6",
       }}
       style={{
         width: "100%",

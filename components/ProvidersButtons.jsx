@@ -9,7 +9,7 @@ export default function ProvidersButtons() {
       <Button
         variant="outline"
         className="w-full flex gap-3 rounded-full hover:bg-indigo-200 transition-all duration-300 ease-in-out hover:text-slate-950"
-        onClick={() => alert("Still fixing this shit")}
+        onClick={() => alert("Still fixing...")}
       >
         Sign in with <FaGoogle className="text-xl" />
       </Button>

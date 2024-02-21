@@ -3,17 +3,20 @@ import MainInfoContent from "@/components/infos/MainInfoContent";
 
 async function getInfo(id, searchParams) {
   const { type } = searchParams;
-  const types = type === "tv" ? "anilist" : "anilist-manga";
+  const tmdbParams = type ? `?type=${type}` : "";
+  const tmdb = type === "movie" || type === "tv";
+
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL}/meta/${types}/info/${id}`,
+      `${process.env.SOURCE_URL}/meta/${
+        tmdb ? "tmdb" : "anilist"
+      }/info/${id}${tmdbParams}`,
       {
         cache: "no-store",
       }
     );
-
     if (!res.ok) {
-      throw new Error("Error fetching anime/manga info.");
+      throw new Error("Error fetching anime/manga/movie/series info.");
     }
     return res.json();
   } catch (error) {
@@ -22,9 +25,9 @@ async function getInfo(id, searchParams) {
 }
 
 export default async function page({ params, searchParams }) {
-  const animeInfo = await getInfo(params.id, searchParams);
-  console.log(animeInfo, "ANIME INFO!");
-  if (!animeInfo) return <WatchAndInfoError />;
+  const allInfo = await getInfo(params.id, searchParams);
 
-  return <MainInfoContent infoData={animeInfo} />;
+  if (!allInfo) return <WatchAndInfoError />;
+
+  return <MainInfoContent infoData={allInfo} />;
 }

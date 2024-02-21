@@ -8,11 +8,7 @@ import {
 } from "@/components/ui/select";
 import SeasonSelectButton from "./SeasonSelectButton";
 
-export default function ResusableSelect({
-  info,
-  setFilteredEpisodes,
-  setChapters,
-}) {
+export default function ResusableSelect({ info, setFilteredEpisodes }) {
   React.useEffect(() => {
     setFilteredEpisodes && setFilteredEpisodes([]);
   }, []);
@@ -21,12 +17,7 @@ export default function ResusableSelect({
     <Select
       onValueChange={value => {
         if (info.type === "TV Series") {
-          const filteredEpisode = info.episodes.filter(
-            episode => episode.season === value
-          );
-          setFilteredEpisodes && setFilteredEpisodes(filteredEpisode);
-        } else {
-          setChapters && setChapters(value.chapters);
+          setFilteredEpisodes && setFilteredEpisodes(value.episodes);
         }
       }}
     >

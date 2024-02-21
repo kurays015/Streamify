@@ -1,21 +1,15 @@
 import { SelectItem } from "./ui/select";
 
 export default function SeasonSelectButton({ info }) {
-  const uniqueSeasons = info.episodes.reduce((seasons, currentValue) => {
-    return !seasons.includes(currentValue.season)
-      ? [...seasons, currentValue.season]
-      : seasons;
-  }, []);
-
   return (
     <>
-      {uniqueSeasons.map(season => (
+      {info.seasons.map(season => (
         <SelectItem
           value={season}
-          key={season}
+          key={season.season}
           className=" focus:bg-slate-800 focus:text-slate-200 cursor-pointer"
         >
-          Season {season}
+          Season {season.season}
         </SelectItem>
       ))}
     </>

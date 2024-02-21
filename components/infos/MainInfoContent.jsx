@@ -3,7 +3,7 @@ import InfoDetails from "./InfoDetails";
 import BackToHomeBtn from "../BackToHomeBtn";
 import CoverImage from "../CoverImage";
 
-export default function MainInfoContent({ infoData, type }) {
+export default function MainInfoContent({ infoData }) {
   const info = infoData && infoData;
 
   return (
@@ -11,7 +11,7 @@ export default function MainInfoContent({ infoData, type }) {
       <BackToHomeBtn />
       <Overlay />
       <CoverImage cover={info.cover} />
-      <InfoDetails info={info} type={type} />
+      <InfoDetails info={info} />
     </div>
   );
 }

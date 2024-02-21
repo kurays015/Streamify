@@ -2,15 +2,16 @@ import { Button } from "./ui/button";
 import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import Link from "next/link";
-import GenresBadge from "./GenresBadge";
 import watchAndReadRoute from "@/lib/watchAndReadRoute";
 
 export default function TrendingCarouselContent({
   id,
   title,
-  description,
-  releaseDate,
-  genres,
+  name,
+  overview,
+  release_date,
+  first_air_date,
+  media_type,
   index,
 }) {
   return (
@@ -21,17 +22,17 @@ export default function TrendingCarouselContent({
             index % 2 === 0 ? "text-[#ffe57f]" : "text-[#7B8FFC]"
           }  font-bold customSm:text-xl lg:text-5xl`}
         >
-          {title}
+          {title ? title : name}
         </h1>
-        <div className="font-semibold text-slate-200 text-base my-6 customSm:my-3">
-          <p className="mb-2 customSm:text-xs">{releaseDate}</p>
-          <GenresBadge genres={genres} />
+        <div className="flex items-center gap-3 font-semibold text-yellow-500 customSm:my-3 customSm:text-xs lg:text-base lg:mt-6 lg:mb-2">
+          <div>{release_date ? release_date : first_air_date}</div>
+          <div>{media_type.charAt(0).toUpperCase() + media_type.slice(1)}</div>
         </div>
         <p className="text-gray-300 font-medium customSm:text-xs md:text-sm lg:text-xl">
-          {description}
+          {overview}
         </p>
         <div className="flex items-center gap-3 my-5">
-          <Link href={`${watchAndReadRoute(id)}`}>
+          <Link href={``}>
             <Button
               variant="secondary"
               className="font-semibold hover:scale-105 transition-all customSm:text-sm customSm:py-3 customSm:px-5 lg:text-xl lg:py-6 lg:px-12"
@@ -40,8 +41,7 @@ export default function TrendingCarouselContent({
               <span>Play</span>
             </Button>
           </Link>
-
-          <Link href={`/movie-series/${id}`}>
+          <Link href={`info/${id}?type=${name ? "tv" : "movie"}`}>
             <Button
               variant="outline"
               className="text-white font-semibold hover:text-white hover:scale-105 transition-all customSm:text-sm customSm:py-3 customSm:px-5 lg:text-xl lg:py-6 lg:px-12"

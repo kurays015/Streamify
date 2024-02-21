@@ -1,51 +1,24 @@
-import { movies } from "@/lib/constants";
 import { TrendingCarousel } from "../TrendingCarousel";
 
-async function getTrendingMovies() {
+async function getTrending() {
   try {
-    const moviesHd = new movies.MovieHdWatch();
-    const trending = await moviesHd.fetchTrendingMovies();
-    if (!trending) {
-      throw new Error("Error fetching trending carousel data.");
+    const res = await fetch(
+      `${process.env.TMDB_BASE_URL}/3/trending/all/day?api_key=${process.env.API_KEY}`
+    );
+    if (!res.ok) {
+      throw new Error("Error fetching trending movies.");
     }
-    return trending;
+    return res.json();
   } catch (error) {
     console.log(error);
   }
 }
 
-async function getTrendingCarouselData() {
-  try {
-    const trendings = await getTrendingMovies();
-    const moviesHd = new movies.MovieHdWatch();
-
-    const trendingData = trendings.map(async trending => {
-      const { id, title, cover, description, releaseDate, genres } =
-        await moviesHd.fetchMediaInfo(trending.id);
-      return {
-        id,
-        title,
-        cover,
-        title,
-        description,
-        releaseDate,
-        genres,
-      };
-    });
-
-    const trendingCarouselData = await Promise.all(trendingData);
-
-    return trendingCarouselData;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-export async function TrendingMoviesCarousel() {
-  const carouselData = await getTrendingCarouselData();
+export default async function TrendingMoviesCarousel() {
+  const trending = await getTrending();
   return (
     <div>
-      <TrendingCarousel data={carouselData} />
+      <TrendingCarousel data={trending?.results} />
     </div>
   );
 }
