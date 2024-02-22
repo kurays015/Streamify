@@ -4,6 +4,7 @@ import YouMayLike from "../YouMayLike";
 import EpisodesContainer from "../episodes/EpisodesContainer";
 import titleHandler from "@/lib/titleHandler";
 import Trailer from "../Trailer";
+import Similar from "../Similar";
 
 export default function InfoDetails({ info }) {
   return (
@@ -22,6 +23,7 @@ export default function InfoDetails({ info }) {
       <Trailer {...info.trailer} />
       {(info.seasons || info.episodes) && <EpisodesContainer info={info} />}
       {info.recommendations && <YouMayLike info={info} />}
+      {info.similar && <Similar info={info} />}
     </div>
   );
 }
