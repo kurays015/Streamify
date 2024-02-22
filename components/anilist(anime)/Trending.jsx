@@ -2,7 +2,8 @@ import { CardCarousel } from "../CardCarousel";
 
 async function getTrending() {
   try {
-    const res = await fetch(`${process.env.SOURCE_URL}/meta/anilist/trending
+    const res =
+      await fetch(`${process.env.SOURCE_URL}/meta/anilist/trending?perPage=20
     `);
 
     if (!res.ok) {

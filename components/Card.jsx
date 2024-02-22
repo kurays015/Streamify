@@ -2,7 +2,7 @@ import titleHandler from "@/lib/titleHandler";
 import tmdbImgHandler from "@/lib/tmdbImg";
 import Image from "next/image";
 
-export default async function Card({
+export default function Card({
   image,
   title,
   episodeTitle,
@@ -11,20 +11,12 @@ export default async function Card({
 }) {
   const imageUrl = image ? image : tmdbImgHandler(poster_path);
 
-  const imageBlur = await fetch(imageUrl, {
-    cache: "no-store",
-  }).then(async res => {
-    return Buffer.from(await res.arrayBuffer()).toString("base64");
-  });
-
   return (
     <div>
       <div className="overflow-hidden rounded-lg relative group">
         <Image
           src={imageUrl}
           alt={titleHandler(title ? title : name)}
-          blurDataURL={`data:image/jpg;base64,${imageBlur}`}
-          placeholder="blur"
           width={500}
           height={500}
           priority
