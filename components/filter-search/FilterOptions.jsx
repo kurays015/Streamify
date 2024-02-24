@@ -1,4 +1,3 @@
-import capitalFirstLetter from "@/lib/capitalFirstLetter";
 import Radio from "./Radio";
 
 export default function FilterOptions({
@@ -9,9 +8,9 @@ export default function FilterOptions({
 }) {
   const handleChange = e => {
     const { value } = e.target;
+
     const key = title.toLowerCase();
-    const queryValue =
-      title === "Genres" ? `["${capitalFirstLetter(value)}"]` : value;
+    const queryValue = title === "Genres" ? `["${value}"]` : value;
 
     if (title === "Type" && value === "Movie") {
       params.set(key, queryValue);
