@@ -28,7 +28,7 @@ export default function FilterSearchModal() {
           <FaFilter className="text-slate-300 cursor-pointer text-3xl" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="bg-slate-700 customSm:rounded-md">
+      <DialogContent className="bg-slate-700">
         <DialogHeader>
           <DialogTitle className="text-center text-amber-300 customSm:mt-2 customSemiMd:my-0">
             Anime filter advance search
