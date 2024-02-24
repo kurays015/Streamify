@@ -27,9 +27,7 @@ export default function ReusableSelect({ info, setFilteredEpisodes }) {
       }}
     >
       <SelectTrigger className="w-[180px] text-white">
-        <SelectValue
-          placeholder={!info.seasons ? "Select provider" : "Season"}
-        />
+        <SelectValue placeholder={!info.seasons ? "Select type" : "Season"} />
       </SelectTrigger>
       <SelectContent
         ref={ref => {
