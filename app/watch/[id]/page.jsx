@@ -1,5 +1,6 @@
 import VideoPlayer from "@/components/ArtPlayer";
 import BackToHomeBtn from "@/components/BackToHomeBtn";
+import WatchAndInfoError from "@/components/WatchAndInfoError";
 
 async function getAnimeEpisodes(id, searchParams) {
   const { type, showId } = searchParams;
@@ -21,12 +22,15 @@ async function getAnimeEpisodes(id, searchParams) {
   }
 }
 
-export default async function page({ params, searchParams }) {
-  const episodes = await getAnimeEpisodes(params.id, searchParams);
+export default async function Watch({ params, searchParams }) {
+  const streamLinks = await getAnimeEpisodes(params.id, searchParams);
+
+  if (!streamLinks) return <WatchAndInfoError />;
+
   return (
     <div>
       <BackToHomeBtn />
-      <VideoPlayer videoSources={episodes} />
+      <VideoPlayer videoSources={streamLinks} />
     </div>
   );
 }
