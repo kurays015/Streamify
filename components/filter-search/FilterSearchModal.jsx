@@ -23,7 +23,7 @@ export default function FilterSearchModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild className="self-center">
-        <Button>
+        <Button onClick={() => setIsRadioSelected(false)}>
           <FaFilter className="text-slate-300 cursor-pointer text-3xl" />
         </Button>
       </DialogTrigger>

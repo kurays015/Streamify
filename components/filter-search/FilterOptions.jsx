@@ -8,15 +8,9 @@ export default function FilterOptions({
 }) {
   const handleChange = e => {
     const { value } = e.target;
-
     const key = title.toLowerCase();
     const queryValue = title === "Genres" ? `["${value}"]` : value;
-
-    if (title === "Type" && value === "Movie") {
-      params.set(key, queryValue);
-    } else {
-      params.set(key, queryValue);
-    }
+    params.set(key, queryValue);
     setIsRadioSelected(true);
   };
 

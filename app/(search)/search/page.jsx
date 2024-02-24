@@ -6,10 +6,14 @@ import Header from "@/components/Header";
 import SearchBar from "@/components/filter-search/SearchBar";
 
 async function metaManualAndFilterSearch(searchParams) {
-  const { query, type } = searchParams;
+  const { query, searchType } = searchParams;
   const allQueryParams = new URLSearchParams(searchParams).toString();
   const providerName =
-    type === "Anime" ? "anilist" : type === "Manga" ? "anilist-manga" : "tmdb";
+    searchType === "Anime"
+      ? "anilist"
+      : searchType === "Manga"
+      ? "anilist-manga"
+      : "tmdb";
 
   const url = query
     ? `${process.env.SOURCE_URL}/meta/${providerName}/${query}`
@@ -32,7 +36,7 @@ async function SearchResult({ searchParams }) {
   );
 
   return (
-    <div className="grid grid-cols-6 gap-3">
+    <div className="grid customSm:grid-cols-2 customSm:gap-2 customGrid3:grid-cols-3 customGrid3:gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
       {metaManualAndFilterSearchResult?.results?.map(result => (
         <Link href={infoUrl(result)} key={result.id}>
           <Card {...result} />

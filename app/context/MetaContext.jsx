@@ -12,7 +12,5 @@ export default function MetaContextProvider({ children }) {
 
   const value = { router, searchParams, params, queryParams, setQueryParams };
 
-  console.log(queryParams);
-
   return <MetaContext.Provider value={value}>{children}</MetaContext.Provider>;
 }

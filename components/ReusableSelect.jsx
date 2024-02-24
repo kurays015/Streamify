@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/select";
 import SelectOptions from "./SelectOptions";
 import { useMetaContext } from "@/app/hooks/useMetaContext";
+import { useRouter } from "next/navigation";
 
 export default function ReusableSelect({ info, setFilteredEpisodes }) {
-  const { queryParams, setQueryParams } = useMetaContext();
-
+  const { setQueryParams } = useMetaContext();
   React.useEffect(() => {
     setFilteredEpisodes && setFilteredEpisodes([]);
   }, []);
@@ -28,10 +28,17 @@ export default function ReusableSelect({ info, setFilteredEpisodes }) {
     >
       <SelectTrigger className="w-[180px] text-white">
         <SelectValue
-          placeholder={!info.seasons ? "Choose provider" : "Season"}
+          placeholder={!info.seasons ? "Select provider" : "Season"}
         />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent
+        ref={ref => {
+          if (!ref) return;
+          ref.ontouchstart = e => {
+            e.preventDefault();
+          };
+        }}
+      >
         <SelectGroup>
           <SelectOptions info={info} />
         </SelectGroup>
