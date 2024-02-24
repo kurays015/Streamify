@@ -27,9 +27,9 @@ export default function FilterSearchModal() {
           <FaFilter className="text-slate-300 cursor-pointer text-3xl" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl bg-[#1c1c1c] text-white">
+      <DialogContent className="bg-slate-700 customSm:rounded-md">
         <DialogHeader>
-          <DialogTitle className="text-center text-amber-300">
+          <DialogTitle className="text-center text-amber-300 customSm:mt-2 customSemiMd:my-0">
             Anime filter advance search
           </DialogTitle>
         </DialogHeader>
@@ -49,6 +49,7 @@ export default function FilterSearchModal() {
         </div>
         <DialogFooter>
           <Button
+            className="font-semibold text-white tracking-wider"
             disabled={!isRadioSelected}
             type="submit"
             variant="outline"

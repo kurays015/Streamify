@@ -16,7 +16,7 @@ export default function FilterOptions({
 
   return (
     <div>
-      <h3 className={`text-lg font-semibold mt-5 mb-2 text-emerald-400 `}>
+      <h3 className=" font-semibold text-emerald-400 customSm:text-base lg:text-lg">
         {title}
       </h3>
       <div className="flex flex-wrap gap-x-4">

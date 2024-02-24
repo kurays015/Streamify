@@ -2,12 +2,7 @@ import capitalFirstLetter from "@/lib/capitalFirstLetter";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 
-export default function CheckBox({
-  option,
-  title,
-  handleChange,
-  isMovieCheck,
-}) {
+export default function Radio({ option, title, handleChange }) {
   return (
     <div className={`flex items-center gap-2 `} key={option}>
       <Input
@@ -16,7 +11,7 @@ export default function CheckBox({
         name={title}
         type="radio"
         onChange={handleChange}
-        className={`w-4`}
+        className="customSm:w-3 md:w-4"
       />
       <Label htmlFor={option} className="text-slate-300">
         {capitalFirstLetter(option)}
