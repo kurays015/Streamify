@@ -36,7 +36,7 @@ export default function FilterSearchModal() {
         </DialogHeader>
         <div>
           <div>
-            <form className="">
+            <form>
               {filters.map(filter => (
                 <FilterOptions
                   key={filter.title}
@@ -50,7 +50,7 @@ export default function FilterSearchModal() {
         </div>
         <Link
           onClick={() => setOpen(false)}
-          href="/search"
+          href={params.toString() && "/search"}
           className="font-semibold text-slate-300 tracking-wider text-center text-sm"
         >
           Clear filter
