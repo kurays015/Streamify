@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import FilterOptions from "./FilterOptions";
 import { useState } from "react";
 import { useMetaContext } from "@/app/hooks/useMetaContext";
+import Link from "next/link";
 
 export default function FilterSearchModal() {
   const [open, setOpen] = useState(false);
@@ -47,6 +48,13 @@ export default function FilterSearchModal() {
             </form>
           </div>
         </div>
+        <Link
+          onClick={() => setOpen(false)}
+          href="/search"
+          className="font-semibold text-slate-300 tracking-wider text-center text-sm"
+        >
+          Clear filter
+        </Link>
         <DialogFooter>
           <Button
             className="font-semibold text-white tracking-wider"
