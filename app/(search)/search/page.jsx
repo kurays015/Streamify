@@ -6,14 +6,10 @@ import Header from "@/components/Header";
 import SearchBar from "@/components/filter-search/SearchBar";
 
 async function metaManualAndFilterSearch(searchParams) {
-  const { query, provider } = searchParams;
+  const { query, type } = searchParams;
   const allQueryParams = new URLSearchParams(searchParams).toString();
   const providerName =
-    provider === "Anime"
-      ? "anilist"
-      : provider === "Manga"
-      ? "anilist-manga"
-      : "tmdb";
+    type === "Anime" ? "anilist" : type === "Manga" ? "anilist-manga" : "tmdb";
 
   const url = query
     ? `${process.env.SOURCE_URL}/meta/${providerName}/${query}`

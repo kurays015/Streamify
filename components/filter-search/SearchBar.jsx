@@ -15,7 +15,7 @@ export default function SearchBar() {
     const formData = new FormData(e.currentTarget);
     const searchQuery = formData.get("search");
     if (!searchQuery) return;
-    router.push(`?query=${searchQuery}&provider=${queryParams}`);
+    router.push(`?query=${searchQuery}&type=${queryParams}`);
   }
 
   return (
