@@ -21,8 +21,9 @@ export default function Form() {
         password: form.get("password"),
         redirect: false,
       });
+      console.log(res, "RES");
       if (res.ok) {
-        router.push("/");
+        router.refresh();
         router.replace("/signin");
       } else {
         throw new Error("Invalid Credentials");
