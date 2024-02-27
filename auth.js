@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import authConfig from "./auth.config";
-import providersUser from "./models/providers";
 import { mongoDbConnection } from "./lib/mongoose";
+import providersUser from "@/models/providers";
 
 export const {
   handlers: { GET, POST },
@@ -9,26 +9,25 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
+  ...authConfig,
+  session: { strategy: "jwt" },
   callbacks: {
     async signIn({ profile, account }) {
-      if (account.provider === "github" || account.provider === "google") {
-        console.log(profile, "PROFILE!!");
-        await mongoDbConnection();
-        const user = await providersUser.findOne({ name: profile?.name });
+      console.log(profile, account);
+      // await mongoDbConnection();
 
-        if (!user) {
-          const profilePicture = profile.picture
-            ? profile.picture
-            : profile.avatar_url;
+      // const user = await providersUser.findOne({ name: profile?.name });
 
-          await providersUser.create({
-            name: profile?.name,
-            avatar: profilePicture,
-          });
-        }
-      }
+      // const picture = profile?.picture ? profile?.picture : avatar_url;
+
+      // if (!user) return false;
+
+      // await providersUser.create({
+      //   name: profile?.name,
+      //   avatar: picture,
+      // });
+
       return true;
     },
   },
-  ...authConfig,
 });

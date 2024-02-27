@@ -11,10 +11,6 @@ const nextConfig = {
       },
     ],
   },
-  webpack: config => {
-    config.externals = [...config.externals, "bcrypt"];
-    return config;
-  },
   // async headers() {
   //   return [
   //     {
