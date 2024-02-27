@@ -13,20 +13,20 @@ export const {
   session: { strategy: "jwt" },
   callbacks: {
     async signIn({ profile, account }) {
-      console.log(profile, account);
-      // await mongoDbConnection();
+      await mongoDbConnection();
 
-      // const user = await providersUser.findOne({ name: profile?.name });
+      const user = await providersUser.findOne({ name: profile?.name });
 
-      // const picture = profile?.picture ? profile?.picture : avatar_url;
+      if (!user) {
+        const picture = profile?.picture
+          ? profile?.picture
+          : profile?.avatar_url;
 
-      // if (!user) return false;
-
-      // await providersUser.create({
-      //   name: profile?.name,
-      //   avatar: picture,
-      // });
-
+        await providersUser.create({
+          name: profile?.name,
+          avatar: picture,
+        });
+      }
       return true;
     },
   },
