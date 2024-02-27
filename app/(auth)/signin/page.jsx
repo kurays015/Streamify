@@ -1,14 +1,9 @@
-import { gitHub, google } from "@/actions/providers";
+import LoginPage from "@/components/LoginPage";
 
 export default function Login() {
   return (
-    <div className="text-white">
-      <form action={gitHub}>
-        <button>Github</button>
-      </form>
-      <form action={google}>
-        <button>google</button>
-      </form>
+    <div>
+      <LoginPage />
     </div>
   );
 }
