@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NextAuthProvider from "./(providers)/NextAuthProvider";
 import MetaContextProvider from "./context/MetaContext";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,9 +16,7 @@ export default async function RootLayout({ children }) {
         className={`${inter.className} bg-[#111827]`}
         suppressHydrationWarning
       >
-        <NextAuthProvider>
-          <MetaContextProvider>{children}</MetaContextProvider>
-        </NextAuthProvider>
+        <MetaContextProvider>{children}</MetaContextProvider>
       </body>
     </html>
   );
