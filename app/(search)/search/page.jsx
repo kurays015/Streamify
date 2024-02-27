@@ -5,9 +5,8 @@ import infoUrl from "@/lib/infoUrl";
 import Header from "@/components/Header";
 import SearchBar from "@/components/filter-search/SearchBar";
 
-async function metaManualAndFilterSearch(searchParams) {
+async function metaManualAndFilterSearch(searchParams, allQueryParams) {
   const { query, searchType } = searchParams;
-  const allQueryParams = new URLSearchParams(searchParams).toString();
   const providerName =
     searchType === "Anime"
       ? "anilist"
@@ -31,8 +30,10 @@ async function metaManualAndFilterSearch(searchParams) {
 }
 
 async function SearchResult({ searchParams }) {
+  const allQueryParams = new URLSearchParams(searchParams).toString();
   const metaManualAndFilterSearchResult = await metaManualAndFilterSearch(
-    searchParams
+    searchParams,
+    allQueryParams
   );
 
   return (
