@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
-import GitHub from "next-auth/providers/github";
-import Google from "next-auth/providers/google";
+import authConfig from "./auth.config";
+import providersUser from "./models/providers";
+import { mongoDbConnection } from "./lib/mongoose";
 
 export const {
   handlers: { GET, POST },
@@ -8,17 +9,26 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
-  pages: {
-    signIn: "/signin",
+  callbacks: {
+    async signIn({ profile, account }) {
+      if (account.provider === "github" || account.provider === "google") {
+        console.log(profile, "PROFILE!!");
+        await mongoDbConnection();
+        const user = await providersUser.findOne({ name: profile?.name });
+
+        if (!user) {
+          const profilePicture = profile.picture
+            ? profile.picture
+            : profile.avatar_url;
+
+          await providersUser.create({
+            name: profile?.name,
+            avatar: profilePicture,
+          });
+        }
+      }
+      return true;
+    },
   },
-  providers: [
-    GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-    Google({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
-    }),
-  ],
+  ...authConfig,
 });

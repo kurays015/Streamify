@@ -21,6 +21,7 @@ export default function RegisterForm() {
     try {
       //server action
       const user = await handleRegister(data);
+      console.log(user);
       if (user) {
         router.push("/signin");
       }
