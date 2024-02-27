@@ -21,7 +21,6 @@ export default {
     Credentials({
       async authorize(credentials) {
         await mongoDbConnection();
-        console.log("CREDENTIALS!", credentials);
         const parsedCredentials = z
           .object({ username: z.string().min(6), password: z.string().min(6) })
           .safeParse(credentials);
