@@ -23,11 +23,7 @@ export default {
         console.log(credentials, "credentials");
         const validatedFields = LoginSchema.safeParse(credentials);
         console.log(validatedFields, "validatedFields");
-        await mongoDbConnection();
-        const user = await User.findOne({
-          username: validatedFields.data.username,
-        });
-        console.log(user, "USER found");
+
         return null;
       },
     }),
