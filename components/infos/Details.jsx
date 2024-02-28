@@ -32,7 +32,7 @@ export default function Details({ info, id }) {
       <InfoPlayAndAddToWatchlist info={info} />
       {info.type === "Movie" && (
         <p className="text-slate-300 customSm:text-center customSm:text-xs md:text-start lg:text-base">
-          If no ads stream link doesn`&apos;t work, you can still watch{" "}
+          If no ads stream link doesn&apos;t work, you can still watch{" "}
           <Link href={`/embedded/${id}`} className="text-blue-400">
             <span>here</span>
           </Link>{" "}
