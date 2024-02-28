@@ -2,6 +2,8 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "@/models/LoginSchema";
+import { mongoDbConnection } from "./lib/mongoose";
+import User from "@/models/user";
 
 export default {
   pages: {
@@ -21,7 +23,11 @@ export default {
         console.log(credentials, "credentials");
         const validatedFields = LoginSchema.safeParse(credentials);
         console.log(validatedFields, "validatedFields");
-
+        await mongoDbConnection();
+        const user = await User.findOne({
+          username: validatedFields.data.username,
+        });
+        console.log(user, "USER found");
         return null;
       },
     }),
