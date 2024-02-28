@@ -4,8 +4,8 @@ import MainInfoContent from "@/components/infos/MainInfoContent";
 async function getInfo(id, searchParams) {
   const { providerId, tmdbParams } = searchParams;
   const tmdb = `?type=${tmdbParams}`;
-  const anilistManga = providerId === "anilist-manga" && `?provider=mangadex`;
-  const params = tmdb ? tmdb : anilistManga;
+  const anilistManga = "?provider=mangadex";
+  const params = providerId === "tmdb" ? tmdb : anilistManga;
 
   try {
     const res = await fetch(
@@ -15,7 +15,7 @@ async function getInfo(id, searchParams) {
           : providerId === "anilist"
           ? "anilist"
           : "anilist-manga"
-      }/info/${id}${params && params}`,
+      }/info/${id}${params}`,
       {
         cache: "no-store",
       }

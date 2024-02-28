@@ -10,7 +10,9 @@ export default function SelectOptions({ info }) {
           key={index}
           className=" focus:bg-slate-800 focus:text-slate-200 cursor-pointer"
         >
-          {!info.seasons ? content : `Season ${content.season}`}
+          {!info.seasons
+            ? `${content === "Movie" ? "Movie/Series" : content}`
+            : `Season ${content.season}`}
         </SelectItem>
       ))}
     </>
