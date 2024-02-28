@@ -1,10 +1,11 @@
 "use client";
+import { credentials } from "@/actions/providers";
 import CredentialSigninButton from "./CredentialSigninButton";
 import ForgotPassword from "./ForgotPassword";
 
 export default function SigninForm() {
   return (
-    <form className="space-y-6">
+    <form className="space-y-6" action={credentials}>
       <div>
         <label
           htmlFor="username"
@@ -14,7 +15,7 @@ export default function SigninForm() {
         </label>
         <div className="mt-2">
           <input
-            disabled={true}
+            // disabled={true}
             placeholder="enter your username"
             id="username"
             name="username"
@@ -35,7 +36,7 @@ export default function SigninForm() {
         </div>
         <div className="mt-2">
           <input
-            disabled={true}
+            // disabled={true}
             placeholder="enter your password"
             id="password"
             name="password"
