@@ -1,12 +1,11 @@
-import Card from "@/components/Card";
-import { Suspense } from "react";
-import Link from "next/link";
-import infoUrl from "@/lib/infoUrl";
-import Header from "@/components/Header";
 import SearchBar from "@/components/filter-search/SearchBar";
+import SearchResult from "@/components/filter-search/SearchResult";
 
-async function metaManualAndFilterSearch(searchParams, allQueryParams) {
+async function fetchMetaManualAndFilterSearch(searchParams) {
   const { query, searchType } = searchParams;
+
+  const allQueryParams = new URLSearchParams(searchParams).toString();
+
   const providerName =
     searchType === "Anime"
       ? "anilist"
@@ -29,31 +28,15 @@ async function metaManualAndFilterSearch(searchParams, allQueryParams) {
   }
 }
 
-async function SearchResult({ searchParams }) {
-  const allQueryParams = new URLSearchParams(searchParams).toString();
-  const metaManualAndFilterSearchResult = await metaManualAndFilterSearch(
-    searchParams,
-    allQueryParams
-  );
-
-  return (
-    <div className="grid customSm:grid-cols-2 customSm:gap-2 customGrid3:grid-cols-3 customGrid3:gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-      {metaManualAndFilterSearchResult?.results?.map(result => (
-        <Link href={infoUrl(result)} key={result.id}>
-          <Card {...result} />
-        </Link>
-      ))}
-    </div>
-  );
-}
-
 export default async function Search({ searchParams }) {
+  const metaManualAndFilterSearchResult = await fetchMetaManualAndFilterSearch(
+    searchParams
+  );
+
   return (
     <main className="max-w-7xl mx-auto mb-24 customSm:px-2">
-      <Suspense fallback={<h1 className="text-white text-4xl">LOADING!!</h1>}>
-        <SearchBar />
-        <SearchResult searchParams={searchParams} />
-      </Suspense>
+      <SearchBar />
+      <SearchResult results={metaManualAndFilterSearchResult?.results} />
     </main>
   );
 }
