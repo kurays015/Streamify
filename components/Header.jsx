@@ -23,7 +23,7 @@ export default function Header() {
     >
       <Link href="/" className="flex items-center gap-3">
         <LuPopcorn className="text-4xl text-red-500" />
-        <h1 className="uppercase font-bold text-xl text-teal-500">Streamify</h1>
+        <h1 className="font-bold text-xl text-teal-500">Streamify</h1>
       </Link>
       <nav>
         <ul className="flex items-center gap-5">
