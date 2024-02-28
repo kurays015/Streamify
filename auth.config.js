@@ -2,9 +2,6 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "@/models/LoginSchema";
-import User from "@/models/user";
-import { mongoDbConnection } from "./lib/mongoose";
-import bcrypt from "bcryptjs";
 
 export default {
   pages: {
@@ -21,22 +18,9 @@ export default {
     }),
     Credentials({
       async authorize(credentials) {
+        console.log(credentials, "credentials");
         const validatedFields = LoginSchema.safeParse(credentials);
-
-        if (validatedFields.success) {
-          await mongoDbConnection();
-          const { username, password } = validatedFields.data;
-
-          const user = await User.findOne({ username });
-
-          if (!user || !user.password) return null;
-          // const bcrypt = require("bcryptjs");
-
-          console.log(user, "USER found!");
-          const passwordsMatch = await bcrypt.compare(password, user.password);
-
-          if (passwordsMatch) return user;
-        }
+        console.log(validatedFields, "validatedFields");
 
         return null;
       },
