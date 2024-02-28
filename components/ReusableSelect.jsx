@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/select";
 import SelectOptions from "./SelectOptions";
 import { useMetaContext } from "@/app/hooks/useMetaContext";
-import { useRouter } from "next/navigation";
 
 export default function ReusableSelect({ info, setFilteredEpisodes }) {
   const { setQueryParams } = useMetaContext();

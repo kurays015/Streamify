@@ -9,16 +9,16 @@ import {
 } from "@/components/ui/dialog";
 import { filters } from "@/lib/advance-search";
 import { FaFilter } from "react-icons/fa";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import FilterOptions from "./FilterOptions";
 import { useState } from "react";
-import { useMetaContext } from "@/app/hooks/useMetaContext";
 import Link from "next/link";
 
 export default function FilterSearchModal() {
   const [open, setOpen] = useState(false);
   const [isRadioSelected, setIsRadioSelected] = useState(false);
-  const { params } = useMetaContext();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
   const router = useRouter();
 
   return (
