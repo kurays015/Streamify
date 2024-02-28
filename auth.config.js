@@ -4,6 +4,7 @@ import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "@/models/LoginSchema";
 import User from "@/models/user";
 import { mongoDbConnection } from "./lib/mongoose";
+import bcrypt from "bcryptjs";
 
 export default {
   pages: {
@@ -29,8 +30,8 @@ export default {
           const user = await User.findOne({ username });
 
           if (!user || !user.password) return null;
+          // const bcrypt = require("bcryptjs");
 
-          const bcrypt = require("bcrypt");
           console.log(user, "USER found!");
           const passwordsMatch = await bcrypt.compare(password, user.password);
 
