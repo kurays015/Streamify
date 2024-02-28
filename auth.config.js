@@ -2,8 +2,6 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "@/models/LoginSchema";
-import { mongoDbConnection } from "./lib/mongoose";
-import User from "@/models/user";
 
 export default {
   pages: {
