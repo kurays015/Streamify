@@ -34,5 +34,5 @@ export default async function page({ params, searchParams }) {
 
   if (!allInfo) return <WatchAndInfoError />;
 
-  return <MainInfoContent infoData={allInfo} />;
+  return <MainInfoContent infoData={allInfo} id={params.id} />;
 }
