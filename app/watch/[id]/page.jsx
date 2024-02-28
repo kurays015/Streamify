@@ -28,9 +28,9 @@ export default async function Watch({ params, searchParams }) {
   if (!streamLinks) return <WatchAndInfoError />;
 
   return (
-    <div>
+    <main>
       <BackToHomeBtn />
       <VideoPlayer videoSources={streamLinks} />
-    </div>
+    </main>
   );
 }
