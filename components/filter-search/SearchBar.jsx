@@ -4,11 +4,12 @@ import { Input } from "../ui/input";
 import FilterSearchModal from "./FilterSearchModal";
 import { providers } from "@/lib/constants";
 import ResusableSelect from "../ReusableSelect";
-import { useMetaContext } from "@/app/hooks/useMetaContext";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function SearchBar() {
-  const { queryParams } = useMetaContext();
+  const [queryParams, setQueryParams] = useState(null);
+
   const router = useRouter();
   function handleSearch(e) {
     e.preventDefault();
@@ -38,7 +39,7 @@ export default function SearchBar() {
         </Button>
       </form>
       <div className="customSm:flex customSm:justify-center">
-        <ResusableSelect info={providers} />
+        <ResusableSelect info={providers} setQueryParams={setQueryParams} />
         <FilterSearchModal />
       </div>
     </div>

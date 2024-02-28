@@ -41,7 +41,11 @@ export default function TrendingCarouselContent({
               <span>Play</span>
             </Button>
           </Link>
-          <Link href={`info/${id}?type=${name ? "tv" : "movie"}`}>
+          <Link
+            href={`info/${id}?providerId=tmdb&tmdbParams=${
+              name ? "tv" : "movie"
+            }`}
+          >
             <Button
               variant="outline"
               className="text-white font-semibold hover:text-white hover:scale-105 transition-all customSm:text-sm customSm:py-3 customSm:px-5 lg:text-xl lg:py-6 lg:px-12"

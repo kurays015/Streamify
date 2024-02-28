@@ -7,10 +7,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import SelectOptions from "./SelectOptions";
-import { useMetaContext } from "@/app/hooks/useMetaContext";
 
-export default function ReusableSelect({ info, setFilteredEpisodes }) {
-  const { setQueryParams } = useMetaContext();
+export default function ReusableSelect({
+  info,
+  setFilteredEpisodes,
+  setQueryParams,
+}) {
   React.useEffect(() => {
     setFilteredEpisodes && setFilteredEpisodes([]);
   }, []);
@@ -21,7 +23,7 @@ export default function ReusableSelect({ info, setFilteredEpisodes }) {
         if (info.type === "TV Series") {
           setFilteredEpisodes && setFilteredEpisodes(value.episodes);
         } else {
-          setQueryParams(value);
+          setQueryParams && setQueryParams(value);
         }
       }}
     >

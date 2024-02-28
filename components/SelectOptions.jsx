@@ -4,13 +4,13 @@ export default function SelectOptions({ info }) {
   const selectContent = info.seasons ? info.seasons : info;
   return (
     <>
-      {selectContent.map(content => (
+      {selectContent.map((content, index) => (
         <SelectItem
           value={content}
-          key={content ? content : content.season}
+          key={index}
           className=" focus:bg-slate-800 focus:text-slate-200 cursor-pointer"
         >
-          {!info.seasons ? content : content.season}
+          {!info.seasons ? content : `Season ${content.season}`}
         </SelectItem>
       ))}
     </>

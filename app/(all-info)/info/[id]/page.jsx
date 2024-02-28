@@ -2,15 +2,20 @@ import WatchAndInfoError from "@/components/WatchAndInfoError";
 import MainInfoContent from "@/components/infos/MainInfoContent";
 
 async function getInfo(id, searchParams) {
-  const { type } = searchParams;
-  const tmdbParams = type ? `?type=${type}` : "";
-  const tmdb = type === "movie" || type === "tv";
+  const { providerId, tmdbParams } = searchParams;
+  const tmdb = `?type=${tmdbParams}`;
+  const anilistManga = providerId === "anilist-manga" && `?provider=mangadex`;
+  const params = tmdb ? tmdb : anilistManga;
 
   try {
     const res = await fetch(
       `${process.env.SOURCE_URL}/meta/${
-        tmdb ? "tmdb" : "anilist"
-      }/info/${id}${tmdbParams}`,
+        providerId === "tmdb"
+          ? "tmdb"
+          : providerId === "anilist"
+          ? "anilist"
+          : "anilist-manga"
+      }/info/${id}${params && params}`,
       {
         cache: "no-store",
       }
