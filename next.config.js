@@ -10,6 +10,20 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+    experimental: {
+      esmExternals: "loose",
+      serverComponentsExternalPackages: ["mongoose"],
+    },
+    env: {
+      DB_URI: "mongodb://127.0.0.1:27017/mongoose_test",
+    },
+    webpack: config => {
+      config.experiments = {
+        topLevelAwait: true,
+        layers: true,
+      };
+      return config;
+    },
   },
 
   // async headers() {
