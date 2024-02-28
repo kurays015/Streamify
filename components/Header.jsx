@@ -13,7 +13,10 @@ export default function Header() {
       className={`flex items-center justify-between text-white py-8 px-2 max-w-7xl mx-auto ${
         pathname === "/" && "z-50 relative"
       }  ${
-        pathname.startsWith("/info") || pathname.startsWith("/watch")
+        pathname.startsWith("/info") ||
+        pathname.startsWith("/watch") ||
+        pathname.startsWith("/signin") ||
+        pathname.startsWith("/register")
           ? "hidden"
           : ""
       } `}
