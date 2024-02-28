@@ -10,18 +10,18 @@ export async function google() {
 }
 
 export async function credentials(formData) {
-  try {
-    await signIn("credentials", formData);
-  } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case "CredentialsSignin":
-          return { error: "Invalid credentials!" };
-        default:
-          return { error: "Something went wrong!" };
-      }
-    }
+  // try {
+  await signIn("credentials", formData);
+  // } catch (error) {
+  //   if (error instanceof AuthError) {
+  //     switch (error.type) {
+  //       case "CredentialsSignin":
+  //         return { error: "Invalid credentials!" };
+  //       default:
+  //         return { error: "Something went wrong!" };
+  //     }
+  //   }
 
-    throw error;
-  }
+  //   throw error;
+  // }
 }

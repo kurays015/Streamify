@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import Overlay from "./Overlay";
 
 export default function CoverImage({ cover }) {
   const pathname = usePathname();
@@ -13,6 +14,8 @@ export default function CoverImage({ cover }) {
           ? "w-full bg-no-repeat bg-cover customSm:h-[80vh] customSm:bg-center lg:h-screen"
           : "absolute h-screen -top-36 w-full bg-no-repeat bg-cover bg-center customSm:hidden lg:block"
       }`}
-    ></div>
+    >
+      <Overlay />
+    </div>
   );
 }

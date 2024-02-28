@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MetaContextProvider from "./context/MetaContext";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,10 +14,13 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-[#111827]`}
+        className={`${inter.className} bg-[#111827] relative`}
         suppressHydrationWarning
       >
-        <MetaContextProvider>{children}</MetaContextProvider>
+        <MetaContextProvider>
+          <Header />
+          {children}
+        </MetaContextProvider>
       </body>
     </html>
   );

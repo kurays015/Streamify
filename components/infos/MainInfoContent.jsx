@@ -1,4 +1,3 @@
-import Overlay from "../Overlay";
 import InfoDetails from "./InfoDetails";
 import BackToHomeBtn from "../BackToHomeBtn";
 import CoverImage from "../CoverImage";
@@ -6,11 +5,10 @@ import CoverImage from "../CoverImage";
 export default function MainInfoContent({ infoData }) {
   const info = infoData && infoData;
   return (
-    <div className="h-screen inset-0 relative">
+    <main>
       <BackToHomeBtn />
-      <Overlay />
       <CoverImage cover={info.cover} />
       <InfoDetails info={info} />
-    </div>
+    </main>
   );
 }

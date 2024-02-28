@@ -50,7 +50,6 @@ async function SearchResult({ searchParams }) {
 export default async function Search({ searchParams }) {
   return (
     <main className="max-w-7xl mx-auto mb-24 customSm:px-2">
-      <Header />
       <SearchBar />
       <Suspense fallback={<h1 className="text-white text-4xl">LOADING!!</h1>}>
         <SearchResult searchParams={searchParams} />
