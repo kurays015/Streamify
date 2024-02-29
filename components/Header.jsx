@@ -20,7 +20,7 @@ export default function Header() {
         <h1 className="font-bold text-xl text-teal-500">Streamify</h1>
       </Link>
       <nav>
-        <ul className="flex items-center gap-5">
+        <ul className="flex items-center customSm:gap-0 lg:gap-5">
           <li>
             <Link href="/search">
               <FaSearch className="text-2xl" />

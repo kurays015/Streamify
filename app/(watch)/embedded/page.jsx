@@ -1,4 +1,5 @@
 "use client";
+import BackToHomeBtn from "@/components/BackToHomeBtn";
 import ReusableSelect from "@/components/ReusableSelect";
 import EmbeddedVideo from "@/components/embedded/EmbeddedVideo";
 import FilteredEpisodes from "@/components/episodes/FilteredEpisodes";
@@ -27,8 +28,6 @@ export default function EmbeddedVideoPage() {
       : `tv/${id}/${season ? season : 1}-${episode ? episode : 1}`;
 
   const info = infos && infos;
-
-  console.log(params);
 
   return (
     <main
