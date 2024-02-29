@@ -3,7 +3,7 @@ import GenresBadge from "../GenresBadge";
 import InfoPlayAndAddToWatchlist from "./InfoPlayAndAddToWatchlist";
 import { FaStar } from "react-icons/fa6";
 import InfoDescription from "./InfoDescription";
-import Link from "next/link";
+import WithAdsMessage from "../embedded/WithAdsMessage";
 
 export default function Details({ info, id }) {
   return (
@@ -30,14 +30,8 @@ export default function Details({ info, id }) {
       </div>
       <InfoDescription description={info.description} maxLength={300} />
       <InfoPlayAndAddToWatchlist info={info} />
-      {info.type === "Movie" && (
-        <p className="text-slate-300 customSm:text-center customSm:text-xs md:text-start lg:text-base">
-          If no ads stream link doesn&apos;t work, you can still watch{" "}
-          <Link href={`/embedded/${id}`} className="text-blue-400">
-            <span>here</span>
-          </Link>{" "}
-          but with ads<span className="text-base">😂✌️</span>
-        </p>
+      {(info.type === "Movie" || info.type === "TV Series") && (
+        <WithAdsMessage info={info} id={id} />
       )}
     </div>
   );
