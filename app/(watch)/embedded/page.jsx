@@ -25,7 +25,7 @@ export default function EmbeddedVideoPage() {
   const params =
     type === "Movie"
       ? `movie/${id}`
-      : `tv/${id}/${season ? season : 1}-${episode ? episode : 1}`;
+      : `tv/${id}/${season ? season : 1}/${episode ? episode : 1}`;
 
   const info = infos && infos;
 
