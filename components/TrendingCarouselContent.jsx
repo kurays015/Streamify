@@ -2,7 +2,6 @@ import { Button } from "./ui/button";
 import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import Link from "next/link";
-import watchAndReadRoute from "@/lib/watchAndReadRoute";
 
 export default function TrendingCarouselContent({
   id,
