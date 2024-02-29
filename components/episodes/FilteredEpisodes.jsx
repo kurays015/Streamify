@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
 import watchAndReadRoute from "@/lib/watchAndReadRoute";
