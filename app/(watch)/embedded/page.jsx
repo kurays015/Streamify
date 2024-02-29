@@ -31,8 +31,8 @@ export default function EmbeddedVideoPage() {
 
   return (
     <main
-      className={`relative  ${
-        type === "TV Series" ? "max-w-7xl mx-auto lg:mt-12 " : ""
+      className={`relative ${
+        type === "TV Series" ? "max-w-7xl mx-auto lg:mt-12 h-screen" : ""
       }`}
     >
       {searchParams.toString() && <EmbeddedVideo type={type} params={params} />}
