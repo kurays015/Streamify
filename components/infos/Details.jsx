@@ -3,7 +3,7 @@ import GenresBadge from "../GenresBadge";
 import InfoPlayAndAddToWatchlist from "./InfoPlayAndAddToWatchlist";
 import { FaStar } from "react-icons/fa6";
 import InfoDescription from "./InfoDescription";
-import WithAdsMessage from "../embedded/WithAdsMessage";
+import WithAdsMessage from "./WithAdsMessage";
 
 export default function Details({ info, id }) {
   return (

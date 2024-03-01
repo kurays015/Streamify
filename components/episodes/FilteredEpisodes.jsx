@@ -3,11 +3,9 @@ import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
 import watchAndReadRoute from "@/lib/watchAndReadRoute";
 import { useMetaContext } from "@/app/hooks/useMetaContext";
-import { usePathname } from "next/navigation";
 
 export default function FilteredEpisodes({ info }) {
   const { filteredEpisodes } = useMetaContext();
-  const pathname = usePathname();
   return (
     <div
       className={
@@ -18,10 +16,7 @@ export default function FilteredEpisodes({ info }) {
     >
       {filteredEpisodes ? (
         filteredEpisodes.map(episode => (
-          <Link
-            href={watchAndReadRoute(info, episode, pathname)}
-            key={episode.id}
-          >
+          <Link href={watchAndReadRoute(info, episode)} key={episode.id}>
             <EpisodeNumber {...episode} info={info} />
           </Link>
         ))
