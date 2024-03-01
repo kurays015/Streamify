@@ -1,4 +1,4 @@
-import { CardCarousel } from "../CardCarousel";
+import { CardCarousel } from "../../CardCarousel";
 
 async function getTopRatedTVSeries() {
   try {
@@ -17,7 +17,7 @@ async function getTopRatedTVSeries() {
 export default async function TopRatedTVSeries() {
   const topRatedTVSeries = await getTopRatedTVSeries();
   return (
-    <div className="max-w-7xl mx-auto mt-16 mb-5 customSm:px-2">
+    <div className="mt-16 mb-5 customSm:px-2">
       <h1 className="text-3xl text-sky-300 text-start mb-5 font-semibold customSm:text-2xl lg:text-3xl ">
         Top Rated TV Series
       </h1>

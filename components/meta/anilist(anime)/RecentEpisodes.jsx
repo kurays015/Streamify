@@ -1,4 +1,4 @@
-import { CardCarousel } from "../CardCarousel";
+import { CardCarousel } from "../../CardCarousel";
 
 async function getRecentEpisodes() {
   try {
@@ -17,7 +17,7 @@ async function getRecentEpisodes() {
 export default async function RecentEpisodes() {
   const recentEpisodes = await getRecentEpisodes();
   return (
-    <div className="max-w-7xl mx-auto mt-16 mb-5 customSm:px-2">
+    <div className="mt-16 mb-5 customSm:px-2">
       <h1 className="text-3xl text-recent text-start mb-5 font-semibold customSm:text-2xl lg:text-3xl">
         Recent Anime Episodes
       </h1>

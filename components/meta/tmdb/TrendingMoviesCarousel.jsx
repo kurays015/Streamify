@@ -1,4 +1,4 @@
-import { TrendingCarousel } from "../TrendingCarousel";
+import { TrendingCarousel } from "../../TrendingCarousel";
 
 async function getTrending() {
   try {
