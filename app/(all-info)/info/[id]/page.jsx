@@ -9,7 +9,7 @@ async function getInfo(id, searchParams) {
 
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL}/meta/${
+      `${process.env.RAILWAY_SERVER_URL}/meta/${
         providerId === "tmdb"
           ? "tmdb"
           : providerId === "anilist"
