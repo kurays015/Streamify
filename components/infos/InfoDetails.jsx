@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Details from "./Details";
 import YouMayLike from "../YouMayLike";
-import EpisodesContainer from "../episodes/EpisodesContainer";
+import EpisodesContainer from "./episodes/EpisodesContainer";
 import titleHandler from "@/lib/titleHandler";
 import Trailer from "../Trailer";
 import Similar from "../Similar";
@@ -20,7 +20,7 @@ export default function InfoDetails({ info, id }) {
         />
         <Details info={info} id={id} />
       </div>
-      <Trailer {...info.trailer} />
+      {info.trailer && <Trailer {...info.trailer} />}
       {(info.seasons || info.episodes) && <EpisodesContainer info={info} />}
       {info.recommendations && <YouMayLike info={info} />}
       {info.similar && <Similar info={info} />}

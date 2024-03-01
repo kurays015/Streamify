@@ -6,10 +6,12 @@ export default function Card({
   image,
   title,
   episodeTitle,
+  episodeNumber,
   poster_path,
   name,
 }) {
   const imageUrl = image ? image : tmdbImgHandler(poster_path);
+  const recentEpisode = episodeTitle ? episodeTitle : episodeNumber;
 
   return (
     <div>
@@ -26,9 +28,9 @@ export default function Card({
       <h1 className="text-center text-white font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2 customSm:text-sm lg:text-base">
         {titleHandler(title ? title : name)}
       </h1>
-      {episodeTitle && (
+      {recentEpisode && (
         <div className="absolute bottom-10 left-3 bg-red-500 text-white text-xs font-semibold p-2 rounded md">
-          {episodeTitle}
+          {episodeTitle ? episodeTitle : `Episode ${episodeNumber}`}
         </div>
       )}
     </div>

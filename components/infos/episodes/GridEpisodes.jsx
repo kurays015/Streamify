@@ -20,7 +20,7 @@ export default function GridEpisodes({ info }) {
           <Link href={watchAndReadRoute(id)} key={id}>
             <div className="relative customSm:hidden lg:block">
               <Image
-                src={image}
+                src={image ? image : info.image}
                 alt={title}
                 width={500}
                 height={500}

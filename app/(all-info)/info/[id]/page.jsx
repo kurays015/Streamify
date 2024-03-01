@@ -1,5 +1,6 @@
 import WatchAndInfoError from "@/components/WatchAndInfoError";
 import MainInfoContent from "@/components/infos/MainInfoContent";
+import { providerUrl } from "@/lib/infoUrl";
 
 async function getInfo(id, searchParams) {
   const { providerId, tmdbParams } = searchParams;
@@ -9,13 +10,7 @@ async function getInfo(id, searchParams) {
 
   try {
     const res = await fetch(
-      `${process.env.RAILWAY_SERVER_URL}/meta/${
-        providerId === "tmdb"
-          ? "tmdb"
-          : providerId === "anilist"
-          ? "anilist"
-          : "anilist-manga"
-      }/info/${id}${params}`,
+      `${process.env.RAILWAY_SERVER_URL}${providerUrl(providerId, id, params)}`,
       {
         cache: "no-store",
       }

@@ -1,5 +1,5 @@
 import GridEpisodes from "./GridEpisodes";
-import ReusableSelect from "../ReusableSelect";
+import ReusableSelect from "../../ReusableSelect";
 import FilteredEpisodes from "./FilteredEpisodes";
 
 export default function EpisodesContainer({ info }) {
