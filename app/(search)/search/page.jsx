@@ -1,5 +1,5 @@
-import SearchBar from "@/components/filter-search/SearchBar";
-import SearchResult from "@/components/filter-search/SearchResult";
+import SearchBar from "@/components/meta/filter-search/SearchBar";
+import SearchResult from "@/components/meta/filter-search/SearchResult";
 
 async function fetchMetaManualAndFilterSearch(searchParams) {
   const { query, searchType } = searchParams;

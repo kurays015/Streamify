@@ -1,6 +1,6 @@
 import capitalFirstLetter from "@/lib/capitalFirstLetter";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { Input } from "../../ui/input";
+import { Label } from "../../ui/label";
 
 export default function Radio({ option, title, handleChange }) {
   return (

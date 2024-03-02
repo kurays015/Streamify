@@ -1,9 +1,9 @@
 "use client";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Button } from "../../ui/button";
+import { Input } from "../../ui/input";
 import FilterSearchModal from "./FilterSearchModal";
 import { providers } from "@/lib/constants";
-import ResusableSelect from "../ReusableSelect";
+import ResusableSelect from "../../ReusableSelect";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
