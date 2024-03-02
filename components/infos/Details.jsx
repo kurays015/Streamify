@@ -22,10 +22,10 @@ export default function Details({ info, id }) {
             </div>
           </div>
         )}
-        <GenresBadge genres={info.genres} />
+        {info.genres && <GenresBadge genres={info.genres} />}
       </div>
       <div className="flex items-center gap-3 text-yellow-500 font-semibold my-2">
-        <div>{info.releaseDate}</div>
+        <div>{info.releaseDate ? info.releaseDate : info.type}</div>
         {info.status && <div>{info.status}</div>}
       </div>
       <InfoDescription description={info.description} maxLength={300} />

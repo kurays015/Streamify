@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
-import watchAndReadRoute from "@/lib/watchAndReadRoute";
 import { useMetaContext } from "@/app/hooks/useMetaContext";
+import { watchEpisodes } from "@/lib/watchAndReadRoute";
 
 export default function FilteredEpisodes({ info }) {
   const { filteredEpisodes } = useMetaContext();
@@ -16,7 +16,7 @@ export default function FilteredEpisodes({ info }) {
     >
       {filteredEpisodes ? (
         filteredEpisodes.map(episode => (
-          <Link href={watchAndReadRoute(info, episode)} key={episode.id}>
+          <Link href={watchEpisodes(info, episode)} key={episode.id}>
             <EpisodeNumber {...episode} info={info} />
           </Link>
         ))
