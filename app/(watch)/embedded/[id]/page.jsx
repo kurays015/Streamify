@@ -27,7 +27,7 @@ export default function EmbeddedVideoPage({ params, searchParams }) {
           type === "Movie" ? "absolute bottom-5" : "flex justify-center my-2"
         }`}
       >
-        You want no ads? Download brave browser!
+        Hate ads? Download brave browser!
       </span>
     </main>
   );
