@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { FaPlay, FaPlus } from "react-icons/fa6";
 import { Button } from "../ui/button";
-import { watchEpisodes } from "@/lib/watchAndReadRoute";
+import { watchAndReadButton } from "@/lib/watchAndReadRoute";
 
 export default function InfoPlayAndAddToWatchlist({ info }) {
   return (
     <div className="flex items-center gap-3 my-5 customSm:flex-col md:flex-row">
-      {/* <Link href={watchEpisodes(info)} className={`customSm:w-full md:w-auto`}>
+      <Link
+        href={watchAndReadButton(info)}
+        className={`customSm:w-full md:w-auto`}
+      >
         <Button
           variant="secondary"
           className="text-base font-semibold py-6 px-10 hover:scale-105 transition-all customSm:w-full md:w-auto"
@@ -14,7 +17,7 @@ export default function InfoPlayAndAddToWatchlist({ info }) {
           <FaPlay className="text-lg mr-1" />
           <span>{info.chapters ? "Read now" : "Play now"}</span>
         </Button>
-      </Link> */}
+      </Link>
       <Link href={""} className="customSm:w-full">
         <Button
           variant="outline"

@@ -34,30 +34,31 @@ async function getChapters(id) {
 }
 
 export default async function MangaMainContent({ params, searchParams }) {
-  const providers = await getChapters(params.id);
-  const comickChapters = providers?.find(
-    provider => provider.providerId === "comick"
-  );
-  const reverseChapters = comickChapters.chapters.sort(
-    (a, b) => a.number - b.number
-  );
-  const chaptersPages = await getChaptersPages(
-    params.id,
-    searchParams,
-    reverseChapters
-  );
+  // const providers = await getChapters(params.id);
+  // const comickChapters = providers?.find(
+  //   provider => provider.providerId === "comick"
+  // );
+  // const reverseChapters = comickChapters.chapters.sort(
+  //   (a, b) => a.number - b.number
+  // );
+  // const chaptersPages = await getChaptersPages(
+  //   params.id,
+  //   searchParams,
+  //   reverseChapters
+  // );
 
-  if (!chaptersPages) return <WatchAndInfoError />;
+  // if (!chaptersPages) return <WatchAndInfoError />;
 
   return (
     <div className="text-white">
-      <ChaptersButton reverseChapters={reverseChapters} />
+      <h1>in development...</h1>
+      {/* <ChaptersButton reverseChapters={reverseChapters} />
       {chaptersPages ? (
         <ChaptersContent chaptersContent={chaptersPages} />
       ) : (
         <NoContent />
       )}
-      <ChaptersButton reverseChapters={reverseChapters} />
+      <ChaptersButton reverseChapters={reverseChapters} /> */}
     </div>
   );
 }

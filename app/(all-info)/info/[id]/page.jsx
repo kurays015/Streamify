@@ -24,7 +24,7 @@ async function getInfo(id, searchParams) {
   }
 }
 
-export default async function page({ params, searchParams }) {
+export default async function AllInfo({ params, searchParams }) {
   const allInfo = await getInfo(params.id, searchParams);
 
   if (!allInfo) return <WatchAndInfoError />;
