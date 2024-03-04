@@ -10,7 +10,7 @@ import Card from "./Card";
 import Link from "next/link";
 import infoUrl from "@/lib/infoUrl";
 
-export function CardCarousel({ data }) {
+export async function CardCarousel({ data }) {
   return (
     <Carousel
       className="w-full lg:max-w-7xl mx-auto relative group z-50"

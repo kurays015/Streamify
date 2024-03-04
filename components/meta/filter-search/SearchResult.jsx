@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Card from "../../Card";
 import infoUrl from "@/lib/infoUrl";
+import Card from "@/components/Card";
 
 export default function SearchResult({ results }) {
   return (

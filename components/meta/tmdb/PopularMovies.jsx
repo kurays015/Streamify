@@ -1,4 +1,16 @@
-import { CardCarousel } from "../../CardCarousel";
+import { CardCarousel } from "@/components/CardCarousel";
+
+export default async function PopularMovies() {
+  const popular = await getPopularMovies();
+  return (
+    <div className="mt-16 mb-5 relative customSm:mt-0 customSm:px-2 lg:mt-48">
+      <h1 className="text-amber-300 text-start mb-5 font-semibold customSm:text-2xl lg:text-3xl ">
+        Popular Movies
+      </h1>
+      <CardCarousel data={popular?.results} />
+    </div>
+  );
+}
 
 async function getPopularMovies() {
   try {
@@ -12,16 +24,4 @@ async function getPopularMovies() {
   } catch (error) {
     console.log(error);
   }
-}
-
-export default async function PopularMovies() {
-  const popular = await getPopularMovies();
-  return (
-    <div className="mt-16 mb-5 relative customSm:mt-0 customSm:px-2 lg:mt-48">
-      <h1 className="text-amber-300 text-start mb-5 font-semibold customSm:text-2xl lg:text-3xl ">
-        Popular Movies
-      </h1>
-      <CardCarousel data={popular?.results} />
-    </div>
-  );
 }

@@ -9,7 +9,7 @@ import TopRatedMovies from "@/components/meta/tmdb/TopRatedMovies";
 import PopularTVSeries from "@/components/meta/tmdb/PopularTVSeries";
 import TopRatedTVSeries from "@/components/meta/tmdb/TopRatedTVSeries";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className="max-w-7xl mx-auto">
       <TrendingMoviesCarousel />

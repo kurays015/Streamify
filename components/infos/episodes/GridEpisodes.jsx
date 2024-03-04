@@ -7,7 +7,7 @@ export default function GridEpisodes({ info }) {
   return (
     <div>
       <h1 className="text-slate-200 font-semibold customSm:text-xl customSm:mt-12 customSm:mb-5 lg:my-5 lg:text-3xl">
-        Episodes
+        Episodes (maintenance...)
       </h1>
       <div
         className={`grid  ${
