@@ -10,7 +10,7 @@ async function getInfo(id, searchParams) {
 
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL}${providerUrl(providerId, id, params)}`,
+      `${process.env.CONSUMET_ONRENDER}${providerUrl(providerId, id, params)}`,
       {
         cache: "no-store",
       }
