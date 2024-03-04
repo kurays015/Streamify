@@ -8,8 +8,8 @@ export default function GogoAnime() {
         Gogoanime
       </h1>
       <h2>maintenance...</h2>
-      <RecentEpisodes />
-      <TopAiring />
+      {/* <RecentEpisodes />
+      <TopAiring /> */}
     </main>
   );
 }
