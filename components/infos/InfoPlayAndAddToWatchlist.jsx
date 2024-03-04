@@ -3,11 +3,11 @@ import { FaPlay, FaPlus } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import { watchAndReadButton } from "@/lib/watchAndReadRoute";
 
-export default function InfoPlayAndAddToWatchlist({ info }) {
+export default function InfoPlayAndAddToWatchlist({ info, id }) {
   return (
     <div className="flex items-center gap-3 my-5 customSm:flex-col md:flex-row">
       <Link
-        href={watchAndReadButton(info)}
+        href={watchAndReadButton(info, id)}
         className={`customSm:w-full md:w-auto`}
       >
         <Button

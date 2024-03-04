@@ -29,9 +29,9 @@ export default function Details({ info, id }) {
         {info.status && <div>{info.status}</div>}
       </div>
       <InfoDescription description={info.description} maxLength={300} />
-      <InfoPlayAndAddToWatchlist info={info} />
+      <InfoPlayAndAddToWatchlist info={info} id={id} />
       {(info.type === "Movie" || info.type === "TV Series") && (
-        <WithAdsMessage info={info} id={id} />
+        <WithAdsMessage />
       )}
     </div>
   );
