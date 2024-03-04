@@ -1,5 +1,5 @@
-// import RecentEpisodes from "@/components/gogoanime/RecentEpisodes";
-// import TopAiring from "@/components/gogoanime/TopAiring";
+import RecentEpisodes from "@/components/gogoanime/RecentEpisodes";
+import TopAiring from "@/components/gogoanime/TopAiring";
 
 export default function GogoAnime() {
   return (
@@ -8,8 +8,8 @@ export default function GogoAnime() {
         Gogoanime
       </h1>
       maintenance...
-      {/* <RecentEpisodes />
-      <TopAiring /> */}
+      <RecentEpisodes />
+      <TopAiring />
     </main>
   );
 }
