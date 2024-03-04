@@ -1,5 +1,5 @@
-import RecentEpisodes from "@/components/gogoanime/RecentEpisodes";
-import TopAiring from "@/components/gogoanime/TopAiring";
+import RecentEpisodes from "@/components/ganime/RecentEpisodes";
+import TopAiring from "@/components/ganime/TopAiring";
 
 export default function GogoAnime() {
   return (
