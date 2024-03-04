@@ -10,7 +10,7 @@ async function getInfo(id, searchParams) {
 
   try {
     const res = await fetch(
-      `${process.env.RAILWAY_SERVER_URL}${providerUrl(providerId, id, params)}`,
+      `${process.env.SOURCE_URL}${providerUrl(providerId, id, params)}`,
       {
         cache: "no-store",
       }
