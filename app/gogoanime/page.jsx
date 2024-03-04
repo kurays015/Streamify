@@ -1,5 +1,5 @@
 import RecentEpisodes from "@/components/ganime/RecentEpisodes";
-import TopAiring from "@/components/ganime/TopAiring";
+// import TopAiring from "@/components/ganime/TopAiring";
 
 export default function GogoAnime() {
   return (
@@ -7,9 +7,9 @@ export default function GogoAnime() {
       <h1 className="px-2 mt-12 text-orange-300 font-medium customSm:text-lg lg:text-xl">
         Gogoanime
       </h1>
-      maintenance...
+      <h2>maintenance...</h2>
       <RecentEpisodes />
-      <TopAiring />
+      {/* <TopAiring /> */}
     </main>
   );
 }

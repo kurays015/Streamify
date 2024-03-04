@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
-import { useMetaContext } from "@/app/hooks/useMetaContext";
+import { useMetaContext } from "@/hooks/useMetaContext";
 import { watchEpisodes } from "@/lib/watchAndReadRoute";
 
 export default function FilteredEpisodes({ info }) {

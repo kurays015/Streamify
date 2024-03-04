@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import SelectOptions from "./SelectOptions";
-import { useMetaContext } from "@/app/hooks/useMetaContext";
+import { useMetaContext } from "@/hooks/useMetaContext";
 
 export default function ReusableSelect({ info, setQueryParams }) {
   const { setFilteredEpisodes } = useMetaContext();
