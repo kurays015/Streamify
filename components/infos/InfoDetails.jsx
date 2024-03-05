@@ -21,7 +21,7 @@ export default function InfoDetails({ info, id }) {
         <Details info={info} id={id} />
       </div>
       {info.trailer && <Trailer {...info.trailer} />}
-      {(info.seasons || info.episodes) && <EpisodesContainer info={info} />}
+      {info.episodes && <EpisodesContainer info={info} />}
       {info.recommendations && <YouMayLike info={info} />}
       {info.similar && <Similar info={info} />}
     </div>

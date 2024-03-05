@@ -8,26 +8,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import SelectOptions from "./SelectOptions";
-import { useMetaContext } from "@/hooks/useMetaContext";
 
 export default function ReusableSelect({ info, setQueryParams }) {
-  const { setFilteredEpisodes } = useMetaContext();
+  // const { setFilteredEpisodes } = useMetaContext();
 
-  React.useEffect(() => {
-    setFilteredEpisodes && setFilteredEpisodes([]);
-  }, []);
+  // React.useEffect(() => {
+  //   setFilteredEpisodes && setFilteredEpisodes([]);
+  // }, []);
 
   return (
-    <Select
-      onValueChange={value => {
-        console.log(value);
-        if (info?.type === "TV Series") {
-          setFilteredEpisodes && setFilteredEpisodes(value.episodes);
-        } else {
-          setQueryParams && setQueryParams(value);
-        }
-      }}
-    >
+    <Select onValueChange={value => setQueryParams(value)}>
       <SelectTrigger className="w-[180px] text-white">
         <SelectValue placeholder={info?.seasons ? "Seasons" : "Select type"} />
       </SelectTrigger>
