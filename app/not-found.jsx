@@ -9,7 +9,7 @@ export default function NotFound() {
       <div className="flex justify-center">
         <Image src={notfound} alt="not-found" priority />
       </div>
-      <p className="my-2 text-slate-300">You&apos;re lost!</p>
+      <p className="mb-2 text-slate-300">You&apos;re lost!</p>
       <Link href="/">
         <Button variant="secondary">Go back home</Button>
       </Link>
