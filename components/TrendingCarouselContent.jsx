@@ -32,7 +32,9 @@ export default function TrendingCarouselContent({
         </p>
         <div className="flex items-center gap-3 my-5">
           <Link
-            href={`/embedded/${id}?type=${media_type === "movie" && "Movie"}`}
+            href={`/embedded/${id}?type=${
+              media_type === "movie" && "Movie"
+            }&title=${title ? title : name}`}
           >
             <Button
               variant="secondary"
