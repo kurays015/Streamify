@@ -1,5 +1,3 @@
-import { MANGA } from "@consumet/extensions";
-
 // async function getChaptersPages(id, searchParams, reverseChapters) {
 //   const { chapter, readId } = searchParams;
 //   const firstChapterReadId = reverseChapters[0].id;
