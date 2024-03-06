@@ -5,6 +5,9 @@ async function getTopAiring() {
     const res = await fetch(
       `${process.env.SOURCE_URL6}/anime/gogoanime/top-airing`
     );
+    if (!res.ok) {
+      throw new Error("Error fetching gogoanime top airing.");
+    }
     return res.json();
   } catch (error) {
     console.log(error);

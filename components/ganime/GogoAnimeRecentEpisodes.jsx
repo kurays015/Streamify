@@ -5,6 +5,9 @@ async function getRecentEpisodes() {
     const res = await fetch(
       `${process.env.SOURCE_URL6}/anime/gogoanime/recent-episodes`
     );
+    if (!res.ok) {
+      throw new Error("Error fetching gogoanime recent episodes.");
+    }
     return res.json();
   } catch (error) {
     console.log(error);

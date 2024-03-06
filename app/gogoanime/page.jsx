@@ -1,5 +1,7 @@
-import RecentEpisodes from "@/components/ganime/RecentEpisodes";
-import TopAiring from "@/components/ganime/TopAiring";
+import GogoAnimeRecentEpisodes from "@/components/ganime/GogoAnimeRecentEpisodes";
+import GogoAnimeTopAiring from "@/components/ganime/GogoAnimeTopAiring";
+
+export const dynamic = "force-dynamic";
 
 export default function GogoAnime() {
   return (
@@ -8,8 +10,8 @@ export default function GogoAnime() {
         Gogoanime
       </h1>
       <h2>maintenance...</h2>
-      <RecentEpisodes />
-      <TopAiring />
+      <GogoAnimeRecentEpisodes />
+      <GogoAnimeTopAiring />
     </main>
   );
 }
