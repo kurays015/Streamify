@@ -25,7 +25,6 @@ async function getStreamingLinks(id, searchParams) {
 
 export default async function Watch({ params, searchParams }) {
   const streamLinks = await getStreamingLinks(params.id, searchParams);
-  console.log(streamLinks);
   if (!streamLinks) return <WatchAndInfoError />;
 
   return (

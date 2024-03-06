@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
       >
         {/* <MetaContextProvider> */}
         <HolyLoader
-          color="#ff4500"
+          color="#ffe57f"
           height=".2rem"
           speed={250}
           easing="linear"
