@@ -3,7 +3,7 @@ import { CardCarousel } from "../../CardCarousel";
 async function getRecentEpisodes() {
   try {
     const res =
-      await fetch(`${process.env.SOURCE_URL}/meta/anilist/recent-episodes
+      await fetch(`${process.env.SOURCE_URL1}/meta/anilist/recent-episodes
     `);
     if (!res.ok) {
       throw new Error("Error fetching recent episodes.");

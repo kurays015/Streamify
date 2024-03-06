@@ -3,7 +3,7 @@ import { CardCarousel } from "../../CardCarousel";
 async function getPopular() {
   try {
     const res =
-      await fetch(`${process.env.SOURCE_URL}/meta/anilist/popular?perPage=20
+      await fetch(`${process.env.SOURCE_URL1}/meta/anilist/popular?perPage=20
     `);
 
     if (!res.ok) {

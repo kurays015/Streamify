@@ -10,7 +10,7 @@ async function getStreamingLinks(id, searchParams) {
 
   try {
     const res = await fetch(
-      `${process.env.RAILWAY_SERVER_URL}/meta/${
+      `${process.env.SOURCE_URL1}/meta/${
         tmdb ? "tmdb" : "anilist"
       }/watch/${id}${tmdbWatchParams}`
     );
@@ -25,7 +25,7 @@ async function getStreamingLinks(id, searchParams) {
 
 export default async function Watch({ params, searchParams }) {
   const streamLinks = await getStreamingLinks(params.id, searchParams);
-
+  console.log(streamLinks);
   if (!streamLinks) return <WatchAndInfoError />;
 
   return (

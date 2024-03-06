@@ -14,8 +14,8 @@ async function fetchMetaManualAndFilterSearch(searchParams) {
       : "tmdb";
 
   const url = query
-    ? `${process.env.SOURCE_URL}/meta/${providerName}/${query}`
-    : `${process.env.SOURCE_URL}/meta/anilist/advanced-search?${allQueryParams}`;
+    ? `${process.env.SOURCE_URL1}/meta/${providerName}/${query}`
+    : `${process.env.SOURCE_URL1}/meta/anilist/advanced-search?${allQueryParams}`;
 
   try {
     const res = await fetch(url);
