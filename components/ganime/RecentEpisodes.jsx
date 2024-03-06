@@ -3,7 +3,7 @@ import { CardCarousel } from "../CardCarousel";
 async function getRecentEpisodes() {
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL7}/anime/gogoanime/recent-episodes`
+      `${process.env.SOURCE_URL6}/anime/gogoanime/recent-episodes`
     );
     return res.json();
   } catch (error) {

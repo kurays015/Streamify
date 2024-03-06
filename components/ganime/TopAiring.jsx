@@ -3,7 +3,7 @@ import { CardCarousel } from "../CardCarousel";
 async function getTopAiring() {
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL7}/anime/gogoanime/top-airing`
+      `${process.env.SOURCE_URL6}/anime/gogoanime/top-airing`
     );
     return res.json();
   } catch (error) {
