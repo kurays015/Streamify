@@ -1,19 +1,20 @@
+"use client";
+import { useEffect } from "react";
+import { EpisodeDropdown } from "./EpisodeDropdown";
 import GridEpisodes from "./GridEpisodes";
-// import ReusableSelect from "../../ReusableSelect";
-// import FilteredEpisodes from "./FilteredEpisodes";
 
 export default function EpisodesContainer({ info }) {
-  // const tvSeries = info.type === "TV Series";
+  useEffect(() => {
+    localStorage.setItem("episodes", JSON.stringify(info.episodes));
+  }, []);
 
   return (
     <div className="customSm:my-5 customSm:mx-2 md:mx-6 lg:my-12 xl:mx-0">
-      {info.episodes && <GridEpisodes info={info} />}
-      {/* {tvSeries && (
-        <>
-          <ReusableSelect info={info} />
-          <FilteredEpisodes info={info} />
-        </>
-      )} */}
+      {info.episodes.length > 100 ? (
+        <EpisodeDropdown info={info} />
+      ) : (
+        <GridEpisodes info={info} />
+      )}
     </div>
   );
 }

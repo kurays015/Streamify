@@ -12,7 +12,8 @@ async function getRecentNewsFeed() {
 export default async function News() {
   const newsFeed = await getRecentNewsFeed();
   return (
-    <main className="max-w-7xl mx-auto">
+    <main className="max-w-7xl mx-auto text-white">
+      <h1>in development...</h1>
       <div className="grid grid-cols-5">
         {newsFeed.map(feed => (
           <div key={feed.id}>

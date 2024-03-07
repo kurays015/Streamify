@@ -9,7 +9,7 @@ export default function GogoAnime() {
       <h1 className="px-2 mt-12 text-orange-300 font-medium customSm:text-lg lg:text-xl">
         Gogoanime
       </h1>
-      <h2>maintenance...</h2>
+      <h2>in development...</h2>
       <GogoAnimeRecentEpisodes />
       <GogoAnimeTopAiring />
     </main>

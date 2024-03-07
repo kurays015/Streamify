@@ -17,7 +17,7 @@ export async function CardCarousel({ data }) {
       opts={{ dragFree: true, loop: false }}
     >
       <CarouselContent className="-ml-1 flex customSm:gap-1 lg:gap-2">
-        {data.map(result => (
+        {data?.map(result => (
           <CarouselItem
             key={result.id}
             className="pl-1 relative customSm:basis-1/2 customSemiMd:basis-1/3 customSemiMd2:basis-1/4 md:basis-1/5 lg:basis-1/6"
