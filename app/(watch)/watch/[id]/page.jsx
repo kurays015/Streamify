@@ -2,17 +2,10 @@ import VideoPlayer from "@/components/ArtPlayer";
 import BackToHomeBtn from "@/components/BackToHomeBtn";
 import WatchAndInfoError from "@/components/WatchAndInfoError";
 
-async function getStreamingLinks(id, searchParams) {
-  const { type, showId } = searchParams;
-  const tmdb = type === "Movie" || type === "TV Series";
-
-  const tmdbWatchParams = tmdb ? `?id=${showId}` : "";
-
+async function getStreamingLinks(id) {
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL1}/meta/${
-        tmdb ? "tmdb" : "anilist"
-      }/watch/${id}${tmdbWatchParams}`
+      `${process.env.SOURCE_URL1}/meta/anilist/watch/${id}`
     );
     if (!res.ok) {
       throw new Error("Error fetching stream links.");
@@ -23,8 +16,8 @@ async function getStreamingLinks(id, searchParams) {
   }
 }
 
-export default async function Watch({ params, searchParams }) {
-  const streamLinks = await getStreamingLinks(params.id, searchParams);
+export default async function Watch({ params }) {
+  const streamLinks = await getStreamingLinks(params.id);
   if (!streamLinks) return <WatchAndInfoError />;
 
   return (
