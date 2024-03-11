@@ -17,7 +17,7 @@ export function TrendingCarousel({ data }) {
         opts={{ loop: true }}
       >
         <CarouselContent className="-ml-1">
-          {data.map((result, index) => (
+          {data?.map((result, index) => (
             <CarouselItem key={result.id} className="p-0 relative">
               <CoverImage cover={tmdbImgHandler(result.backdrop_path)} />
               <TrendingCarouselContent {...result} index={index} />
