@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-// import MetaContextProvider from "@/context/MetaContext";
 import HolyLoader from "holy-loader";
+import StoreProvider from "./Providers/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,6 @@ export default async function RootLayout({ children }) {
         className={`${inter.className} bg-[#111827] relative`}
         suppressHydrationWarning
       >
-        {/* <MetaContextProvider> */}
         <HolyLoader
           color="#ffe57f"
           height=".2rem"
@@ -27,8 +26,7 @@ export default async function RootLayout({ children }) {
           showSpinner
         />
         <Header />
-        {children}
-        {/* </MetaContextProvider> */}
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

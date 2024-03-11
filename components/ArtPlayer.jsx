@@ -30,7 +30,6 @@ const Player = ({ option, getInstance, ...rest }) => {
       container: artRef.current,
       pip: true,
       fastForward: true,
-
       settings: [
         {
           html: option.subtitles.length
@@ -96,44 +95,49 @@ const Player = ({ option, getInstance, ...rest }) => {
 
 export default function VideoPlayer({ videoSources }) {
   return (
-    <Player
-      option={{
-        sources: videoSources?.sources || [],
-        subtitles: videoSources?.subtitles || [],
-        download: videoSources?.download,
-        layers: [
-          {
-            html: "",
-            disable: !Artplayer.utils.isMobile,
-            click: function () {
-              art.toggle();
+    <div className="relative w-full customSm:h-[1000px] lg:h-[700px]">
+      <Player
+        option={{
+          sources: videoSources?.sources || [],
+          subtitles: videoSources?.subtitles || [],
+          download: videoSources?.download,
+          layers: [
+            {
+              html: "",
+              disable: !Artplayer.utils.isMobile,
+              click: function () {
+                art.toggle();
+              },
             },
+          ],
+          type: "m3u8",
+          customType: {
+            m3u8: playM3u8,
           },
-        ],
-        type: "m3u8",
-        customType: {
-          m3u8: playM3u8,
-        },
-        setting: true,
-        playbackRate: true,
-        aspectRatio: true,
-        subtitleOffset: true,
-        volume: 0.7,
-        isLive: false,
-        autoSize: true,
-        fullscreen: true,
-        hotkey: true,
-        miniProgressBar: true,
-        playsInline: true,
-        fastForward: true,
-        autoPlayback: true,
-        autoOrientation: true,
-        theme: "#69DEF6",
-      }}
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
-    />
+          setting: true,
+          playbackRate: true,
+          aspectRatio: true,
+          subtitleOffset: true,
+          volume: 0.7,
+          isLive: false,
+          autoSize: true,
+          fullscreen: true,
+          hotkey: true,
+          miniProgressBar: true,
+          playsInline: true,
+          fastForward: true,
+          autoPlayback: true,
+          autoOrientation: true,
+          theme: "#69DEF6",
+        }}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      />
+      <p className="text-white text-center">
+        The UI of this page is in development...
+      </p>
+    </div>
   );
 }

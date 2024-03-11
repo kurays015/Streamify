@@ -1,4 +1,4 @@
-export default function EmbeddedVideo({ type, queryParams }) {
+export default function EmbeddedVideo({ queryParams }) {
   return (
     <iframe
       className="customSm:h-[40vh] md:h-[60vh] lg:h-[70vh] w-full rounded-md"

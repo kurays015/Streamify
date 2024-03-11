@@ -10,16 +10,10 @@ import {
 import SelectOptions from "./SelectOptions";
 
 export default function ReusableSelect({ info, setQueryParams }) {
-  // const { setFilteredEpisodes } = useMetaContext();
-
-  // React.useEffect(() => {
-  //   setFilteredEpisodes && setFilteredEpisodes([]);
-  // }, []);
-
   return (
     <Select onValueChange={value => setQueryParams(value)}>
       <SelectTrigger className="w-[180px] text-white">
-        <SelectValue placeholder={info?.seasons ? "Seasons" : "Select type"} />
+        <SelectValue placeholder={"Select type"} />
       </SelectTrigger>
       <SelectContent
         ref={ref => {

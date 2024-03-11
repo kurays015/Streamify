@@ -19,7 +19,7 @@ import {
 import { useRouter } from "next/navigation";
 
 export function EpisodeDropdown({ info }) {
-  const episodes = React.useMemo(() => info.episodes, [info.episodes]);
+  const { episodes } = React.useMemo(() => info, [info]);
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
   const router = useRouter();
@@ -35,7 +35,7 @@ export function EpisodeDropdown({ info }) {
         >
           {value
             ? `Episode ${
-                info.episodes.find(episode => episode.id === value)?.number
+                episodes.find(episode => episode.id === value)?.number
               }`
             : "Select episode..."}
           <PiCaretUpDownThin className="ml-2 h-4 w-4 shrink-0 opacity-50" />

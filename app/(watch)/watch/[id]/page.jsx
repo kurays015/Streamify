@@ -1,5 +1,4 @@
 import VideoPlayer from "@/components/ArtPlayer";
-import BackToHomeBtn from "@/components/BackToHomeBtn";
 import WatchAndInfoError from "@/components/WatchAndInfoError";
 
 async function getStreamingLinks(id) {
@@ -21,9 +20,8 @@ export default async function Watch({ params }) {
   if (!streamLinks) return <WatchAndInfoError />;
 
   return (
-    <main>
-      <BackToHomeBtn />
+    <div className="max-w-7xl mx-auto">
       <VideoPlayer videoSources={streamLinks} />
-    </main>
+    </div>
   );
 }

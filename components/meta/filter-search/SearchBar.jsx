@@ -29,7 +29,7 @@ export default function SearchBar() {
           id="search"
           placeholder={
             !queryParams
-              ? "Choose provider first..."
+              ? "Choose a type first..."
               : "search anime, manga, and movie..."
           }
           className="bg-slate-800 text-ellipsis overflow-hidden whitespace-nowrap w-full disabled:bg-slate-100 "

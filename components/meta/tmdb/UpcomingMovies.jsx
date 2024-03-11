@@ -21,7 +21,7 @@ export default async function UpcomingMovies() {
       <h1 className="text-3xl text-orange-300 text-start mb-5 font-semibold customSm:text-2xl lg:text-3xl">
         Upcoming Movies
       </h1>
-      <CardCarousel data={upcoming?.results} />
+      <CardCarousel data={upcoming.results} />
     </div>
   );
 }

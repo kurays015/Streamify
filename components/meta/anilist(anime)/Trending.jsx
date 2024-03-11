@@ -22,7 +22,7 @@ export default async function popular() {
       <h1 className="text-3xl text-trending text-start mb-5 font-semibold customSm:text-2xl lg:text-3xl">
         Trending Anime
       </h1>
-      <CardCarousel data={trending?.results} />
+      <CardCarousel data={trending.results} />
     </div>
   );
 }
