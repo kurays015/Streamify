@@ -18,7 +18,7 @@ export default function InfoDetails({ info, id }) {
           className="w-1/4 customSm:w-full lg:w-auto lg:h-[480px] lg:rounded-md"
           priority
         />
-        {/* <Details info={info} id={id} /> */}
+        <Details info={info} id={id} />
       </div>
       {/* {info.trailer && <Trailer {...info.trailer} />}
       {info.episodes && <EpisodesContainer info={info} />}
