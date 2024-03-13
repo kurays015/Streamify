@@ -14,11 +14,9 @@ export default async function TestComponent() {
   //   urls.map(url => fetch(url, { cache: "no-store" }))
   // );
   // const data = await Promise.all(responses.map(response => response.json()));
-  const res = await fetch(
-    `${process.env.SOURCE_URL1}/meta/anilist/popular?perPage=20
-  `,
-    { cache: "no-store" }
-  );
+  const res =
+    await fetch(`${process.env.SOURCE_URL1}/meta/anilist/popular?perPage=20
+  `);
   const data = await res.json();
 
   return (
