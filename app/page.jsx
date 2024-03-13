@@ -10,24 +10,29 @@ import { Skeleton } from "@/components/ui/skeleton";
 import AnilistRecentEpisodes from "@/components/meta/anilist(anime)/RecentEpisodes";
 import AnilistTrending from "@/components/meta/anilist(anime)/Trending";
 import AnilistPopular from "@/components/meta/anilist(anime)/Popular";
+import TestComponent from "@/components/test/TestComponent";
 
 export const runtime = "experimental-edge";
 
 export default function Home() {
   return (
     <main className="max-w-7xl mx-auto">
-      <Suspense
+      {/* <Suspense
         fallback={
           <Skeleton className="bg-gradient-to-t from-gray-900 via-gray-900 to-black opacity-75 animate-none absolute inset-0 h-screen w-full" />
         }
       >
         <TrendingMoviesCarousel />
-      </Suspense>
+      </Suspense> */}
 
       <Suspense fallback={<PopularMoviesSkeleton />}>
-        <PopularMovies />
+        <TestComponent />
       </Suspense>
 
+      {/* <Suspense fallback={<PopularMoviesSkeleton />}>
+        <PopularMovies />
+      </Suspense> */}
+      {/* 
       <Suspense fallback={<GridSkeleton />}>
         <UpcomingMovies />
       </Suspense>
@@ -54,7 +59,7 @@ export default function Home() {
 
       <Suspense fallback={<GridSkeleton />}>
         <AnilistPopular />
-      </Suspense>
+      </Suspense> */}
 
       <Footer />
     </main>
