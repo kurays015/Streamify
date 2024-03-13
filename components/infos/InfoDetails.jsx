@@ -22,7 +22,7 @@ export default function InfoDetails({ info, id }) {
       </div>
       {info.trailer && <Trailer {...info.trailer} />}
       {info.episodes && <EpisodesContainer info={info} />}
-      {/* {info.recommendations && <YouMayLike info={info} />} */}
+      {info.recommendations && <YouMayLike info={info} />}
       {/* {info.similar && <Similar info={info} />} */}
     </div>
   );
