@@ -1,4 +1,4 @@
-import { TrendingCarousel } from "../../TrendingCarousel";
+import { TrendingCarousel } from "./TrendingCarousel";
 
 export default async function TrendingMoviesCarousel() {
   const res = await fetch(
