@@ -20,10 +20,10 @@ export default function InfoDetails({ info, id }) {
         />
         <Details info={info} id={id} />
       </div>
-      {/* {info.trailer && <Trailer {...info.trailer} />}
+      {info.trailer && <Trailer {...info.trailer} />}
       {info.episodes && <EpisodesContainer info={info} />}
-      {info.recommendations && <YouMayLike info={info} />}
-      {info.similar && <Similar info={info} />} */}
+      {/* {info.recommendations && <YouMayLike info={info} />} */}
+      {/* {info.similar && <Similar info={info} />} */}
     </div>
   );
 }

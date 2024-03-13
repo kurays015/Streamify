@@ -1,4 +1,3 @@
-"use client";
 import { EpisodeDropdown } from "./EpisodeDropdown";
 import GridEpisodes from "./GridEpisodes";
 
