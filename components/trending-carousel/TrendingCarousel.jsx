@@ -5,7 +5,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import TrendingCarouselContent from "./TrendingCarouselContent";
-import CoverImage from "./CoverImage";
+import CoverImage from "../CoverImage";
 import tmdbImgHandler from "@/lib/tmdbImg";
 
 export function TrendingCarousel({ data }) {

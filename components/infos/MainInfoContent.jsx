@@ -1,6 +1,7 @@
 import InfoDetails from "./InfoDetails";
 import BackToHomeBtn from "../BackToHomeBtn";
 import CoverImage from "../CoverImage";
+import InfoPlayAndAddToWatchlist from "./InfoPlayAndAddToWatchlist";
 
 export default function MainInfoContent({ infoData, id }) {
   const info = infoData && infoData;
@@ -8,7 +9,12 @@ export default function MainInfoContent({ infoData, id }) {
     <main>
       <BackToHomeBtn />
       <CoverImage cover={info.cover} />
-      <InfoDetails info={info} id={id} />
+      <div className="relative z-10">
+        <InfoPlayAndAddToWatchlist info={info} id={id} />
+        <p className="text-white">Fixing somethin...</p>
+      </div>
+
+      {/* <InfoDetails info={info} id={id} /> */}
     </main>
   );
 }

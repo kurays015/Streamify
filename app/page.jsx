@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import CardCarouselSkeleton from "@/components/skeletons/CardCarouselSkeleton";
 import CardCarouselContainer from "@/components/CardCarouselContainer";
-import TrendingMoviesCarousel from "@/components/TrendingMoviesCarousel";
+import TrendingMoviesCarousel from "@/components/trending-carousel/TrendingMoviesCarousel";
 
 export const runtime = "experimental-edge";
 

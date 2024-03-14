@@ -1,4 +1,4 @@
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import Link from "next/link";
