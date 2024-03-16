@@ -1,9 +1,8 @@
-import getImageBase64Async from "@/lib/base64";
+import { customBase64 } from "@/lib/base64";
 import Image from "next/image";
 
 export default async function NewsCard({ thumbnail, title }) {
-  // await new Promise(resolve => setTimeout(resolve, 5000));
-  const blurURL = await getImageBase64Async(thumbnail);
+  const blurURL = await customBase64(thumbnail);
   return (
     <div>
       <Image

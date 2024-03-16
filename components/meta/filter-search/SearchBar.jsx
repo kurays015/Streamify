@@ -2,7 +2,7 @@
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
 import FilterSearchModal from "./FilterSearchModal";
-import { providers } from "@/lib/constants";
+import { types } from "@/lib/constants";
 import ResusableSelect from "../../ReusableSelect";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -39,7 +39,7 @@ export default function SearchBar() {
         </Button>
       </form>
       <div className="customSm:flex customSm:justify-center">
-        <ResusableSelect info={providers} setQueryParams={setQueryParams} />
+        <ResusableSelect info={types} setQueryParams={setQueryParams} />
         <FilterSearchModal />
       </div>
     </div>
