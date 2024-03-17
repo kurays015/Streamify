@@ -6,7 +6,10 @@ export default function Categories() {
   return (
     <>
       {categories.map(category => (
-        <Link href={`/${category.toLowerCase()}`} key={category}>
+        <Link
+          href={`/${category.toLowerCase().replace(" ", "")}`}
+          key={category}
+        >
           <DropdownMenuCheckboxItem className="cursor-pointer hover:bg-emerald-700">
             {category}
           </DropdownMenuCheckboxItem>

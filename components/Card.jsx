@@ -1,4 +1,3 @@
-import getImageBase64Async from "@/lib/base64";
 import titleHandler from "@/lib/titleHandler";
 import tmdbImgHandler from "@/lib/tmdbImg";
 import Image from "next/image";
@@ -14,8 +13,6 @@ export default async function Card({
   const imageUrl = image ? image : tmdbImgHandler(poster_path);
   const recentEpisode = episodeTitle ? episodeTitle : episodeNumber;
 
-  // const blurURL = await getImageBase64Async(imageUrl);
-
   return (
     <div>
       <div className="overflow-hidden rounded-lg relative group">
@@ -26,8 +23,6 @@ export default async function Card({
           height={500}
           priority
           className="text-white w-full hover:scale-105 transition-all customSm:h-[300px] "
-          // placeholder="blur"
-          // blurDataURL={blurURL && blurURL}
         />
       </div>
       <h1 className="text-center text-white font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2 customSm:text-sm lg:text-base">

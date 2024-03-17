@@ -2,7 +2,7 @@ import Link from "next/link";
 import infoUrl from "@/lib/infoUrl";
 import Card from "@/components/Card";
 
-export default function SearchResult({ results }) {
+export default function SearchResult({ results, searchParams }) {
   return (
     <div
       className={
@@ -18,7 +18,9 @@ export default function SearchResult({ results }) {
           </Link>
         ))
       ) : (
-        <p className="text-slate-300 customSm:text-center">Not found...</p>
+        <p className="text-slate-300 customSm:text-center">
+          {searchParams && !results.length ? "Not found!" : ""}
+        </p>
       )}
     </div>
   );

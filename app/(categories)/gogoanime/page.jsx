@@ -1,7 +1,7 @@
 import GogoAnimeRecentEpisodes from "@/components/ganime/GogoAnimeRecentEpisodes";
 import GogoAnimeTopAiring from "@/components/ganime/GogoAnimeTopAiring";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default function GogoAnime() {
   return (

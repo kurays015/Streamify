@@ -4,6 +4,7 @@ import InfoPlayAndAddToWatchlist from "./InfoPlayAndAddToWatchlist";
 import { FaStar } from "react-icons/fa6";
 import InfoDescription from "./InfoDescription";
 import WithAdsMessage from "./WithAdsMessage";
+import infoStatus from "@/lib/infoStatus";
 
 export default function Details({ info, id }) {
   return (
@@ -25,7 +26,7 @@ export default function Details({ info, id }) {
         {info.genres && <GenresBadge genres={info.genres} />}
       </div>
       <div className="flex items-center gap-3 text-yellow-500 font-semibold my-2">
-        <div>{info.releaseDate ? info.releaseDate : info.type}</div>
+        <div>{infoStatus(info)}</div>
         {info.status && <div>{info.status}</div>}
       </div>
       <InfoDescription description={info.description} maxLength={300} />

@@ -5,10 +5,10 @@ import CoverImage from "../CoverImage";
 export default function MainInfoContent({ infoData, id }) {
   const info = infoData && infoData;
   return (
-    <main>
+    <div>
       <BackToHomeBtn />
-      <CoverImage cover={info.cover} />
+      <CoverImage cover={info.cover ? info.cover : info.image} />
       <InfoDetails info={info} id={id} />
-    </main>
+    </div>
   );
 }
