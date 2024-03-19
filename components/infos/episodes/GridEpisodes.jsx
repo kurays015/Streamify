@@ -7,11 +7,11 @@ export default function GridEpisodes({ info }) {
   return (
     <div>
       <h1 className="text-slate-200 font-semibold customSm:text-xl customSm:mt-12 customSm:mb-5 lg:my-5 lg:text-3xl">
-        Episodes (maintenance...)
+        Episodes
       </h1>
       <div className="grid grid-cols-5 customSm:gap-2 lg:gap-3 max-h-[600px] overflow-auto scrollbar-gray">
         {info.episodes.map(({ id, image, title, number }) => (
-          <Link href={watchEpisodes(id)} key={id}>
+          <Link href={watchEpisodes(id, info.id)} key={id}>
             <div className="relative customSm:hidden lg:block">
               <Image
                 src={image ? image : info.image}

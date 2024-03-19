@@ -1,4 +1,4 @@
-import { EpisodeDropdown } from "./EpisodeDropdown";
+import EpisodeDropdown from "./EpisodeDropdown";
 import GridEpisodes from "./GridEpisodes";
 
 export default function EpisodesContainer({ info }) {

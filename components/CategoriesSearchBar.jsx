@@ -9,7 +9,11 @@ export default function CategoriesSearchBar() {
   const handleSearch = useSearch(pathname);
 
   return (
-    <div className="flex items-center justify-end">
+    <div
+      className={`flex items-center justify-end ${
+        pathname === "/news" && "hidden"
+      }`}
+    >
       <form className="flex gap-2 mt-5 mb-12" onSubmit={handleSearch}>
         <Input
           type="search"

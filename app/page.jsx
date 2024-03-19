@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import CardCarouselSkeleton from "@/components/skeletons/CardCarouselSkeleton";
@@ -20,7 +19,6 @@ export default function Home() {
       <Suspense fallback={<CardCarouselSkeleton />}>
         <CardCarouselContainer />
       </Suspense>
-      <Footer />
     </main>
   );
 }

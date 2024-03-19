@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/popover";
 import { useRouter } from "next/navigation";
 
-export function EpisodeDropdown({ info }) {
+export default function EpisodeDropdown({ info }) {
   const { episodes } = React.useMemo(() => info, [info]);
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
@@ -31,7 +31,7 @@ export function EpisodeDropdown({ info }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between text-white hover:text-white"
+          className="customSm:w-full customSemiMd2:w-44 justify-between text-white hover:text-white"
         >
           {value
             ? `Episode ${
@@ -41,20 +41,23 @@ export function EpisodeDropdown({ info }) {
           <PiCaretUpDownThin className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] max-h-96 overflow-auto p-0 text-white">
+      <PopoverContent
+        className="w-[200px] max-h-44 overflow-auto p-0 text-white"
+        side="bottom"
+      >
         <Command>
           <CommandInput placeholder="Search episode..." className="h-9" />
           <CommandEmpty>No episode found.</CommandEmpty>
           <CommandGroup>
             {episodes.map(episode => (
               <CommandItem
-                className="cursor-pointer hover:bg-slate-600"
+                className="cursor-pointer hover:bg-gray-300"
                 key={episode.id}
                 value={episode.id}
                 onSelect={currentValue => {
                   setValue(currentValue === value ? "" : currentValue);
                   setOpen(false);
-                  router.push(`/watch/${episode.id}`);
+                  router.push(`/watch/${info.id}/${episode.id}`);
                 }}
               >
                 Episode {episode.number}

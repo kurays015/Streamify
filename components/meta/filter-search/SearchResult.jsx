@@ -18,9 +18,9 @@ export default function SearchResult({ results, searchParams }) {
           </Link>
         ))
       ) : (
-        <p className="text-slate-300 customSm:text-center">
+        <div className="text-slate-300 customSm:text-center h-[50vh]">
           {searchParams && !results.length ? "Not found!" : ""}
-        </p>
+        </div>
       )}
     </div>
   );

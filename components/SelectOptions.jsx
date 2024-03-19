@@ -3,13 +3,13 @@ import { SelectItem } from "./ui/select";
 export default function SelectOptions({ info }) {
   return (
     <>
-      {info.map((type, index) => (
+      {info.map((data, index) => (
         <SelectItem
-          value={type}
+          value={data}
           key={index}
           className=" focus:bg-slate-800 focus:text-slate-200 cursor-pointer"
         >
-          {type === "Movie" ? "Movie/Series" : type}
+          {data === "Movie" ? "Movie/Series" : data.id ? data.id : data}
         </SelectItem>
       ))}
     </>

@@ -95,7 +95,7 @@ const Player = ({ option, getInstance, ...rest }) => {
 
 export default function VideoPlayer({ videoSources }) {
   return (
-    <div className="relative w-full customSm:h-[1000px] lg:h-[700px]">
+    <div className="customSm:h-[200px] customSemiMd2:h-[400px] w-full lg:h-[700px]">
       <Player
         option={{
           sources: videoSources?.sources || [],
@@ -135,9 +135,6 @@ export default function VideoPlayer({ videoSources }) {
           height: "100%",
         }}
       />
-      <p className="text-white text-center">
-        The UI of this page is in development...
-      </p>
     </div>
   );
 }

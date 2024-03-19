@@ -1,5 +1,5 @@
-import VideoPlayer from "@/components/ArtPlayer";
-import WatchAndInfoError from "@/components/WatchAndInfoError";
+import WatchAndInfoError from "../WatchAndInfoError";
+import VideoPlayer from "./VideoPlayer";
 
 async function getStreamingLinks(id) {
   try {
@@ -15,13 +15,10 @@ async function getStreamingLinks(id) {
   }
 }
 
-export default async function Watch({ params }) {
-  const streamLinks = await getStreamingLinks(params.id);
+export default async function VideoPlayerContainer({ episodeId }) {
+  const streamLinks = await getStreamingLinks(episodeId);
+
   if (!streamLinks) return <WatchAndInfoError />;
 
-  return (
-    <div className="max-w-7xl mx-auto">
-      <VideoPlayer videoSources={streamLinks} />
-    </div>
-  );
+  return <VideoPlayer videoSources={streamLinks} />;
 }
