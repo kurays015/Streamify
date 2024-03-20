@@ -5,10 +5,11 @@ import SearchSkeleton from "@/components/skeletons/SearchSkeleton";
 import { Suspense } from "react";
 
 export default async function Search({ searchParams }) {
+  const hasSearchParams = Object.values(searchParams).length;
   return (
     <main className="max-w-7xl mx-auto mb-24 customSm:px-2">
       <SearchBar />
-      <FilterSearchBadge searchParams={searchParams} />
+      {hasSearchParams && <FilterSearchBadge searchParams={searchParams} />}
       <Suspense
         key={JSON.stringify(searchParams)}
         fallback={<SearchSkeleton />}

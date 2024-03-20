@@ -5,9 +5,7 @@ import cleanString from "@/lib/cleanString";
 export function FilterSearchBadge({ searchParams }) {
   return (
     <div className="text-white text-center mb-7 flex items-center justify-center gap-4">
-      {searchParams && (
-        <h5 className="text-slate-300 font-semibold text-sm">Your search:</h5>
-      )}
+      <h5 className="text-slate-300 font-semibold text-sm">Your search:</h5>
       <div className="space-x-3 ">
         {Object.values(searchParams).map(value => (
           <Badge
