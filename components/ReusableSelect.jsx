@@ -13,7 +13,11 @@ export default function ReusableSelect({ info, setQueryParams }) {
   return (
     <Select onValueChange={value => setQueryParams(value)}>
       <SelectTrigger className="w-[180px] text-white">
-        <SelectValue placeholder={"Select type"} />
+        <SelectValue
+          placeholder={`Select ${
+            typeof info[0] === "number" ? "year" : "type"
+          }`}
+        />
       </SelectTrigger>
       <SelectContent
         ref={ref => {

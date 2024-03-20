@@ -11,7 +11,8 @@ import { filters } from "@/lib/advance-search";
 import { FaFilter } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import FilterOptions from "./FilterOptions";
-import { useState } from "react";
+import React, { useState } from "react";
+import ReusableSelect from "@/components/ReusableSelect";
 
 export default function FilterSearchModal() {
   const [open, setOpen] = useState(false);
@@ -55,12 +56,19 @@ export default function FilterSearchModal() {
           <div>
             <form>
               {filters.map(filter => (
-                <FilterOptions
-                  key={filter.title}
-                  {...filter}
-                  handleRadioChange={handleRadioChange}
-                />
+                <React.Fragment key={filter.title}>
+                  {filter.title !== "Year" && (
+                    <FilterOptions
+                      {...filter}
+                      handleRadioChange={handleRadioChange}
+                    />
+                  )}
+                </React.Fragment>
               ))}
+              {/* <h3 className=" font-semibold text-emerald-400 customSm:text-base lg:text-lg">
+                Year
+              </h3>
+              <ReusableSelect info={filters[0].options} /> */}
             </form>
           </div>
         </div>

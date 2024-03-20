@@ -9,7 +9,7 @@ export default async function Search({ searchParams }) {
   return (
     <main className="max-w-7xl mx-auto mb-24 customSm:px-2">
       <SearchBar />
-      {hasSearchParams && <FilterSearchBadge searchParams={searchParams} />}
+      {hasSearchParams > 0 && <FilterSearchBadge searchParams={searchParams} />}
       <Suspense
         key={JSON.stringify(searchParams)}
         fallback={<SearchSkeleton />}

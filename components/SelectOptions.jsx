@@ -9,7 +9,7 @@ export default function SelectOptions({ info }) {
           key={index}
           className=" focus:bg-slate-800 focus:text-slate-200 cursor-pointer"
         >
-          {data === "Movie" ? "Movie/Series" : data.id ? data.id : data}
+          {data === "Movie" ? "Movie/Series" : data}
         </SelectItem>
       ))}
     </>

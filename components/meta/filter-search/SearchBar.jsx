@@ -15,7 +15,7 @@ export default function SearchBar() {
   const handleSearch = useSearch(pathname, queryParams);
 
   return (
-    <div className="flex justify-end gap-5 mt-5 mb-12 customSm:flex-col md:flex-row md:justify-center">
+    <div className="flex justify-end gap-5 customSm:my-5 customSm:flex-col md:flex-row md:justify-center lg:mb-12 lg:mt-5">
       <form onSubmit={handleSearch} className="text-white flex gap-3">
         <Input
           disabled={!queryParams}
@@ -24,7 +24,7 @@ export default function SearchBar() {
           id={pathname}
           placeholder={
             !queryParams
-              ? "Choose a type first..."
+              ? "Select a type first..."
               : "search anime, manga, and movie..."
           }
           className="bg-slate-800 text-ellipsis overflow-hidden whitespace-nowrap w-full disabled:bg-slate-100 "
