@@ -9,17 +9,34 @@ import {
 } from "@/components/ui/dialog";
 import { filters } from "@/lib/advance-search";
 import { FaFilter } from "react-icons/fa";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import FilterOptions from "./FilterOptions";
 import { useState } from "react";
-import Link from "next/link";
 
 export default function FilterSearchModal() {
   const [open, setOpen] = useState(false);
   const [isRadioSelected, setIsRadioSelected] = useState(false);
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
+  const [params, setParams] = useState(new URLSearchParams());
   const router = useRouter();
+
+  function handleRadioChange(key, queryValue) {
+    const updateParams = new URLSearchParams(params.toString());
+    updateParams.set(key, queryValue);
+    setParams(updateParams);
+    setIsRadioSelected(true);
+  }
+
+  function handleFilter() {
+    setOpen(false);
+    router.push(`?${params}`);
+  }
+
+  function clearFilter() {
+    setParams(new URLSearchParams());
+    router.push(`?`);
+    setIsRadioSelected(false);
+    setOpen(false);
+  }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -41,31 +58,25 @@ export default function FilterSearchModal() {
                 <FilterOptions
                   key={filter.title}
                   {...filter}
-                  params={params}
-                  setIsRadioSelected={setIsRadioSelected}
+                  handleRadioChange={handleRadioChange}
                 />
               ))}
             </form>
           </div>
         </div>
-        <Link
-          onClick={() => setOpen(false)}
-          href={params.toString() && "/search"}
+        <Button
+          onClick={clearFilter}
           className="font-semibold text-slate-300 tracking-wider text-center text-sm"
         >
           Clear filter
-        </Link>
+        </Button>
         <DialogFooter>
           <Button
             className="font-semibold text-white tracking-wider"
             disabled={!isRadioSelected}
             type="submit"
             variant="outline"
-            onClick={() => {
-              setOpen(false);
-              params.delete("query");
-              router.push(`?${params}`);
-            }}
+            onClick={handleFilter}
           >
             Filter
           </Button>

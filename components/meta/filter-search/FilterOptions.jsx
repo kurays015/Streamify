@@ -1,17 +1,11 @@
 import Radio from "./Radio";
 
-export default function FilterOptions({
-  title,
-  options,
-  params,
-  setIsRadioSelected,
-}) {
+export default function FilterOptions({ title, options, handleRadioChange }) {
   const handleChange = e => {
     const { value } = e.target;
     const key = title.toLowerCase();
     const queryValue = title === "Genres" ? `["${value}"]` : value;
-    params.set(key, queryValue);
-    setIsRadioSelected(true);
+    handleRadioChange(key, queryValue);
   };
 
   return (
