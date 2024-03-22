@@ -1,4 +1,4 @@
-import EpisodesAndChaptersContainer from "@/components/infos/episodes/EpisodesAndChaptersContainer";
+import EpisodesAndChaptersContainer from "@/components/infos/episodes-and-chapters/EpisodesAndChaptersContainer";
 import EpisodesAndChaptersSkeleton from "@/components/skeletons/EpisodesAndChaptersSkeleton";
 import { Suspense } from "react";
 

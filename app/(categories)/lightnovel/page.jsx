@@ -14,9 +14,3 @@ export default function LightNovelPage({ searchParams }) {
     </div>
   );
 }
-
-// const paragraphs = info?.text.split("\n").map((paragraph, index) => (
-//   <p key={index} className="mt-10">
-//     {paragraph}
-//   </p>
-// ));

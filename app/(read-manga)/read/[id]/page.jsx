@@ -1,7 +1,15 @@
-export default async function ReadPage() {
+import LightNovelChapterContent from "@/components/LightNovelChapterContent";
+import { Suspense } from "react";
+
+export default function ReadPage({ searchParams }) {
   return (
-    <div className="text-white">
-      <h1>in development...</h1>
+    <div>
+      <Suspense
+        key={JSON.stringify(searchParams)}
+        fallback={<h1 className="text-white text-xl">Loading...!</h1>}
+      >
+        <LightNovelChapterContent chapterId={searchParams.chapterId} />
+      </Suspense>
     </div>
   );
 }

@@ -16,13 +16,20 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import comboBoxHeader from "@/lib/comboBoxHeader";
 
-export default function EpisodeDropdown({ info }) {
-  const { episodes } = React.useMemo(() => info, [info]);
+export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
   const router = useRouter();
+  const pathname = usePathname();
+  const episodesOrChapters = info.episodes ? info.episodes : info.chapters;
+  const content = info.episodes ? "Episodes" : "Chapters";
+
+  const episodes = React.useMemo(() => {
+    return episodesOrChapters.find(episode => episode.id === value)?.number;
+  }, [value]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -31,13 +38,19 @@ export default function EpisodeDropdown({ info }) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="customSm:w-full customSemiMd2:w-44 justify-between text-white hover:text-white"
+          className="customSm:w-full customSemiMd2:w-auto justify-between text-white hover:text-white "
         >
-          {value
-            ? `Episode ${
-                episodes.find(episode => episode.id === value)?.number
-              }`
-            : "Select episode..."}
+          <p className="text-ellipsis overflow-hidden whitespace-nowrap w-full">
+            {comboBoxHeader(
+              value,
+              info,
+              pathname,
+              episodes,
+              currentEpisodeIndex,
+              content,
+              episodesOrChapters
+            )}
+          </p>
           <PiCaretUpDownThin className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -46,25 +59,31 @@ export default function EpisodeDropdown({ info }) {
         side="bottom"
       >
         <Command>
-          <CommandInput placeholder="Search episode..." className="h-9" />
+          <CommandInput placeholder={`Search ${content}...`} className="h-9" />
           <CommandEmpty>No episode found.</CommandEmpty>
           <CommandGroup>
-            {episodes.map(episode => (
+            {episodesOrChapters.map(episodesOrChapter => (
               <CommandItem
                 className="cursor-pointer hover:bg-gray-300"
-                key={episode.id}
-                value={episode.id}
+                key={episodesOrChapter.id}
+                value={episodesOrChapter.id}
                 onSelect={currentValue => {
                   setValue(currentValue === value ? "" : currentValue);
                   setOpen(false);
-                  router.push(`/watch/${info.id}/${episode.id}`);
+                  router.push(
+                    info.episodes
+                      ? `/watch/${info.id}/${episodesOrChapter.id}`
+                      : `/read/${info.id}?chapterId=${episodesOrChapter.id}`
+                  );
                 }}
               >
-                Episode {episode.number}
+                {info.episodes
+                  ? `Episode ${episodesOrChapter.number}`
+                  : episodesOrChapter.title}
                 <GiCheckMark
                   className={cn(
                     "ml-auto h-4 w-4",
-                    value === episode.id ? "opacity-100" : "opacity-0"
+                    value === episodesOrChapter.id ? "opacity-100" : "opacity-0"
                   )}
                 />
               </CommandItem>

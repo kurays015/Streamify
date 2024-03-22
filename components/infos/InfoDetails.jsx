@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Details from "./Details";
 import YouMayLike from "../YouMayLike";
-import EpisodesContainer from "./episodes/EpisodesContainer";
 import titleHandler from "@/lib/titleHandler";
 import Trailer from "../Trailer";
 import Similar from "../Similar";
 import { getImage } from "@/lib/base64";
+import EpiChapContainer from "./episodes-and-chapters/EpiChapContainer";
 
 export default async function InfoDetails({ info, id }) {
   const { base64, img } = await getImage(info.image);
@@ -26,7 +26,7 @@ export default async function InfoDetails({ info, id }) {
         <Details info={info} id={id} />
       </div>
       {info.trailer && <Trailer {...info.trailer} />}
-      {info.episodes && <EpisodesContainer info={info} />}
+      {(info.episodes || info.chapters) && <EpiChapContainer info={info} />}
       {info.recommendations && <YouMayLike info={info} />}
       {info.similar && <Similar info={info} />}
     </div>
