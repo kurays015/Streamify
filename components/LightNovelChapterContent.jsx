@@ -1,4 +1,5 @@
 import { LIGHT_NOVELS } from "@consumet/extensions";
+import WatchAndInfoError from "./WatchAndInfoError";
 
 async function fetchChaptersContent(id) {
   try {
@@ -12,6 +13,8 @@ async function fetchChaptersContent(id) {
 
 export default async function LightNovelChapterContent({ chapterId }) {
   const chaptersContent = await fetchChaptersContent(chapterId);
+
+  if (!chaptersContent) return <WatchAndInfoError />;
 
   const paragraphs = chaptersContent?.text
     .split("\n")

@@ -1,3 +1,4 @@
+import WatchAndInfoError from "@/components/WatchAndInfoError";
 import EpisodesAndChapters from "@/components/infos/episodes-and-chapters/EpisodesAndChapters";
 import { LIGHT_NOVELS } from "@consumet/extensions";
 
@@ -16,6 +17,8 @@ async function fetchReadPageInfo(id) {
 
 export default async function ReadLayout({ children, params }) {
   const info = await fetchReadPageInfo(params.id);
+
+  if (!info) return <WatchAndInfoError />;
 
   return (
     <main className="text-white">
