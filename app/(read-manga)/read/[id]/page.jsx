@@ -1,4 +1,6 @@
 import LightNovelChapterContent from "@/components/LightNovelChapterContent";
+import PikachuLoading from "@/components/skeletons/PikachuLoading";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 
 export default function ReadPage({ searchParams }) {
@@ -6,7 +8,7 @@ export default function ReadPage({ searchParams }) {
     <div>
       <Suspense
         key={JSON.stringify(searchParams)}
-        fallback={<h1 className="text-white text-xl">Loading...!</h1>}
+        fallback={<PikachuLoading />}
       >
         <LightNovelChapterContent chapterId={searchParams.chapterId} />
       </Suspense>

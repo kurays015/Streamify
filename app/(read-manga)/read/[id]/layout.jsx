@@ -21,7 +21,7 @@ export default async function ReadLayout({ children, params }) {
   if (!info) return <WatchAndInfoError />;
 
   return (
-    <main className="text-white">
+    <main className="text-white customSm:p-2">
       <div className="max-w-7xl mx-auto mt-12">
         <EpisodesAndChapters info={info} id={params.id} />
         {children}

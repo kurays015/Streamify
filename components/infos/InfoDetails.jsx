@@ -26,7 +26,7 @@ export default async function InfoDetails({ info, id }) {
         <Details info={info} id={id} />
       </div>
       {info.trailer && <Trailer {...info.trailer} />}
-      {(info.episodes || info.chapters.length > 0) && (
+      {(info.episodes || info.chapters?.length > 0) && (
         <EpiChapContainer info={info} />
       )}
       {info.recommendations && <YouMayLike info={info} />}

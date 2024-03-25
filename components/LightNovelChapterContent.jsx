@@ -1,5 +1,12 @@
 import { LIGHT_NOVELS } from "@consumet/extensions";
 import WatchAndInfoError from "./WatchAndInfoError";
+import { Baskervville } from "next/font/google";
+
+const baskervville = Baskervville({
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
+});
 
 async function fetchChaptersContent(id) {
   try {
@@ -19,17 +26,20 @@ export default async function LightNovelChapterContent({ chapterId }) {
   const paragraphs = chaptersContent?.text
     .split("\n")
     .map((paragraph, index) => (
-      <p key={index} className="mt-10">
+      <p
+        key={index}
+        className={`mt-10 customSm:text-lg text-gray-300 ${baskervville.className}`}
+      >
         {paragraph}
       </p>
     ));
 
   return (
     <div>
-      <h1 className="text-amber-300 text-xl font-semibold">
-        Novel title:{chaptersContent.novelTitle}
+      <h1 className="font-semibold customSm:my-3 customSm:text-lg text-amber-300">
+        {chaptersContent.novelTitle}
       </h1>
-      <h3 className="text-green-300 text-lg font-semibold">
+      <h3 className="font-semibold customSm:my-3 text-green-300">
         {chaptersContent.chapterTitle}
       </h3>
       {paragraphs}
