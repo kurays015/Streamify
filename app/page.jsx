@@ -11,7 +11,7 @@ export default function Home() {
     <main className="max-w-7xl mx-auto">
       <Suspense
         fallback={
-          <Skeleton className="bg-gradient-to-t from-gray-900 via-gray-900 to-black opacity-75 animate-none absolute inset-0 h-screen w-full" />
+          <Skeleton className=" w-full m-2 customSm:h-48 customSm:mb-12 lg:mb-0 lg:h-96" />
         }
       >
         <TrendingMoviesCarousel />
