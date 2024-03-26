@@ -1,13 +1,13 @@
 import LightNovel from "@/components/categories/lightnovel/LightNovel";
-import SearchSkeleton from "@/components/skeletons/SearchSkeleton";
+import PikachuLoading from "@/components/skeletons/PikachuLoading";
 import { Suspense } from "react";
 
 export default function LightNovelPage({ searchParams }) {
   return (
-    <div className="">
+    <div>
       <Suspense
         key={JSON.stringify(searchParams)}
-        fallback={<SearchSkeleton />}
+        fallback={<PikachuLoading />}
       >
         <LightNovel searchParams={searchParams} />
       </Suspense>

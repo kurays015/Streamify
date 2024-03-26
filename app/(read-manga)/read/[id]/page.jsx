@@ -1,6 +1,5 @@
 import LightNovelChapterContent from "@/components/LightNovelChapterContent";
 import PikachuLoading from "@/components/skeletons/PikachuLoading";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
 
 export default function ReadPage({ searchParams }) {

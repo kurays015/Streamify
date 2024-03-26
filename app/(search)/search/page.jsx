@@ -1,7 +1,7 @@
 import MetaSearch from "@/components/MetaSearch";
 import { FilterSearchBadge } from "@/components/meta/filter-search/FilterSearchBadge";
 import SearchBar from "@/components/meta/filter-search/SearchBar";
-import SearchSkeleton from "@/components/skeletons/SearchSkeleton";
+import PikachuLoading from "@/components/skeletons/PikachuLoading";
 import { Suspense } from "react";
 
 export default async function Search({ searchParams }) {
@@ -12,7 +12,7 @@ export default async function Search({ searchParams }) {
       {hasSearchParams > 0 && <FilterSearchBadge searchParams={searchParams} />}
       <Suspense
         key={JSON.stringify(searchParams)}
-        fallback={<SearchSkeleton />}
+        fallback={<PikachuLoading />}
       >
         <MetaSearch searchParams={searchParams} />
       </Suspense>
