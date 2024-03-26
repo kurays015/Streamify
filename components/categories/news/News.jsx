@@ -1,11 +1,20 @@
 import NewsCard from "./NewsCard";
 
-export default async function News() {
-  const res = await fetch(`${process.env.SOURCE_URL1}/news/ann/recent-feeds`, {
-    cache: "no-store",
-  });
+async function fetchNews() {
+  try {
+    const res = await fetch(
+      `${process.env.SOURCE_URL1}/news/ann/recent-feeds`,
+      {
+        cache: "no-store",
+      }
+    );
 
-  const newsData = await res.json();
+    return res.json();
+  } catch (error) {}
+}
+
+export default async function News() {
+  const newsData = await fetchNews();
 
   return (
     <div>
