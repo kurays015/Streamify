@@ -15,7 +15,6 @@ async function getTrending() {
 }
 
 export default async function TrendingMoviesCarousel() {
-  await new Promise(resolve => setTimeout(() => resolve, 15000));
   const trending = await getTrending();
   return (
     <div>
