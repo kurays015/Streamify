@@ -4,13 +4,19 @@ import Image from "next/image";
 
 export default async function Card({
   image,
+  poster_path,
+  thumbnail,
   title,
   episodeTitle,
   episodeNumber,
-  poster_path,
   name,
 }) {
-  const imageUrl = image ? image : tmdbImgHandler(poster_path);
+  const imageUrl = image
+    ? image
+    : thumbnail
+    ? thumbnail
+    : tmdbImgHandler(poster_path);
+
   const recentEpisode = episodeTitle ? episodeTitle : episodeNumber;
 
   return (
@@ -22,7 +28,7 @@ export default async function Card({
           width={500}
           height={500}
           priority
-          className="text-white w-full hover:scale-105 transition-all customSm:h-[300px] "
+          className="text-white w-full hover:scale-105 transition-all customSm:h-[300px] object-cover"
         />
       </div>
       <h1 className="text-center text-white font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2 customSm:text-sm lg:text-base">

@@ -8,7 +8,9 @@ import { getImage } from "@/lib/base64";
 import EpiChapContainer from "./episodes-and-chapters/EpiChapContainer";
 
 export default async function InfoDetails({ info, id }) {
-  const { base64, img } = await getImage(info.image);
+  const { base64, img } = await getImage(
+    info.image ? info.image : info.thumbnail
+  );
 
   return (
     <div className="relative z-10 customSm:top-0 customSm:pb-8 lg:top-[37%] lg:pb-24 lg:max-w-7xl lg:mx-auto lg:pt-[330px]">
@@ -18,7 +20,9 @@ export default async function InfoDetails({ info, id }) {
           height={500}
           width={500}
           alt={titleHandler(info.title)}
-          className="w-1/4 customSm:w-full lg:w-auto lg:h-[480px] lg:rounded-md"
+          className={`w-1/4 customSm:w-full ${
+            info.thumbnail ? "lg:w-[300px]" : "lg:w-auto"
+          }  lg:h-[480px] lg:rounded-md`}
           priority
           placeholder="blur"
           blurDataURL={base64}

@@ -15,8 +15,7 @@ async function getCategoriesInfo(id) {
   }
 }
 
-export default async function CategoryInfo({ id }) {
-  await new Promise(resolve => setTimeout(resolve, 1000));
+export default async function LightNovelInfo({ id }) {
   const info = await getCategoriesInfo(id);
 
   if (!info) return <WatchAndInfoError />;

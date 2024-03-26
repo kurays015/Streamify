@@ -1,12 +1,12 @@
-import CategoryInfo from "@/components/infos/CategoryInfo";
+import LightNovelInfo from "@/components/infos/LightNovelInfo";
 import PikachuLoading from "@/components/skeletons/PikachuLoading";
 import { Suspense } from "react";
 
-export default async function CategoriesInfo({ params }) {
+export default async function LightNovelInfoPage({ params }) {
   return (
     <main>
       <Suspense fallback={<PikachuLoading />}>
-        <CategoryInfo id={params.id} />
+        <LightNovelInfo id={params.id} />
       </Suspense>
     </main>
   );

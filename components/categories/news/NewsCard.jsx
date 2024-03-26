@@ -1,9 +1,11 @@
-import Image from "next/image";
+import Card from "@/components/Card";
+import infoUrl from "@/lib/infoUrl";
+import Link from "next/link";
 
-export default async function NewsCard({ thumbnail, title }) {
+export default async function NewsCard({ newsInfo }) {
   return (
-    <div>
-      <Image src={thumbnail} alt={title} width={500} height={500} />
-    </div>
+    <Link href={infoUrl(newsInfo)}>
+      <Card {...newsInfo} />
+    </Link>
   );
 }
