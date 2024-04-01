@@ -9,7 +9,7 @@ export default function MainInfoContent({ infoData, id }) {
     <div>
       <BackToHomeBtn />
       <CoverImage cover={coverImage(info)} />
-      <InfoDetails info={info} id={id} />
+      {/* <InfoDetails info={info} id={id} /> */}
     </div>
   );
 }
