@@ -27,7 +27,7 @@ export default async function InfoDetails({ info, id }) {
           placeholder="blur"
           blurDataURL={base64}
         />
-        <Details info={info} id={id} />
+        {/* <Details info={info} id={id} /> */}
       </div>
       {info.trailer && <Trailer {...info.trailer} />}
       {(info.episodes || info.chapters?.length > 0) && (
