@@ -5,7 +5,7 @@ async function getNewsInfo(id) {
   // https://consumet-christ.vercel.app/news/ann/info?id=2024-03-29/yen-press-licenses-6-manga-4-light-novel-series-for-september-2024/.209338
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL3}/news/ann/info?id=2024-03-31/shangri-la-frontier-anime-gets-2nd-season-in-october/.209414`
+      `${process.env.SOURCE_URL3}/news/ann/info?id=${id && id}`
     );
     if (!res) {
       throw new Error("Error fetching news info.");
