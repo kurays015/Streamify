@@ -6,7 +6,7 @@ export default async function LightNovelInfoPage({ searchParams }) {
   return (
     <main>
       <Suspense fallback={<PikachuLoading />}>
-        <NewsInfo {...searchParams} />
+        <NewsInfo id={searchParams?.id} />
       </Suspense>
     </main>
   );
