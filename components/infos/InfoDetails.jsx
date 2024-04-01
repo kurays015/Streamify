@@ -8,12 +8,14 @@ import { getImage } from "@/lib/base64";
 import EpiChapContainer from "./episodes-and-chapters/EpiChapContainer";
 
 export default async function InfoDetails({ info, id }) {
-  const { base64, img } = await getImage(info.image);
+  const { base64, img } = await getImage(
+    info.image ? info.image : info.thumbnail
+  );
 
   return (
     <div className="relative z-10 customSm:top-0 customSm:pb-8 lg:top-[37%] lg:pb-24 lg:max-w-7xl lg:mx-auto lg:pt-[330px]">
       <div className="flex customSm:flex-col customSm:gap-8 lg:flex-row lg:gap-24 lg:mx-6 xl:mx-0">
-        {/* <Image
+        <Image
           {...img}
           height={500}
           width={500}
@@ -24,7 +26,7 @@ export default async function InfoDetails({ info, id }) {
           priority
           placeholder="blur"
           blurDataURL={base64}
-        /> */}
+        />
         <Details info={info} id={id} />
       </div>
       {info.trailer && <Trailer {...info.trailer} />}
