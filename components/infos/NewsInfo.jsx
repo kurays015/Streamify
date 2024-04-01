@@ -4,7 +4,7 @@ import WatchAndInfoError from "../WatchAndInfoError";
 async function getNewsInfo(id) {
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL8}/news/ann/info?id=${id}`,
+      `${process.env.SOURCE_URL1}/news/ann/info?id=${id}`,
       { cache: "no-store" }
     );
     if (!res) {
