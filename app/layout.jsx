@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import HolyLoader from "holy-loader";
 import StoreProvider from "./Providers/StoreProvider";
 import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }) {
         <StoreProvider>
           <Header />
           {children}
+          <Toaster />
           <Footer />
         </StoreProvider>
       </body>

@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { FaPlay, FaPlus } from "react-icons/fa6";
+import { FaPlay } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import { watchAndReadButton } from "@/lib/watchAndReadRoute";
+import AddToList from "./AddToList";
 
 export default function InfoPlayAndAddToWatchlist({ info, id }) {
   return (
@@ -18,15 +19,7 @@ export default function InfoPlayAndAddToWatchlist({ info, id }) {
           <span>{info.chapters ? "Read now" : "Play now"}</span>
         </Button>
       </Link>
-      <Link href={""} className="customSm:w-full">
-        <Button
-          variant="outline"
-          className="text-white text-base font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all customSm:w-full md:w-auto"
-        >
-          <FaPlus className="mr-1" />
-          {info.chapters ? "Add to Readlist" : "Add to Watchlist"}
-        </Button>
-      </Link>
+      <AddToList info={info} id={id} />
     </div>
   );
 }

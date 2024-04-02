@@ -2,7 +2,7 @@ import titleHandler from "@/lib/titleHandler";
 import tmdbImgHandler from "@/lib/tmdbImg";
 import Image from "next/image";
 
-export default async function Card({
+export default function Card({
   image,
   poster_path,
   thumbnail,

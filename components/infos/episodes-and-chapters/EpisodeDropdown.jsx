@@ -18,10 +18,11 @@ import {
 } from "@/components/ui/popover";
 import { usePathname, useRouter } from "next/navigation";
 import comboBoxHeader from "@/lib/comboBoxHeader";
+import useSessionStorage from "@/hooks/useSessionStorage";
 
 export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = useSessionStorage("epiChap", null);
   const router = useRouter();
   const pathname = usePathname();
   const episodesOrChapters = info.episodes ? info.episodes : info.chapters;

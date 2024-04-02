@@ -1,9 +1,9 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import EpisodeDropdown from "./EpisodeDropdown";
 import PrevButton from "@/components/watch-read/PrevButton";
 import NextButton from "@/components/watch-read/NextButton";
+import dynamic from "next/dynamic";
 
 export default function EpisodesAndChapters({ info, id, episodeId }) {
   const searchParams = useSearchParams();
@@ -18,6 +18,11 @@ export default function EpisodesAndChapters({ info, id, episodeId }) {
   const [currentIndex, setCurrentIndex] = useState(currentEpisodeIndex);
 
   const router = useRouter();
+
+  const NoSSREpisodeDropDown = dynamic(
+    () => import("@/components/infos/episodes-and-chapters/EpisodeDropdown"),
+    { ssr: false }
+  );
 
   const handlePrevClick = () => {
     const prevIndex = Math.max(0, currentIndex - 1);
@@ -39,12 +44,6 @@ export default function EpisodesAndChapters({ info, id, episodeId }) {
     router.push(wathAndReadRoute);
   };
 
-  // console.log(
-  //   episodesOrChapters[
-  //     Math.min(currentIndex + 1, episodesOrChapters.length - 1)
-  //   ]
-  // );
-
   return (
     <div className="flex customSm:flex-col customSm:gap-5 customSemiMd2:flex-row customSemiMd2:gap-0 customSemiMd2:justify-between">
       <PrevButton
@@ -52,7 +51,10 @@ export default function EpisodesAndChapters({ info, id, episodeId }) {
         handlePrevClick={handlePrevClick}
         info={info}
       />
-      <EpisodeDropdown info={info} currentEpisodeIndex={currentEpisodeIndex} />
+      <NoSSREpisodeDropDown
+        info={info}
+        currentEpisodeIndex={currentEpisodeIndex}
+      />
       <NextButton
         currentIndex={currentIndex}
         handleNextClick={handleNextClick}
