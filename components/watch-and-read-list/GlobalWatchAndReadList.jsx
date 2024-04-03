@@ -18,7 +18,7 @@ export function GlobalWatchAndReadList() {
           style={{
             all: "unset",
             position: "fixed",
-            zIndex: 50,
+            zIndex: 999,
             right: 0,
             cursor: "pointer",
           }}
