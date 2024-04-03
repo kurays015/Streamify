@@ -14,7 +14,7 @@ import { useState } from "react";
 export function GlobalWatchAndReadList() {
   const [open, setOpen] = useState(false);
   return (
-    <Sheet children open={open} onOpenChange={setOpen}>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant="default"
@@ -27,7 +27,7 @@ export function GlobalWatchAndReadList() {
           }}
         >
           <PiTagSimpleFill
-            className={`text-3xl text-slate-300 ${open && "hidden"}`}
+            className={`text-3xl text-slate-300 ${open ? "hidden" : "block"}`}
           />
         </Button>
       </SheetTrigger>
