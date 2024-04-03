@@ -20,7 +20,9 @@ export default function List() {
               onClick={() => dispatch(filterList(list.id))}
             />
             <Link href={infoUrl(list)}>
-              <Card {...list} />
+              <div className="h-[80px]">
+                <Card {...list} list={true} />
+              </div>
             </Link>
           </div>
         ))
