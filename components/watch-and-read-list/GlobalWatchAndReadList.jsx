@@ -26,7 +26,7 @@ export function GlobalWatchAndReadList() {
           <PiTagSimpleFill className="text-3xl text-slate-300" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="p-2">
+      <SheetContent className="p-2" style={{ zIndex: 1000 }}>
         <SheetHeader>
           <SheetTitle className="text-white mb-3 text-center">
             Watch and Read List
