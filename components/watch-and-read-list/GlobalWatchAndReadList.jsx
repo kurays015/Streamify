@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -8,25 +9,29 @@ import {
 } from "@/components/ui/sheet";
 import { PiTagSimpleFill } from "react-icons/pi";
 import List from "./List";
+import { useState } from "react";
 
 export function GlobalWatchAndReadList() {
+  const [open, setOpen] = useState(false);
   return (
-    <Sheet>
+    <Sheet children open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant="default"
           style={{
             all: "unset",
             position: "fixed",
-            zIndex: 999,
+            zIndex: 51,
             right: 0,
             cursor: "pointer",
           }}
         >
-          <PiTagSimpleFill className="text-3xl text-slate-300" />
+          <PiTagSimpleFill
+            className={`text-3xl text-slate-300 ${open && "hidden"}`}
+          />
         </Button>
       </SheetTrigger>
-      <SheetContent className="p-2" style={{ zIndex: 1000 }}>
+      <SheetContent className="p-2">
         <SheetHeader>
           <SheetTitle className="text-white mb-3 text-center">
             Watch and Read List

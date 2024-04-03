@@ -1,4 +1,3 @@
-import SignInForm from "@/components/SignInForm";
 import ProvidersButtons from "./ProvidersButtons";
 
 export default function LoginPage() {
@@ -9,13 +8,8 @@ export default function LoginPage() {
           Sign in to your account
         </h2>
       </div>
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <SignInForm />
-        <div className="flex items-center justify-between my-5">
-          <hr className="w-full border-gray-300 border-1" />
-          <span className="text-sm text-gray-400 px-4">or</span>
-          <hr className="w-full border-gray-300 border-1" />
-        </div>
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="flex items-center justify-between my-5"></div>
         <ProvidersButtons />
       </div>
     </div>
