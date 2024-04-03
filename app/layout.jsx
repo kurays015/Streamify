@@ -5,6 +5,8 @@ import HolyLoader from "holy-loader";
 import StoreProvider from "./Providers/StoreProvider";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import PersistGateWrapper from "./Providers/PersistGateWrapper";
+import { GlobalWatchAndReadList } from "@/components/watch-and-read-list/GlobalWatchAndReadList";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,10 +30,13 @@ export default async function RootLayout({ children }) {
           showSpinner
         />
         <StoreProvider>
-          <Header />
-          {children}
-          <Toaster />
-          <Footer />
+          <PersistGateWrapper>
+            <Header />
+            <GlobalWatchAndReadList />
+            {children}
+            <Toaster />
+            <Footer />
+          </PersistGateWrapper>
         </StoreProvider>
       </body>
     </html>

@@ -7,13 +7,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useAppSelector } from "@/lib/redux-toolkit/hooks";
 import { BsFillBookmarkCheckFill } from "react-icons/bs";
 import List from "./List";
 
 export function WatchAndReadList() {
-  const lists = useAppSelector(state => state.lists.value);
-
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -25,14 +22,14 @@ export function WatchAndReadList() {
           Show lists
         </Button>
       </SheetTrigger>
-      <SheetContent className="p-3">
+      <SheetContent className="p-3 overflow-auto">
         <SheetHeader>
           <SheetTitle className="text-white mb-3 text-center">
             Watch and Read Lists
           </SheetTitle>
         </SheetHeader>
-        <div className="grid grid-cols-2 gap-2">
-          <List lists={lists} />
+        <div className="grid grid-cols-2 gap-4">
+          <List />
         </div>
       </SheetContent>
     </Sheet>

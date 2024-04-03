@@ -18,11 +18,15 @@ import {
 } from "@/components/ui/popover";
 import { usePathname, useRouter } from "next/navigation";
 import comboBoxHeader from "@/lib/comboBoxHeader";
-import useSessionStorage from "@/hooks/useSessionStorage";
+import { useDispatch } from "react-redux";
+import { setValue } from "@/lib/redux-toolkit/features/episodesAndChaptersSlice";
+import { useAppSelector } from "@/lib/redux-toolkit/hooks";
 
 export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = useSessionStorage("epiChap", null);
+  // const [value, setValue] = React.useState("");
+  const value = useAppSelector(state => state.epiChapNumber.value);
+  const dispatch = useDispatch();
   const router = useRouter();
   const pathname = usePathname();
   const episodesOrChapters = info.episodes ? info.episodes : info.chapters;
@@ -69,7 +73,8 @@ export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
                 key={episodesOrChapter.id}
                 value={episodesOrChapter.id}
                 onSelect={currentValue => {
-                  setValue(currentValue === value ? "" : currentValue);
+                  // setValue(currentValue === value ? "" : currentValue);
+                  dispatch(setValue(currentValue));
                   setOpen(false);
                   router.push(
                     info.episodes

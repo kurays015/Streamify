@@ -28,7 +28,7 @@ export default function Card({
           width={500}
           height={500}
           priority
-          className="text-white w-full hover:scale-105 transition-all customSm:h-[300px] object-cover"
+          className={`text-white w-full hover:scale-105 transition-all customSm:h-[300px] object-cover`}
         />
       </div>
       <h1 className="text-center text-white font-semibold text-ellipsis overflow-hidden whitespace-nowrap w-full mt-2 customSm:text-sm lg:text-base">
