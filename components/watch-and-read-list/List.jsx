@@ -1,4 +1,3 @@
-"use client";
 import infoUrl from "@/lib/infoUrl";
 import Card from "../Card";
 import Link from "next/link";
@@ -20,9 +19,7 @@ export default function List() {
               onClick={() => dispatch(filterList(list.id))}
             />
             <Link href={infoUrl(list)}>
-              <div className="h-[80px]">
-                <Card {...list} list={true} />
-              </div>
+              <Card {...list} list={true} />
             </Link>
           </div>
         ))

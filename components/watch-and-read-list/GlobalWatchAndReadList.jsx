@@ -17,7 +17,6 @@ export function GlobalWatchAndReadList() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="default"
           style={{
             all: "unset",
             position: "fixed",
