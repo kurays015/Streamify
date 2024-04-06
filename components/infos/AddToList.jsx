@@ -8,13 +8,13 @@ import { WatchAndReadList } from "../watch-and-read-list/WatchAndReadList";
 
 export default function AddToList({ info, id }) {
   const dispatch = useAppDispatch();
-  const lists = useAppSelector(state => state.lists.value);
+  const lists = useAppSelector(state => state.lists.value || []);
   const { toast } = useToast();
 
-  const isAlreadyInTheList = lists.some(list => list.id === id);
+  const isAlreadyInTheList = lists && lists.some(list => list.id === id);
 
   function handleAddToList() {
-    if (!lists.some(list => list.id === info.id)) {
+    if (!isAlreadyInTheList) {
       dispatch(
         setList([
           ...lists,
