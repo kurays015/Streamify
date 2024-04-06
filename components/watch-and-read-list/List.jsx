@@ -6,7 +6,7 @@ import { filterList } from "@/lib/redux-toolkit/features/addToListSlice";
 import { FaRegCircleXmark } from "react-icons/fa6";
 
 export default function List() {
-  const lists = useAppSelector(state => state.lists.value);
+  const lists = useAppSelector(state => state.lists.value || []);
   const dispatch = useAppDispatch();
 
   return (
