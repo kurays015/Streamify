@@ -11,38 +11,41 @@ export default function AddToList({ info, id }) {
   const lists = useAppSelector(state => state.lists.value || []);
   const { toast } = useToast();
 
-  // const isAlreadyInTheList =
-  //   Array.isArray(lists) && lists.some(list => list.id === id);
+  const isAlreadyInTheList = lists && lists.some(list => list.id === id);
 
-  // function handleAddToList() {
-  //   if (!isAlreadyInTheList) {
-  //     dispatch(
-  //       setList([
-  //         ...lists,
-  //         {
-  //           id,
-  //           title: info.title,
-  //           image: info.image ? info.image : info.thumbnail,
-  //           type: info.type,
-  //         },
-  //       ])
-  //     );
-  //     toast({
-  //       title: `Added to ${info.chapters ? "Readlist" : "Watchlist"}`,
-  //     });
-  //   }
-  // }
+  function handleAddToList() {
+    if (!isAlreadyInTheList) {
+      dispatch(
+        setList([
+          ...lists,
+          {
+            id,
+            title: info.title,
+            image: info.image ? info.image : info.thumbnail,
+            type: info.type,
+          },
+        ])
+      );
+      toast({
+        title: `Added to ${info.chapters ? "Readlist" : "Watchlist"}`,
+      });
+    }
+  }
 
   return (
     <>
-      <Button
-        onClick={handleAddToList}
-        variant="outline"
-        className="text-white text-base font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all customSm:w-full md:w-auto"
-      >
-        <FaPlus className="mr-1" />
-        {info.chapters ? "Add to Readlist" : "Add to Watchlist"}
-      </Button>
+      {isAlreadyInTheList ? (
+        <WatchAndReadList />
+      ) : (
+        <Button
+          onClick={handleAddToList}
+          variant="outline"
+          className="text-white text-base font-semibold py-6 px-12 hover:text-white hover:scale-105 transition-all customSm:w-full md:w-auto"
+        >
+          <FaPlus className="mr-1" />
+          {info.chapters ? "Add to Readlist" : "Add to Watchlist"}
+        </Button>
+      )}
     </>
   );
 }
