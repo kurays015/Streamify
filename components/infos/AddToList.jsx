@@ -11,7 +11,8 @@ export default function AddToList({ info, id }) {
   const lists = useAppSelector(state => state.lists.value || []);
   const { toast } = useToast();
 
-  const isAlreadyInTheList = lists && lists.some(list => list.id === id);
+  const isAlreadyInTheList =
+    Array.isArray(lists) && lists.some(list => list.id === id);
 
   function handleAddToList() {
     if (!isAlreadyInTheList) {
