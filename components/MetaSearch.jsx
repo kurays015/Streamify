@@ -1,6 +1,6 @@
 import SearchResult from "./meta/filter-search/SearchResult";
 
-async function fetchMetaManualAndFilterSearch(searchParams) {
+export async function fetchMetaManualAndFilterSearch(searchParams) {
   const { query, searchType } = searchParams;
 
   const allQueryParams = new URLSearchParams(searchParams).toString();

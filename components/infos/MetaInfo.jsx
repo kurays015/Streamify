@@ -2,7 +2,7 @@ import { providerUrl } from "@/lib/infoUrl";
 import MainInfoContent from "./MainInfoContent";
 import WatchAndInfoError from "../WatchAndInfoError";
 
-async function getMetaInfo(id, searchParams) {
+export async function getMetaInfo(id, searchParams) {
   const { providerId, tmdbParams } = searchParams;
   const tmdb = `?type=${tmdbParams}`;
   const anilistManga = "?provider=mangadex";

@@ -12,27 +12,6 @@ export function generateMetadata({ searchParams }) {
     metadataBase: new URL(siteMetadata.siteUrl),
     title: `${query ? `Search Results for ${query}` : "Search"}`,
     description: `Search Results for ${query}`,
-    alternates: {
-      canonical: `/search?query=${query}`,
-    },
-    openGraph: {
-      images: [
-        {
-          url: "/kofi.webp",
-          width: 800,
-          height: 600,
-          alt: "Streamify",
-        },
-        {
-          url: "/kofi.webp",
-          width: 1800,
-          height: 1600,
-          alt: "Streamify",
-        },
-      ],
-      url: `/search?query=${query}`,
-      type: "website",
-    },
   };
 }
 

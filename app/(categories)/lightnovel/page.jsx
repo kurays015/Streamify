@@ -2,6 +2,10 @@ import LightNovel from "@/components/categories/lightnovel/LightNovel";
 import PikachuLoading from "@/components/skeletons/PikachuLoading";
 import { Suspense } from "react";
 
+export const metadata = {
+  title: "Lightnovel",
+};
+
 export default function LightNovelPage({ searchParams }) {
   return (
     <div>

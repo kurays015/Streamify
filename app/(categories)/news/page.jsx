@@ -2,7 +2,9 @@ import News from "@/components/categories/news/News";
 import NewsSkeleton from "@/components/skeletons/NewsSkeleton";
 import { Suspense } from "react";
 
-// export const runtime = "experimental-edge";
+export const metadata = {
+  title: "News",
+};
 
 export default async function NewsPage() {
   return (

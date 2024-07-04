@@ -2,7 +2,7 @@ import { LIGHT_NOVELS } from "@consumet/extensions";
 import MainInfoContent from "./MainInfoContent";
 import WatchAndInfoError from "../WatchAndInfoError";
 
-async function getCategoriesInfo(id) {
+export async function getCategoriesInfo(id) {
   try {
     const readlightnovels = new LIGHT_NOVELS.ReadLightNovels();
     const info = await readlightnovels.fetchLightNovelInfo(id);

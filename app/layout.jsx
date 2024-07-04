@@ -8,19 +8,21 @@ import { Toaster } from "@/components/ui/toaster";
 import PersistGateWrapper from "./Providers/PersistGateWrapper";
 import { GlobalWatchAndReadList } from "@/components/watch-and-read-list/GlobalWatchAndReadList";
 import siteMetadata from "@/config/site-metadata";
+import img from "../public/kofi.webp";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  // creator: siteMetadata.author,
-  // title: {
-  //   default: siteMetadata.title,
-  //   template: "%s | Streamify",
-  // },
+  creator: siteMetadata.author,
+  metadataBase: new URL(siteMetadata.siteUrl),
+  title: {
+    default: siteMetadata.title,
+    template: "%s | Streamify",
+  },
   openGraph: {
-    title: "opengraph!",
-    description: "opengraph desc",
-    images: ["/login-cover.png"],
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [img],
   },
 };
 
