@@ -20,8 +20,8 @@ export const metadata = {
   // },
   // description: siteMetadata.description,
   openGraph: {
-    title: siteMetadata.title,
-    description: siteMetadata.description,
+    title: "test",
+    description: "Test",
     images:
       "https://res.cloudinary.com/dlyerb1wj/image/upload/v1720088134/logregcover_eakzqc.png",
     // images: [
