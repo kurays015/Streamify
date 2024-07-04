@@ -18,9 +18,8 @@ export const metadata = {
   //   template: "%s | Streamify",
   // },
   openGraph: {
-    title: "Streamify",
-    description:
-      "Streamify is a streaming platform with a bunch of movies, series, and anime. You can also read lightnovel and manga ad free.",
+    title: "opengraph!",
+    description: "opengraph desc",
     images: ["/login-cover.png"],
   },
 };
