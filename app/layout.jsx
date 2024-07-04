@@ -13,17 +13,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
-
   title: {
-    default: "Streamify",
+    default: siteMetadata.title,
     template: "%s | Streamify",
   },
-  creator: "Christ Narvarte",
-  description:
-    "Streamify is a streaming platform of bunch of movies, series, and anime. You can also read lightnovel and manga ad free.",
+  creator: siteMetadata.author,
+  author: siteMetadata.author,
+  description: siteMetadata.author,
   openGraph: {
-    locale: "en_US",
-    type: "website",
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: ["/login-cover.png"],
   },
 };
 
