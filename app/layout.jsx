@@ -12,32 +12,13 @@ import siteMetadata from "@/config/site-metadata";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  // creator: siteMetadata.author,
-  // metadataBase: new URL(siteMetadata.siteUrl),
-  // title: {
-  //   default: siteMetadata.title,
-  //   template: "%s | Streamify",
-  // },
-  // description: siteMetadata.description,
-  openGraph: {
-    title: "test",
-    description: "Test",
-    images:
-      "https://res.cloudinary.com/dlyerb1wj/image/upload/v1720088134/logregcover_eakzqc.png",
-    // images: [
-    //   {
-    //     url: "https://res.cloudinary.com/dlyerb1wj/image/upload/v1720088134/logregcover_eakzqc.png", // Must be an absolute URL
-    //     width: 800,
-    //     height: 600,
-    //   },
-    //   {
-    //     url: "https://res.cloudinary.com/dlyerb1wj/image/upload/v1720088134/logregcover_eakzqc.png", // Must be an absolute URL
-    //     width: 1800,
-    //     height: 1600,
-    //     alt: "My custom alt",
-    //   },
-    // ],
+  creator: siteMetadata.author,
+  metadataBase: new URL(siteMetadata.siteUrl),
+  title: {
+    default: siteMetadata.title,
+    template: "%s | Streamify",
   },
+  description: siteMetadata.description,
 };
 
 export default async function RootLayout({ children }) {
