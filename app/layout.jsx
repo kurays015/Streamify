@@ -12,17 +12,15 @@ import siteMetadata from "@/config/site-metadata";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL(siteMetadata.siteUrl),
-  title: {
-    default: siteMetadata.title,
-    template: "%s | Streamify",
-  },
-  creator: siteMetadata.author,
-  author: siteMetadata.author,
-  description: siteMetadata.author,
+  // creator: siteMetadata.author,
+  // title: {
+  //   default: siteMetadata.title,
+  //   template: "%s | Streamify",
+  // },
   openGraph: {
-    title: siteMetadata.title,
-    description: siteMetadata.description,
+    title: "Streamify",
+    description:
+      "Streamify is a streaming platform with a bunch of movies, series, and anime. You can also read lightnovel and manga ad free.",
     images: ["/login-cover.png"],
   },
 };
