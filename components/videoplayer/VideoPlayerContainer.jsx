@@ -1,7 +1,7 @@
 import WatchAndInfoError from "../WatchAndInfoError";
 import VideoPlayer from "./VideoPlayer";
 
-async function getStreamingLinks(id) {
+export async function getStreamingLinks(id) {
   try {
     const res = await fetch(
       `${process.env.SOURCE_URL1}/meta/anilist/watch/${id}`

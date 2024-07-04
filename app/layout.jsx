@@ -19,6 +19,7 @@ export const metadata = {
     default: siteMetadata.title,
     template: "%s | Streamify",
   },
+  description: siteMetadata.description,
   openGraph: {
     title: siteMetadata.title,
     description: siteMetadata.description,

@@ -1,6 +1,5 @@
 import NewsInfo, { getNewsInfo } from "@/components/infos/NewsInfo";
 import PikachuLoading from "@/components/skeletons/PikachuLoading";
-import titleHandler from "@/lib/titleHandler";
 import { Suspense } from "react";
 
 export const generateMetadata = async ({ searchParams }, parent) => {
@@ -8,16 +7,7 @@ export const generateMetadata = async ({ searchParams }, parent) => {
 
   const previousImages = (await parent).openGraph?.images || [];
 
-  const image = newsInfo.image ? newsInfo.image : newsInfo.thumbnail;
-
-  return {
-    title: titleHandler(newsInfo.title),
-    openGraph: {
-      title: titleHandler(newsInfo.title),
-      description: newsInfo.description,
-      images: ["/maloi.png"],
-    },
-  };
+  return infoMetadata(newsInfo, previousImages);
 };
 
 export default async function LightNovelInfoPage({ searchParams }) {

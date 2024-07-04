@@ -1,5 +1,14 @@
 import EmbeddedVideo from "@/components/EmbeddedVideo";
 
+export const generateMetadata = async ({ searchParams }) => {
+  return {
+    title: `Watch ${searchParams?.title}`,
+    openGraph: {
+      title: `Watch ${searchParams?.title}`,
+    },
+  };
+};
+
 export default function EmbeddedVideoPage({ params, searchParams }) {
   const { type, title } = searchParams;
 

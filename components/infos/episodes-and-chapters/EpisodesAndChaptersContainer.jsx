@@ -1,7 +1,8 @@
 import titleHandler from "@/lib/titleHandler";
 import EpisodesAndChapters from "./EpisodesAndChapters";
+import currentEpisodeUserWatching from "@/lib/currentEpisodeUserWatching";
 
-async function getWatchPageInfo(id) {
+export async function getWatchPageInfo(id) {
   try {
     const res = await fetch(
       `${process.env.SOURCE_URL8}/meta/anilist/info/${id}`,
@@ -20,14 +21,15 @@ async function getWatchPageInfo(id) {
 
 export default async function EpisodesAndChaptersContainer({ params }) {
   const info = await getWatchPageInfo(params.id);
-  const currentEpisodeUserWatching = info.episodes.find(
-    episode => episode.id === params.episodeId
-  )?.number;
+  const currentPlayingEpisode = currentEpisodeUserWatching(
+    info,
+    params.episodeId
+  );
 
   return (
     <div className="customSm:px-3 xl:px-0">
       <h1 className="text-cyan-300 font-bold mt-3 mb-8 text-center customSm:text-sm md:text-lg lg:text-xl">
-        {titleHandler(info.title)} - {`Episode ${currentEpisodeUserWatching}`}
+        {titleHandler(info.title)} - {`Episode ${currentPlayingEpisode}`}
       </h1>
       <EpisodesAndChapters info={info} {...params} />
     </div>
