@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,7 +9,7 @@ import {
 import { BsFillBookmarkCheckFill } from "react-icons/bs";
 import List from "./List";
 
-export function WatchAndReadList() {
+export default function WatchAndReadList() {
   return (
     <Sheet>
       <SheetTrigger asChild>

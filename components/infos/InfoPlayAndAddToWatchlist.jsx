@@ -2,7 +2,12 @@ import Link from "next/link";
 import { FaPlay } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import { watchAndReadButton } from "@/lib/watchAndReadRoute";
-import AddToList from "./AddToList";
+import dynamic from "next/dynamic";
+
+const AddToList = dynamic(() => import("./AddToList"), {
+  ssr: false,
+  loading: () => <p className="text-white text-center">oading...</p>,
+});
 
 export default function InfoPlayAndAddToWatchlist({ info, id }) {
   return (
@@ -19,7 +24,7 @@ export default function InfoPlayAndAddToWatchlist({ info, id }) {
           <span>{info.chapters ? "Read now" : "Play now"}</span>
         </Button>
       </Link>
-      <AddToList info={info} id={id} />
+      <AddToList info={info} />
     </div>
   );
 }
