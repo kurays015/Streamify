@@ -2,10 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import HolyLoader from "holy-loader";
-import StoreProvider from "./Providers/StoreProvider";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import PersistGateWrapper from "./Providers/PersistGateWrapper";
 import { GlobalWatchAndReadList } from "@/components/watch-and-read-list/GlobalWatchAndReadList";
 import siteMetadata from "@/config/site-metadata";
 
@@ -35,15 +33,12 @@ export default async function RootLayout({ children }) {
           easing="linear"
           showSpinner
         />
-        <StoreProvider>
-          <PersistGateWrapper>
-            <Header />
-            <GlobalWatchAndReadList />
-            {children}
-            <Toaster />
-            <Footer />
-          </PersistGateWrapper>
-        </StoreProvider>
+
+        <Header />
+        <GlobalWatchAndReadList />
+        {children}
+        <Toaster />
+        <Footer />
       </body>
     </html>
   );
