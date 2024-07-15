@@ -7,9 +7,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { PiTagSimpleFill } from "react-icons/pi";
 import List from "./List";
 import { useState } from "react";
+import { SlScreenDesktop } from "react-icons/sl";
 
 export function GlobalWatchAndReadList() {
   const [open, setOpen] = useState(false);
@@ -21,11 +21,11 @@ export function GlobalWatchAndReadList() {
             all: "unset",
             position: "fixed",
             zIndex: 51,
-            right: 0,
+            right: 2,
             cursor: "pointer",
           }}
         >
-          <PiTagSimpleFill
+          <SlScreenDesktop
             className={`text-3xl text-slate-300 ${open ? "hidden" : "block"}`}
           />
         </Button>
