@@ -6,18 +6,21 @@ export const useFavoriteStore = create(
     (set, get) => ({
       favorites: [],
       isFavorite: id => get().favorites.some(favorite => favorite.id === id),
-      addToFavorite: info =>
+      addToFavorite: (info, id) =>
         set(state => {
-          const isAlreadyExist = state.favorites.some(
-            item => item.id === info.id
-          );
+          const isAlreadyExist = state.favorites.some(item => item.id === id);
 
           if (isAlreadyExist) return {};
 
           return {
             favorites: [
               ...state.favorites,
-              { id: info.id, image: info.image ? info.image : info.thumbnail },
+              {
+                id,
+                title: info.title,
+                image: info.image ? info.image : info.thumbnail,
+                type: info.type,
+              },
             ],
           };
         }),

@@ -20,7 +20,7 @@ export default async function InfoDetails({ info, id }) {
           height={500}
           width={500}
           alt={titleHandler(info.title)}
-          className={`w-1/4 customSm:w-full ${
+          className={` text-white w-1/4 customSm:w-full ${
             info.thumbnail ? "lg:w-[300px]" : "lg:w-auto"
           }  lg:h-[480px] lg:rounded-md`}
           priority

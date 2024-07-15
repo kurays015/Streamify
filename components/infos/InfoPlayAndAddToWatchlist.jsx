@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 
 const AddToList = dynamic(() => import("./AddToList"), {
   ssr: false,
-  loading: () => <p className="text-white text-center">oading...</p>,
+  loading: () => <p className="text-white text-center">loading...</p>,
 });
 
 export default function InfoPlayAndAddToWatchlist({ info, id }) {
@@ -24,7 +24,7 @@ export default function InfoPlayAndAddToWatchlist({ info, id }) {
           <span>{info.chapters ? "Read now" : "Play now"}</span>
         </Button>
       </Link>
-      <AddToList info={info} />
+      <AddToList info={info} id={id} />
     </div>
   );
 }
