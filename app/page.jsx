@@ -4,6 +4,9 @@ import CardCarouselSkeleton from "@/components/skeletons/CardCarouselSkeleton";
 import CardCarouselContainer from "@/components/CardCarouselContainer";
 import TrendingMoviesCarousel from "@/components/trending-carousel/TrendingMoviesCarousel";
 
+export const dynamic = "force-dynamic";
+
+
 export default function Home() {
   return (
     <main className="max-w-7xl mx-auto">
