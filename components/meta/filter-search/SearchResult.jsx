@@ -19,7 +19,11 @@ export default function SearchResult({ results, searchParams }) {
         ))
       ) : (
         <div className="text-slate-300 customSm:text-center h-[50vh]">
-          {searchParams && !results.length ? "Search..." : ""}
+          {searchParams?.title && !results.length
+            ? "No lightnovel found..."
+            : !searchParams?.title
+            ? "Search..."
+            : ""}
         </div>
       )}
     </div>

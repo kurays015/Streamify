@@ -10,7 +10,9 @@ async function fetchNews() {
     );
 
     return res.json();
-  } catch (error) {}
+  } catch (error) {
+    console.log("error fetching news.");
+  }
 }
 
 export default async function News() {

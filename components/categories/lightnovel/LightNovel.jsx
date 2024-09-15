@@ -16,7 +16,6 @@ async function getLightNovels(searchParams) {
 
 export default async function LightNovel({ searchParams }) {
   const lightNovels = await getLightNovels(searchParams);
-
   return (
     <div className="max-w-7xl mx-auto">
       <SearchResult results={lightNovels} searchParams={searchParams} />
