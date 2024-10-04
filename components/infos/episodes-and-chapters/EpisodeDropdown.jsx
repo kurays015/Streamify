@@ -34,8 +34,6 @@ export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
     return episodesOrChapters.find(episode => episode.id === value)?.number;
   }, [value]);
 
-  console.log(info, "IS THERE AN INFO HERE??!!");
-
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
