@@ -29,7 +29,9 @@ export default async function MetaInfo({ id, searchParams }) {
   // const res = await fetch(
   //   "https://consumet-api-o7fr.onrender.com/meta/tmdb/info/519182?type=movie"
   // );
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const res = await fetch(
+    "https://consumet-api-o7fr.onrender.com/meta/tmdb/info/519182?type=movie"
+  );
   const info = await res.json();
 
   if (!info) return <WatchAndInfoError />;
