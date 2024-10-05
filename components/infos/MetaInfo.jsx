@@ -26,16 +26,17 @@ import WatchAndInfoError from "../WatchAndInfoError";
 
 export default async function MetaInfo({ id, searchParams }) {
   // const info = await getMetaInfo(id, searchParams);
-  const res = await fetch(
-    "https://consumet-api-o7fr.onrender.com/meta/tmdb/info/519182?type=movie"
-  );
+  // const res = await fetch(
+  //   "https://consumet-api-o7fr.onrender.com/meta/tmdb/info/519182?type=movie"
+  // );
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
   const info = await res.json();
 
   if (!info) return <WatchAndInfoError />;
 
   return (
     <h1 className="text-white">
-      {info.title ? info.title : "No api response"}, test
+      {info.title ? info.title : "No api response"}, Test
     </h1>
   );
 
