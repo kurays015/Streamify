@@ -29,7 +29,5 @@ export default async function MetaInfo({ id, searchParams }) {
 
   if (!info) return <WatchAndInfoError />;
 
-  console.log("TEST?!");
-
   return <MainInfoContent infoData={info} id={id} />;
 }
