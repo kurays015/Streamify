@@ -1,6 +1,6 @@
-import { providerUrl } from "@/lib/infoUrl";
-import MainInfoContent from "./MainInfoContent";
-import WatchAndInfoError from "../WatchAndInfoError";
+// import { providerUrl } from "@/lib/infoUrl";
+// import MainInfoContent from "./MainInfoContent";
+// import WatchAndInfoError from "../WatchAndInfoError";
 
 // export async function getMetaInfo(id, searchParams) {
 //   const { providerId, tmdbParams } = searchParams;
@@ -30,5 +30,5 @@ export default async function MetaInfo({ id, searchParams }) {
   // if (!info) return <WatchAndInfoError />;
 
   // return <MainInfoContent infoData={info} id={id} />;
-  return <h1 className="text-white">Maintenance!?...</h1>;
+  return <h1 className="text-white">Info Page Content</h1>;
 }
