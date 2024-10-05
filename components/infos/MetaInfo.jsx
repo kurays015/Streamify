@@ -29,6 +29,6 @@ export default async function MetaInfo({ id, searchParams }) {
 
   if (!info) return <WatchAndInfoError />;
 
-  return <MainInfoContent infoData={info} id={id} />;
-  // return <h1 className="text-white">Info Page Content</h1>;
+  // return <MainInfoContent infoData={info} id={id} />;
+  return <h1 className="text-white">{info?.title}, test</h1>;
 }
