@@ -8,8 +8,8 @@ export default function MainInfoContent({ infoData, id }) {
   return (
     <div>
       <BackToHomeBtn />
-      {/* <CoverImage cover={coverImage(info)} /> */}
-      {/* <InfoDetails info={info} id={id} /> */}
+      <CoverImage cover={coverImage(info)} />
+      <InfoDetails info={info} id={id} />
     </div>
   );
 }
