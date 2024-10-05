@@ -10,7 +10,8 @@ export async function getMetaInfo(id, searchParams) {
 
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL8}${providerUrl(providerId, id, params)}`,
+      `https://consumet-api-o7fr.onrender.com/meta/tmdb/info/519182?type=movie`,
+      // `${process.env.SOURCE_URL8}${providerUrl(providerId, id, params)}`,
       {
         cache: "no-store",
       }
@@ -29,10 +30,11 @@ export default async function MetaInfo({ id, searchParams }) {
 
   if (!info) return <WatchAndInfoError />;
 
-  // return <MainInfoContent infoData={info} id={id} />;
   return (
     <h1 className="text-white">
       {info.title ? info.title : "No api response"}, test
     </h1>
   );
+
+  // return <MainInfoContent infoData={info} id={id} />;
 }
