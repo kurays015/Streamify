@@ -1,15 +1,17 @@
-import MetaInfo, { getMetaInfo } from "@/components/infos/MetaInfo";
+import MetaInfo from "@/components/infos/MetaInfo";
 import PikachuLoading from "@/components/skeletons/PikachuLoading";
 import infoMetadata from "@/lib/infoMetadata";
 import { Suspense } from "react";
 
-export const generateMetadata = async ({ params, searchParams }, parent) => {
-  const metaInfo = await getMetaInfo(params.id, searchParams);
+// export const generateMetadata = async ({ params, searchParams }, parent) => {
+//   const metaInfo = await getMetaInfo(params.id, searchParams);
 
-  const previousImages = (await parent).openGraph?.images || [];
+//   const previousImages = (await parent).openGraph?.images || [];
 
-  return infoMetadata(metaInfo, previousImages);
-};
+//   return infoMetadata(metaInfo, previousImages);
+// };
+
+export const dynamic = "force-dynamic";
 
 export default async function AllMetaInfo({ params, searchParams }) {
   const res = await fetch(
