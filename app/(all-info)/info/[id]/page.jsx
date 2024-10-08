@@ -1,7 +1,7 @@
-import MetaInfo from "@/components/infos/MetaInfo";
-import PikachuLoading from "@/components/skeletons/PikachuLoading";
-import infoMetadata from "@/lib/infoMetadata";
-import { Suspense } from "react";
+// import MetaInfo from "@/components/infos/MetaInfo";
+// import PikachuLoading from "@/components/skeletons/PikachuLoading";
+// import infoMetadata from "@/lib/infoMetadata";
+// import { Suspense } from "react";
 
 // export const generateMetadata = async ({ params, searchParams }, parent) => {
 //   const metaInfo = await getMetaInfo(params.id, searchParams);
@@ -11,11 +11,14 @@ import { Suspense } from "react";
 //   return infoMetadata(metaInfo, previousImages);
 // };
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function AllMetaInfo({ params, searchParams }) {
   const res = await fetch(
-    "https://consumet-api-o7fr.onrender.com/meta/tmdb/info/519182?type=movie"
+    `${process.env.TEST_URL}/meta/tmdb/info/519182?type=movie`,
+    {
+      cache: "no-store",
+    }
   );
   const info = await res.json();
 
@@ -27,9 +30,12 @@ export default async function AllMetaInfo({ params, searchParams }) {
       <h1 className="text-white">
         {info.description ? info.description : "no response "}
       </h1>
-      {/* <Suspense fallback={<PikachuLoading />}>
-        <MetaInfo id={params.id} searchParams={searchParams} />
-      </Suspense> */}
     </main>
   );
+}
+
+{
+  /* <Suspense fallback={<PikachuLoading />}>
+        <MetaInfo id={params.id} searchParams={searchParams} />
+      </Suspense> */
 }
