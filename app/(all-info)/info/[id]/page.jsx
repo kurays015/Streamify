@@ -26,10 +26,9 @@ export default async function AllMetaInfo({ params, searchParams }) {
 
   return (
     <main>
-      <h1 className="text-white">{info.title ? info.title : "no response "}</h1>
-      <h1 className="text-white">
-        {info.description ? info.description : "no response "}
-      </h1>
+      <div className="text-white">
+        <pre>{JSON.stringify(info, null, 2)}</pre>
+      </div>
     </main>
   );
 }
