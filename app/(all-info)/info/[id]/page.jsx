@@ -14,12 +14,9 @@
 export const dynamic = "force-dynamic";
 
 export default async function AllMetaInfo({ params, searchParams }) {
-  const res = await fetch(
-    `${process.env.TEST_URL}/meta/tmdb/info/519182?type=movie`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.TEST_URL}`, {
+    cache: "no-store",
+  });
   const info = await res.json();
 
   if (!info) return <div className="text-white text-xl">Nothing...</div>;
