@@ -1,10 +1,10 @@
 import WatchAndInfoError from "../WatchAndInfoError";
 import VideoPlayer from "./VideoPlayer";
 
-export async function getStreamingLinks(id) {
+export async function getStreamingLinks(episodeId) {
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL1}/meta/anilist/watch/${id}`
+      `${process.env.SOURCE_URL7}/meta/anilist/watch/${episodeId}`
     );
     if (!res.ok) {
       throw new Error("Error fetching stream links.");

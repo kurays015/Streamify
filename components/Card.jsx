@@ -5,18 +5,13 @@ import Image from "next/image";
 export default function Card({
   image,
   poster_path,
-  thumbnail,
   title,
   episodeTitle,
   episodeNumber,
   name,
   list,
 }) {
-  const imageUrl = image
-    ? image
-    : thumbnail
-    ? thumbnail
-    : tmdbImgHandler(poster_path);
+  const imageUrl = image ? image : tmdbImgHandler(poster_path);
 
   const recentEpisode = episodeTitle ? episodeTitle : episodeNumber;
 

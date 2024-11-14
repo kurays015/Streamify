@@ -1,5 +1,4 @@
 "use client";
-import { CategoryDropdown } from "./CategoryDropdown";
 import { LuPopcorn } from "react-icons/lu";
 import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
@@ -19,16 +18,15 @@ export default function Header() {
         <LuPopcorn className="text-4xl text-red-500" />
         <h1 className="font-bold text-xl text-teal-500">Streamify</h1>
       </Link>
-      <nav>
+      {/* <nav>
         <ul className="flex items-center customSm:gap-0 lg:gap-5">
           <li>
             <Link href="/search">
               <FaSearch className="text-2xl" />
             </Link>
           </li>
-          <CategoryDropdown />
         </ul>
-      </nav>
+      </nav> */}
     </header>
   );
 }

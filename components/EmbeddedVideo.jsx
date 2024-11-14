@@ -1,9 +1,11 @@
 export default function EmbeddedVideo({ queryParams }) {
   return (
     <iframe
-      className="customSm:h-[40vh] md:h-[60vh] lg:h-[70vh] w-full rounded-md"
-      src={`https://vidsrc.xyz/embed/${queryParams}`}
+      className="h-screen w-full"
+      src={`https://embed.su/embed/${queryParams}`}
       allowFullScreen
     ></iframe>
   );
 }
+//https://embed.su/embed/movie/{id}
+//https://embed.su/embed/tv/{season}/{episode}

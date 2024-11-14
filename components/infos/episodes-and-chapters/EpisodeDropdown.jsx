@@ -27,11 +27,9 @@ export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
 
   const router = useRouter();
   const pathname = usePathname();
-  const episodesOrChapters = info.episodes ? info.episodes : info.chapters;
-  const content = info.episodes ? "Episodes" : "Chapters";
 
-  const episodes = React.useMemo(() => {
-    return episodesOrChapters.find(episode => episode.id === value)?.number;
+  const episodeNumber = React.useMemo(() => {
+    return info.episodes.find(episode => episode.id === value)?.number;
   }, [value]);
 
   return (
@@ -48,10 +46,9 @@ export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
               value,
               info,
               pathname,
-              episodes,
+              episodeNumber,
               currentEpisodeIndex,
-              content,
-              episodesOrChapters
+              info.episodes
             )}
           </p>
           <PiCaretUpDownThin className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -62,31 +59,25 @@ export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
         side="bottom"
       >
         <Command>
-          <CommandInput placeholder={`Search ${content}...`} className="h-9" />
+          <CommandInput placeholder={`Search Episodes...`} className="h-9" />
           <CommandEmpty>No episode found.</CommandEmpty>
           <CommandGroup>
-            {episodesOrChapters.map(episodesOrChapter => (
+            {info.episodes.map(episode => (
               <CommandItem
                 className="cursor-pointer hover:bg-gray-300"
-                key={episodesOrChapter.id}
-                value={episodesOrChapter.id}
+                key={episode.id}
+                value={episode.id}
                 onSelect={currentValue => {
                   setValue(currentValue);
                   setOpen(false);
-                  router.push(
-                    info.episodes
-                      ? `/watch/${info.id}/${episodesOrChapter.id}`
-                      : `/read/${info.id}?chapterId=${episodesOrChapter.id}`
-                  );
+                  router.push(`/watch/${info.id}/${episode.id}`);
                 }}
               >
-                {info.episodes
-                  ? `Episode ${episodesOrChapter.number}`
-                  : episodesOrChapter.title}
+                {info.episodes ? `Episode ${episode.number}` : episode.title}{" "}
                 <GiCheckMark
                   className={cn(
                     "ml-auto h-4 w-4",
-                    value === episodesOrChapter.id ? "opacity-100" : "opacity-0"
+                    value === episode.id ? "opacity-100" : "opacity-0"
                   )}
                 />
               </CommandItem>

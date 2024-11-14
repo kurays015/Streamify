@@ -17,12 +17,12 @@ export const generateMetadata = async ({ params }, parent) => {
 
   return {
     title: `Watch ${titleHandler(
-      watchInfo.title
+      watchInfo.title ? watchInfo.title : watchInfo.name
     )} - Episode ${currentPlayingEpisode}`,
     description: watchInfo.description,
     openGraph: {
       title: `Watch ${titleHandler(
-        watchInfo.title
+        watchInfo.title ? watchInfo.title : watchInfo.name
       )} - Episode ${currentPlayingEpisode}`,
       description: watchInfo.description,
       images: [image, ...previousImages],

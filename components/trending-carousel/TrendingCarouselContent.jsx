@@ -2,6 +2,7 @@ import { Button } from "../ui/button";
 import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import Link from "next/link";
+import titleHandler from "@/lib/titleHandler";
 
 export default function TrendingCarouselContent({
   id,
@@ -13,6 +14,7 @@ export default function TrendingCarouselContent({
   media_type,
   index,
 }) {
+  const type = title ? "movie" : "tv";
   return (
     <div className="absolute py-5 w-full customSm:left-0 customSm:bottom-0 customSm:max-w-full customSm:px-5 lg:top-1/4 lg:left-0 lg:max-w-3xl xl:left-[17%] xl:px-0">
       <div>
@@ -32,9 +34,9 @@ export default function TrendingCarouselContent({
         </p>
         <div className="flex items-center gap-3 my-5">
           <Link
-            href={`/embedded/${id}?type=${
-              media_type === "movie" && "Movie"
-            }&title=${title ? title : name}`}
+            href={`/embedded/${titleHandler(
+              title ? title : name
+            )}/${id}?type=${type}`}
           >
             <Button
               variant="secondary"
@@ -44,11 +46,7 @@ export default function TrendingCarouselContent({
               <span>Play</span>
             </Button>
           </Link>
-          <Link
-            href={`info/${id}?providerId=tmdb&tmdbParams=${
-              name ? "tv" : "movie"
-            }`}
-          >
+          <Link href={`info/${id}?type=${type}`}>
             <Button
               variant="outline"
               className="text-white font-semibold hover:text-white hover:scale-105 transition-all customSm:text-sm customSm:py-3 customSm:px-5 lg:text-xl lg:py-6 lg:px-12"

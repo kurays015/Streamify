@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
-import { watchEpisodes } from "@/lib/watchAndReadRoute";
 
 export default function GridEpisodes({ info }) {
   return (
@@ -11,7 +10,7 @@ export default function GridEpisodes({ info }) {
       </h1>
       <div className="grid grid-cols-5 customSm:gap-2 lg:gap-3 max-h-[600px] overflow-auto scrollbar-gray">
         {info.episodes.map(({ id, image, title, number }) => (
-          <Link href={watchEpisodes(id, info.id)} key={id}>
+          <Link href={`/watch/${info.id}/${id}`} key={id}>
             <div className="relative customSm:hidden lg:block">
               <Image
                 src={image ? image : info.image}

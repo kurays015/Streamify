@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import HolyLoader from "holy-loader";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { GlobalWatchAndReadList } from "@/components/watch-and-read-list/GlobalWatchAndReadList";
+import { GlobalWatchAndReadList } from "@/components/watch-list/GlobalWatchAndReadList";
 import siteMetadata from "@/config/site-metadata";
 
 const inter = Inter({ subsets: ["latin"] });

@@ -1,3 +1,4 @@
+import tmdbImgHandler from "@/lib/tmdbImg";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -6,9 +7,11 @@ export const useFavoriteStore = create(
     (set, get) => ({
       favorites: [],
       isFavorite: id => get().favorites.some(favorite => favorite.id === id),
-      addToFavorite: (info, id) =>
+      addToFavorite: info =>
         set(state => {
-          const isAlreadyExist = state.favorites.some(item => item.id === id);
+          const isAlreadyExist = state.favorites.some(
+            item => item.id === info.id
+          );
 
           if (isAlreadyExist) return {};
 
@@ -16,9 +19,11 @@ export const useFavoriteStore = create(
             favorites: [
               ...state.favorites,
               {
-                id,
+                id: info.id,
                 title: info.title,
-                image: info.image ? info.image : info.thumbnail,
+                image: info.image
+                  ? info.image
+                  : tmdbImgHandler(info.poster_path),
                 type: info.type,
               },
             ],

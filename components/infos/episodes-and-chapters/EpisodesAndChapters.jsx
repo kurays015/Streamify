@@ -1,42 +1,31 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import PrevButton from "@/components/watch-read/PrevButton";
 import NextButton from "@/components/watch-read/NextButton";
 import EpisodeDropdown from "./EpisodeDropdown";
 
 export default function EpisodesAndChapters({ info, id, episodeId }) {
-  const searchParams = useSearchParams();
-  const chapterId = searchParams.get("chapterId");
-  const EpisodeIdOrchapterId = episodeId ? episodeId : chapterId;
-  const episodesOrChapters = info.episodes ? info.episodes : info.chapters;
-
-  const currentEpisodeIndex = episodesOrChapters.findIndex(
-    episode => episode.id === EpisodeIdOrchapterId
+  const currentEpisodeIndex = info.episodes.findIndex(
+    episode => episode.id === episodeId
   );
-
-  const [currentIndex, setCurrentIndex] = useState(currentEpisodeIndex);
-
   const router = useRouter();
+  const [currentIndex, setCurrentIndex] = useState(currentEpisodeIndex);
 
   const handlePrevClick = () => {
     const prevIndex = Math.max(0, currentIndex - 1);
     setCurrentIndex(prevIndex);
-    navigateToWatchPage(episodesOrChapters[prevIndex]?.id);
+    navigateToWatchPage(info.episodes[prevIndex]?.id);
   };
 
   const handleNextClick = () => {
-    const nextIndex = Math.min(currentIndex + 1, episodesOrChapters.length - 1);
+    const nextIndex = Math.min(currentIndex + 1, info.episodes.length - 1);
     setCurrentIndex(nextIndex);
-    navigateToWatchPage(episodesOrChapters[nextIndex]?.id);
+    navigateToWatchPage(info.episodes[nextIndex]?.id);
   };
 
   const navigateToWatchPage = currentId => {
-    const wathAndReadRoute = info.episodes
-      ? `/watch/${id}/${currentId}`
-      : `/read/${id}?chapterId=${currentId}`;
-
-    router.push(wathAndReadRoute);
+    router.push(`/watch/${id}/${currentId}`);
   };
 
   return (
@@ -50,7 +39,7 @@ export default function EpisodesAndChapters({ info, id, episodeId }) {
       <NextButton
         currentIndex={currentIndex}
         handleNextClick={handleNextClick}
-        episodesOrChapters={episodesOrChapters}
+        episodesOrChapters={info.episodes}
         info={info}
       />
     </div>

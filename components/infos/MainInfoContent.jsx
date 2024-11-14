@@ -3,13 +3,13 @@ import BackToHomeBtn from "../BackToHomeBtn";
 import CoverImage from "../CoverImage";
 import coverImage from "@/lib/coverImg";
 
-export default function MainInfoContent({ infoData, id }) {
+export default function MainInfoContent({ infoData, searchParams }) {
   const info = infoData && infoData;
   return (
     <div>
       <BackToHomeBtn />
       <CoverImage cover={coverImage(info)} />
-      <InfoDetails info={info} id={id} />
+      <InfoDetails info={info} searchParams={searchParams} />
     </div>
   );
 }
