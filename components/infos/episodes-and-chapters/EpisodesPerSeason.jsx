@@ -1,3 +1,4 @@
+import WatchAndInfoError from "@/components/WatchAndInfoError";
 import getImageBase64 from "@/lib/base64";
 import titleHandler from "@/lib/titleHandler";
 import tmdbImgHandler from "@/lib/tmdbImg";
@@ -9,7 +10,7 @@ async function getSeasons(id, searchParams) {
   try {
     const res = await fetch(
       `${process.env.TMDB_BASE_URL}/3/tv/${id}/season/${
-        searchParams?.season ?? "0"
+        searchParams?.season ?? "1"
       }?api_key=${process.env.API_KEY}`
     );
     return res.json();
@@ -21,18 +22,24 @@ async function getSeasons(id, searchParams) {
 export default async function EpisodesPerSeason({ info, searchParams }) {
   const episodesPerSeasons = await getSeasons(info.id, searchParams);
 
-  const episodesPerSeasonsWithBase64 = await Promise.all(
-    episodesPerSeasons.episodes.map(async episode => {
-      const { base64, img } = await getImageBase64(
-        tmdbImgHandler(episode.still_path)
-      );
+  const episodesWithImages = await Promise.all(
+    episodesPerSeasons.episodes?.map(async ({ still_path, ...episode }) => {
+      const imageUrl = tmdbImgHandler(still_path || info.backdrop_path);
+      const { base64, img } = await getImageBase64(imageUrl);
       return { ...episode, base64, img };
     })
   );
 
+  if (!episodesWithImages?.length)
+    return (
+      <div className="mt-12 text-center text-gray-300">
+        No episodes at the moment
+      </div>
+    );
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 text-white max-h-[700px] overflow-auto scrollbar-gray w-full mt-8">
-      {episodesPerSeasonsWithBase64?.map(
+      {episodesWithImages?.map(
         ({ id, season_number, episode_number, name, img, base64 }) => (
           <Link
             key={id}
