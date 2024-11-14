@@ -39,9 +39,9 @@ export default function SeasonsSelect({ info }) {
           };
         }}
       >
-        {info.seasons.map(({ id, season_number }) => (
+        {info.seasons.map(({ id, season_number, name }) => (
           <SelectItem key={id} value={season_number} className="cursor-pointer">
-            Season {season_number}
+            {name}
           </SelectItem>
         ))}
       </SelectContent>
