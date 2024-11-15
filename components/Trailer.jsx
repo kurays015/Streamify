@@ -5,6 +5,8 @@ async function getTrailer(info) {
     const res =
       await fetch(`${process.env.TMDB_BASE_URL}/3/${type}/${id}/videos?api_key=${process.env.API_KEY}
 `);
+    if (!res.ok) throw new Error("Error fetching trailer.");
+
     return res.json();
   } catch (error) {
     console.log(error);
