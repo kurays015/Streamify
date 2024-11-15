@@ -12,7 +12,7 @@ export default function CarouselTitle({ index }) {
 
   const titles = [
     "Popular Movies",
-    "Popular TV Series",
+    // "Popular TV Series",
     "Top Rated Movies",
     "Top Rated TV Series",
     "Upcoming Movies",

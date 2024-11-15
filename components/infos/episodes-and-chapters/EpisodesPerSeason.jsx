@@ -1,4 +1,3 @@
-import WatchAndInfoError from "@/components/WatchAndInfoError";
 import getImageBase64 from "@/lib/base64";
 import titleHandler from "@/lib/titleHandler";
 import tmdbImgHandler from "@/lib/tmdbImg";
@@ -40,8 +39,6 @@ export default async function EpisodesPerSeason({ info, searchParams }) {
     })
   );
 
-  // console.log(episodesWithImages, "test");
-
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 text-white max-h-[700px] overflow-auto scrollbar-gray w-full mt-8">
       {episodesWithImages.map(
@@ -64,7 +61,6 @@ export default async function EpisodesPerSeason({ info, searchParams }) {
               </div>
               <Image
                 {...img}
-                // src={tmdbImgHandler(still_path || info.backdrop_path)}
                 className="w-full h-[140px] rounded-lg"
                 alt={name}
                 blurDataURL={base64}
