@@ -22,20 +22,27 @@ async function getSeasons(id, searchParams) {
 export default async function EpisodesPerSeason({ info, searchParams }) {
   const episodesPerSeasons = await getSeasons(info.id, searchParams);
 
-  const episodesWithImages = await Promise.all(
-    episodesPerSeasons.episodes?.map(async ({ still_path, ...episode }) => {
-      const imageUrl = tmdbImgHandler(still_path || info.backdrop_path);
-      const { base64, img } = await getImageBase64(imageUrl);
-      return { ...episode, base64, img };
-    })
-  );
-
-  if (!episodesWithImages?.length)
+  if (!episodesPerSeasons.episodes)
     return (
       <div className="mt-12 text-center text-gray-300">
         No episodes at the moment
       </div>
     );
+
+  const episodesWithImages = episodesPerSeasons.episodes
+    ? await Promise.all(
+        episodesPerSeasons.episodes.map(async ({ still_path, ...episode }) => {
+          if (!still_path && !info.backdrop_path) {
+            throw new Error(
+              "No 'still_path' or 'backdrop_path' found in episode or info object."
+            );
+          }
+          const imageUrl = tmdbImgHandler(still_path || info.backdrop_path);
+          const { base64, img } = await getImageBase64(imageUrl);
+          return { ...episode, base64, img };
+        })
+      )
+    : [];
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 text-white max-h-[700px] overflow-auto scrollbar-gray w-full mt-8">
