@@ -9,7 +9,7 @@ export default function Seasons({ info }) {
 
   const seasonNumber = getSeasonNumber();
   return (
-    <div className="mt-24 text-white customSm:mx-2 md:mx-6 ">
+    <div className="mt-24 text-white customSm:mx-2 md:mx-6 xl:mx-0">
       <SeasonsSelect info={info} />
       <Suspense
         fallback={

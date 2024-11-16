@@ -28,7 +28,7 @@ export default async function Casts({ info }) {
       <h1 className="text-slate-200 font-semibold customSm:text-xl customSm:mt-12 customSm:mb-5 lg:my-5 lg:text-3xl">
         Casts
       </h1>
-      <div className="grid customSm:grid-cols-2 customSemiMd:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mt-12 overflow-auto max-h-[900px] scrollbar-gray ">
+      <div className="grid customSm:grid-cols-2 customSemiMd:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mt-12 overflow-auto max-h-[600px] scrollbar-gray ">
         {casts.cast.map(cast => (
           <Cast key={cast.id} {...cast} info={info} />
         ))}

@@ -10,6 +10,7 @@ export default async function Cast({ name, character, profile_path, info }) {
   return (
     <div className="flex flex-col gap-3 items-center">
       <Image
+        priority
         src={tmdbImgHandler(profile_path || info.backdrop_path)}
         className="h-32 w-32 rounded-full object-cover"
         alt={name}
