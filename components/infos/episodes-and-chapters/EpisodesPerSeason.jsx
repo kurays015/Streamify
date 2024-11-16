@@ -4,11 +4,10 @@ import tmdbImgHandler from "@/lib/tmdbImg";
 import watchType from "@/lib/watchType";
 import Image from "next/image";
 import Link from "next/link";
-import { headers } from "next/headers";
+import getSeasonNumber from "@/lib/getSeasonNumber";
 
 async function getSeasons(id) {
-  const headersList = headers();
-  const seasonNumber = headersList.get("params");
+  const seasonNumber = getSeasonNumber();
   try {
     const res = await fetch(
       `${process.env.TMDB_BASE_URL}/3/tv/${id}/season/${seasonNumber}?api_key=${process.env.API_KEY}`
