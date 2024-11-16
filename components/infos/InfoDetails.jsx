@@ -31,7 +31,7 @@ export default async function InfoDetails({ info }) {
         <Details info={info} />
       </div>
       <Trailer {...info.trailer} info={info} />
-      {/* {info.type !== "TV" && <Casts info={info} />} */}
+      {info.type !== "TV" && <Casts info={info} />}
       {info.episodes && info.episodes.length >= 1 && (
         <EpisodeContainer info={info} />
       )}

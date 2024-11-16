@@ -4,7 +4,11 @@ import Image from "next/image";
 
 export default async function Cast({ name, character, profile_path, info }) {
   const { base64, img } = await getImageBase64(
-    tmdbImgHandler(profile_path || info.backdrop_path)
+    tmdbImgHandler(
+      profile_path ||
+        info.backdrop_path ||
+        "https://image.tmdb.org/t/p/original//ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg"
+    )
   );
 
   return (
