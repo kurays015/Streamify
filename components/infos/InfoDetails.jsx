@@ -8,6 +8,7 @@ import getImageBase64 from "@/lib/base64";
 import EpisodeContainer from "./episodes-and-chapters/EpisodeContainer";
 import tmdbImgHandler from "@/lib/tmdbImg";
 import Seasons from "./Seasons";
+import Casts from "./Casts";
 
 export default async function InfoDetails({ info }) {
   const { base64, img } = await getImageBase64(
@@ -22,9 +23,7 @@ export default async function InfoDetails({ info }) {
           height={500}
           width={500}
           alt={titleHandler(info.title ? info.title : info.name)}
-          className={` text-white w-1/4 customSm:w-full ${
-            info.thumbnail ? "lg:w-[300px]" : "lg:w-auto"
-          }  lg:h-[480px] lg:rounded-md`}
+          className={`text-white customSm:w-full lg:w-80 lg:h-[480px] lg:rounded-md`}
           priority
           placeholder="blur"
           blurDataURL={base64}
@@ -32,10 +31,13 @@ export default async function InfoDetails({ info }) {
         <Details info={info} />
       </div>
       <Trailer {...info.trailer} info={info} />
-      {info.episodes?.length >= 1 && <EpisodeContainer info={info} />}
-      {info.recommendations?.length >= 1 && <YouMayLike info={info} />}
-      {info.similar && <Similar info={info} />}
-      {info.seasons?.length >= 1 && <Seasons info={info} />}
+      {info.type !== "TV" && <Casts info={info} />}
+      {info.episodes && info.episodes.length >= 1 && (
+        <EpisodeContainer info={info} />
+      )}
+      {info.seasons && info.seasons.length >= 1 && <Seasons info={info} />}
+      <YouMayLike info={info} />
+      {info.similar && info.similar.length >= 1 && <Similar info={info} />}
     </div>
   );
 }

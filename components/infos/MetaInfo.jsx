@@ -21,6 +21,7 @@ export async function getInfoData(id, searchParams) {
 }
 export default async function MetaInfo({ id, searchParams }) {
   const info = await getInfoData(id, searchParams);
+
   if (!info) return <WatchAndInfoError />;
 
   return <MainInfoContent infoData={info} searchParams={searchParams} />;

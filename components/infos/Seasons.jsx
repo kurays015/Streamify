@@ -7,7 +7,7 @@ import getSeasonNumber from "@/lib/getSeasonNumber";
 export default function Seasons({ info }) {
   const seasonNumber = getSeasonNumber();
   return (
-    <div className="mt-24 text-white customSm:mx-2 md:mx-6 lg:mx-0">
+    <div className="mt-24 text-white customSm:mx-2 md:mx-6 ">
       <SeasonsSelect info={info} />
       <Suspense
         fallback={
