@@ -16,11 +16,12 @@ async function getSeasons(id) {
     return res.json();
   } catch (error) {
     console.log(error);
-    return { episodes: [] }; // Fallback to avoid undefined
   }
 }
 
 export default async function EpisodesPerSeason({ info }) {
+  const placeholder =
+    "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
   const episodesPerSeasons = await getSeasons(info.id);
 
   if (!episodesPerSeasons || !episodesPerSeasons.episodes?.length)
@@ -50,9 +51,16 @@ export default async function EpisodesPerSeason({ info }) {
               <div className="absolute top-2 left-2 font-bold bg-gray-800 bg-opacity-75 px-2 py-1 rounded customSm:text-sm lg:text-lg">
                 S{season_number}-E{episode_number}
               </div>
-              <EpisodesImages
+              {/* <EpisodesImages
                 name={name}
                 imgUrl={still_path || info.backdrop_path || ""}
+              /> */}
+              <Image
+                src={still_path || info.backdrop_path || placeholder}
+                className="w-full customSm:h-[100px] customSemiMd:h-[140px] rounded-lg text-white"
+                alt={name}
+                width={300}
+                height={300}
               />
             </div>
           </Link>
