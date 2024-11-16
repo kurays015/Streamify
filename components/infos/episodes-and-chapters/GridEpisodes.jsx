@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import EpisodeNumber from "./EpisodeNumber";
+import GridEpisodesImages from "../GridEpisodesImages";
 
 export default function GridEpisodes({ info }) {
   return (
@@ -9,23 +10,16 @@ export default function GridEpisodes({ info }) {
         Episodes
       </h1>
       <div className="grid grid-cols-5 customSm:gap-2 lg:gap-3 max-h-[600px] overflow-auto scrollbar-gray">
-        {info.episodes.map(({ id, image, title, number }) => (
-          <Link href={`/watch/${info.id}/${id}`} key={id}>
+        {info.episodes.map(episode => (
+          <Link href={`/watch/${info.id}/${episode.id}`} key={episode.id}>
             <div className="relative customSm:hidden lg:block">
-              <Image
-                src={image ? image : info.image}
-                alt={title ? title : id}
-                width={500}
-                height={500}
-                priority
-                className="rounded-md h-[180px] object-cover"
-              />
+              <GridEpisodesImages {...episode} />
               <div className="absolute bottom-0 left-0 text-white bg-emerald-600 font-semibold rounded-tr-md rounded-bl-md py-2 px-3">
                 {number}
               </div>
             </div>
             <div className="lg:hidden">
-              <EpisodeNumber number={number} />
+              <EpisodeNumber number={episode.number} />
             </div>
           </Link>
         ))}
