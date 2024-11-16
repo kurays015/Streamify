@@ -3,8 +3,10 @@ import tmdbImgHandler from "@/lib/tmdbImg";
 import Image from "next/image";
 
 export default async function SeasonsImages({ imgUrl, name }) {
-  const { img, base64 } = await getImageBase64(tmdbImgHandler(imgUrl));
-
+  const { img, base64 } = (await getImageBase64(tmdbImgHandler(imgUrl))) || {
+    img: { src: placeholder, height: 300, width: 300 },
+    base64: "",
+  };
   return (
     <Image
       {...img}
