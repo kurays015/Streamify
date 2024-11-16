@@ -3,6 +3,8 @@ import watchType from "@/lib/watchType";
 import Link from "next/link";
 import getSeasonNumber from "@/lib/getSeasonNumber";
 import EpisodesImages from "./EpisodesImages";
+import Image from "next/image";
+import tmdbImgHandler from "@/lib/tmdbImg";
 
 async function getSeasons(id) {
   const seasonNumber = getSeasonNumber();
@@ -56,7 +58,10 @@ export default async function EpisodesPerSeason({ info }) {
                 imgUrl={still_path || info.backdrop_path || ""}
               /> */}
               <Image
-                src={still_path || info.backdrop_path || placeholder}
+                src={
+                  tmdbImgHandler(still_path || info.backdrop_path) ||
+                  placeholder
+                }
                 className="w-full customSm:h-[100px] customSemiMd:h-[140px] rounded-lg text-white"
                 alt={name}
                 width={300}
