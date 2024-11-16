@@ -1,3 +1,4 @@
+import getImageBase64 from "@/lib/base64";
 import titleHandler from "@/lib/titleHandler";
 import Image from "next/image";
 

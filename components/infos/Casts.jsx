@@ -17,6 +17,8 @@ async function getCasts(info) {
 }
 
 export default async function Casts({ info }) {
+  if (info.type === "TV") return;
+
   const casts = await getCasts(info);
 
   if (!casts.cast.length) return <h1>No casts found</h1>;

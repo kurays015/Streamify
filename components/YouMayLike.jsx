@@ -4,6 +4,8 @@ import infoUrl from "@/lib/infoUrl";
 import watchType from "@/lib/watchType";
 
 async function getRecommendations(info) {
+  if (info.type === "TV") return;
+
   try {
     const res = await fetch(
       `${process.env.TMDB_BASE_URL}/3/${watchType(info)}/${
@@ -18,12 +20,14 @@ async function getRecommendations(info) {
     console.log(error);
   }
 }
-
 export default async function YouMayLike({ info }) {
   const tmdbRecommendations = await getRecommendations(info);
-  const recommendations = tmdbRecommendations.results
-    ? tmdbRecommendations.results
-    : info.recommendations;
+
+  const recommendations = info.recommendations?.length
+    ? info?.recommendations
+    : tmdbRecommendations.results;
+
+  if (!recommendations) return;
 
   return (
     <div className="text-slate-200 customSm:mx-2 md:mx-6 lg:mt-24 xl:mx-0">

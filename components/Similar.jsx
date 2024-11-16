@@ -3,6 +3,8 @@ import Card from "./Card";
 import infoUrl from "@/lib/infoUrl";
 
 export default function Similar({ info }) {
+  if (!info.similar || !info.similar.length) return;
+
   return (
     <div className="text-slate-200 customSm:mx-2 md:mx-6 lg:mt-24 xl:mx-0">
       <div className="font-semibold customSm:text-xl customSm:my-5 lg:text-3xl">

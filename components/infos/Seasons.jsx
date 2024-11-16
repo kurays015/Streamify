@@ -5,6 +5,8 @@ import { RiLoader5Fill } from "react-icons/ri";
 import getSeasonNumber from "@/lib/getSeasonNumber";
 
 export default function Seasons({ info }) {
+  if (!info.seasons || !info.seasons.length) return;
+
   const seasonNumber = getSeasonNumber();
   return (
     <div className="mt-24 text-white customSm:mx-2 md:mx-6 ">

@@ -1,4 +1,5 @@
 async function getTrailer(info) {
+  if (info.type === "TV") return;
   const type = info.title ? "movie" : "tv";
   const id = (typeof info.title !== "object" || info.name) && info.id;
   try {
@@ -15,9 +16,11 @@ async function getTrailer(info) {
 
 export default async function Trailer({ id, info }) {
   const trailer = await getTrailer(info);
-  const tmdbKey = trailer.results?.find(result =>
+  const tmdbKey = trailer?.results?.find(result =>
     result.name.includes("Trailer")
   )?.key;
+
+  if (!id && !tmdbKey) return;
 
   return (
     <div className="flex flex-col justify-center customSm:mx-2 md:mx-6 lg:mt-24 xl:mx-0">

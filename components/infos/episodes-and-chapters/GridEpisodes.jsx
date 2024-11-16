@@ -15,7 +15,7 @@ export default function GridEpisodes({ info }) {
             <div className="relative customSm:hidden lg:block">
               <GridEpisodesImages {...episode} />
               <div className="absolute bottom-0 left-0 text-white bg-emerald-600 font-semibold rounded-tr-md rounded-bl-md py-2 px-3">
-                {number}
+                {episode.number}
               </div>
             </div>
             <div className="lg:hidden">

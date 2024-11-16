@@ -31,13 +31,11 @@ export default async function InfoDetails({ info }) {
         <Details info={info} />
       </div>
       <Trailer {...info.trailer} info={info} />
-      {info.type !== "TV" && <Casts info={info} />}
-      {info.episodes && info.episodes.length >= 1 && (
-        <EpisodeContainer info={info} />
-      )}
-      {info.seasons && info.seasons.length >= 1 && <Seasons info={info} />}
+      <Casts info={info} />
+      <EpisodeContainer info={info} />
+      <Seasons info={info} />
       <YouMayLike info={info} />
-      {info.similar && info.similar.length >= 1 && <Similar info={info} />}
+      <Similar info={info} />
     </div>
   );
 }
