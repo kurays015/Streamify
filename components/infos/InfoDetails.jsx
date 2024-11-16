@@ -9,7 +9,7 @@ import EpisodeContainer from "./episodes-and-chapters/EpisodeContainer";
 import tmdbImgHandler from "@/lib/tmdbImg";
 import Seasons from "./Seasons";
 
-export default async function InfoDetails({ info, searchParams }) {
+export default async function InfoDetails({ info }) {
   const { base64, img } = await getImageBase64(
     info.image ? info.image : tmdbImgHandler(info.poster_path)
   );
@@ -35,9 +35,7 @@ export default async function InfoDetails({ info, searchParams }) {
       {info.episodes?.length >= 1 && <EpisodeContainer info={info} />}
       {info.recommendations?.length >= 1 && <YouMayLike info={info} />}
       {info.similar && <Similar info={info} />}
-      {info.seasons?.length >= 1 && (
-        <Seasons info={info} searchParams={searchParams} />
-      )}
+      {info.seasons?.length >= 1 && <Seasons info={info} />}
     </div>
   );
 }

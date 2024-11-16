@@ -13,6 +13,11 @@ import { NextResponse } from "next/server";
 const { auth } = NextAuth(authConfig);
 
 export default auth(req => {
+  const searchParams = req.nextUrl.searchParams;
+  const params = new URLSearchParams(searchParams.toString());
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("params", params.get("season") ?? "1");
+
   const isAuthenticated = !!req.auth;
   const { pathname } = req.nextUrl;
   const isApiAuthRoute = pathname.startsWith(apiAuthPrefix);
@@ -36,7 +41,13 @@ export default auth(req => {
     return NextResponse.redirect(new URL("/signin", req.nextUrl));
   }
 
-  return null;
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
+
+  // return null;
 });
 
 export const config = {

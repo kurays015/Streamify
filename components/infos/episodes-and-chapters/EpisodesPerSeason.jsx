@@ -4,13 +4,14 @@ import tmdbImgHandler from "@/lib/tmdbImg";
 import watchType from "@/lib/watchType";
 import Image from "next/image";
 import Link from "next/link";
+import { headers } from "next/headers";
 
-async function getSeasons(id, searchParams) {
+async function getSeasons(id) {
+  const headersList = headers();
+  const seasonNumber = headersList.get("params");
   try {
     const res = await fetch(
-      `${process.env.TMDB_BASE_URL}/3/tv/${id}/season/${
-        searchParams?.season ?? "1"
-      }?api_key=${process.env.API_KEY}`
+      `${process.env.TMDB_BASE_URL}/3/tv/${id}/season/${seasonNumber}?api_key=${process.env.API_KEY}`
     );
 
     if (!res.ok) throw new Error("Error fetching episodes per season.");
@@ -21,8 +22,8 @@ async function getSeasons(id, searchParams) {
   }
 }
 
-export default async function EpisodesPerSeason({ info, searchParams }) {
-  const episodesPerSeasons = await getSeasons(info.id, searchParams);
+export default async function EpisodesPerSeason({ info }) {
+  const episodesPerSeasons = await getSeasons(info.id);
 
   if (!episodesPerSeasons.episodes)
     return (
