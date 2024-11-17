@@ -24,5 +24,5 @@ export default async function MetaInfo({ id, searchParams }) {
 
   if (!info) return <WatchAndInfoError />;
 
-  return <MainInfoContent infoData={info} searchParams={searchParams} />;
+  return <MainInfoContent info={info} searchParams={searchParams} />;
 }

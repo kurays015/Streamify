@@ -2,9 +2,10 @@ import titleHandler from "@/lib/titleHandler";
 import watchType from "@/lib/watchType";
 import Link from "next/link";
 import getSeasonNumber from "@/lib/getSeasonNumber";
-import EpisodesImages from "./EpisodesImages";
+// import EpisodesImages from "./EpisodesImages";
 import Image from "next/image";
 import tmdbImgHandler from "@/lib/tmdbImg";
+import { placeholder } from "@/lib/placeholderImg";
 
 async function getSeasons(id) {
   const seasonNumber = getSeasonNumber();
@@ -22,8 +23,6 @@ async function getSeasons(id) {
 }
 
 export default async function EpisodesPerSeason({ info }) {
-  const placeholder =
-    "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
   const episodesPerSeasons = await getSeasons(info.id);
 
   if (!episodesPerSeasons || !episodesPerSeasons.episodes?.length)
@@ -58,10 +57,7 @@ export default async function EpisodesPerSeason({ info }) {
                 imgUrl={still_path || info.backdrop_path || ""}
               /> */}
               <Image
-                src={
-                  tmdbImgHandler(still_path || info.backdrop_path) ||
-                  placeholder
-                }
+                src={tmdbImgHandler(still_path || info.backdrop_path)}
                 className="w-full customSm:h-[100px] customSemiMd:h-[140px] rounded-lg text-white"
                 alt={name}
                 width={300}

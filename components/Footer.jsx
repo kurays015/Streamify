@@ -11,7 +11,7 @@ export default function Footer() {
     <footer
       className={`max-w-7xl mx-auto text-slate-400 customSm:mt-16 customSm:mb-5 customSm:p-3 customSm:text-center lg:text-start lg:mt-32 lg:mb-8 lg:py-2 ${
         pathname.startsWith("/embedded") && "hidden"
-      }`}
+      } ${pathname.startsWith("/info") && "lg:px-0"}`}
     >
       <h5 className="customSm:text-xs lg:text-sm">
         Copyright 2024 © Streamify.

@@ -25,9 +25,9 @@ export default async function YouMayLike({ info }) {
 
   const recommendations = info.recommendations?.length
     ? info?.recommendations
-    : tmdbRecommendations.results;
+    : tmdbRecommendations?.results;
 
-  if (!recommendations) return;
+  if (!recommendations || !recommendations.length) return;
 
   return (
     <div className="text-slate-200 customSm:mx-2 md:mx-6 lg:mt-24 xl:mx-0">

@@ -21,7 +21,7 @@ export default async function Casts({ info }) {
 
   const casts = await getCasts(info);
 
-  if (!casts.cast.length) return <h1>No casts found</h1>;
+  if (!casts.cast.length) return;
 
   return (
     <div className="text-white customSm:mx-2 md:mx-6 xl:mx-0">

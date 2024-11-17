@@ -3,8 +3,7 @@ import BackToHomeBtn from "../BackToHomeBtn";
 import CoverImage from "../CoverImage";
 import coverImage from "@/lib/coverImg";
 
-export default function MainInfoContent({ infoData }) {
-  const info = infoData && infoData;
+export default function MainInfoContent({ info }) {
   return (
     <div>
       <BackToHomeBtn />
