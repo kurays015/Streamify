@@ -29,8 +29,8 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-lg customSm:text-sm text-yellow-400">
-        Welcome, {session.data?.user?.name}!
+      <div className="w-full text-center absolute top-4 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-lg customSm:text-xs text-yellow-400">
+        {session.data ? `Welcome, ${session.data.user.name}!` : "..."}
       </div>
     </header>
   );
