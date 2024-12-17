@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { GlobalWatchAndReadList } from "@/components/watch-list/GlobalWatchAndReadList";
 import siteMetadata from "@/config/site-metadata";
+import NextAuthProvider from "./providers/NextAuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,12 +34,13 @@ export default async function RootLayout({ children }) {
           easing="linear"
           showSpinner
         />
-
-        <Header />
-        <GlobalWatchAndReadList />
-        {children}
-        <Toaster />
-        <Footer />
+        <NextAuthProvider>
+          <Header />
+          <GlobalWatchAndReadList />
+          {children}
+          <Toaster />
+          <Footer />
+        </NextAuthProvider>
       </body>
     </html>
   );

@@ -4,9 +4,11 @@ import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import removeElement from "@/lib/removeElement";
+import { useSession } from "next-auth/react";
 
 export default function Header() {
   const pathname = usePathname();
+  const session = useSession();
 
   return (
     <header
@@ -18,7 +20,7 @@ export default function Header() {
         <LuPopcorn className="text-4xl text-red-500" />
         <h1 className="font-bold text-xl text-teal-500">Streamify</h1>
       </Link>
-      {/* <nav>
+      <nav>
         <ul className="flex items-center customSm:gap-0 lg:gap-5">
           <li>
             <Link href="/search">
@@ -26,7 +28,10 @@ export default function Header() {
             </Link>
           </li>
         </ul>
-      </nav> */}
+      </nav>
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-lg customSm:text-sm text-yellow-400">
+        Welcome, {session.data?.user?.name}!
+      </div>
     </header>
   );
 }
