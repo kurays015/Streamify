@@ -30,7 +30,7 @@ export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
 
   const episodeNumber = React.useMemo(() => {
     return info.episodes.find(episode => episode.id === value)?.number;
-  }, [value]);
+  }, [value, info.episodes]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

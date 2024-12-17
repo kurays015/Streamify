@@ -1,25 +1,23 @@
-import NextAuth from "next-auth";
 import {
+  DEFAULT_LOGIN_REDIRECT,
   apiAuthPrefix,
   authRoutes,
   publicRoutes,
-  DEFAULT_LOGIN_REDIRECT,
 } from "@/routes";
-
-import authConfig from "@/auth.config";
-
 import { NextResponse } from "next/server";
 
-const { auth } = NextAuth(authConfig);
+export default function middleware(req) {
+  const { pathname } = req.nextUrl;
 
-export default auth(req => {
+  //setting params
   const searchParams = req.nextUrl.searchParams;
   const params = new URLSearchParams(searchParams.toString());
   const requestHeaders = new Headers(req.headers);
   requestHeaders.set("params", params.get("season") ?? "1");
 
-  const isAuthenticated = !!req.auth;
-  const { pathname } = req.nextUrl;
+  const token =
+    req.cookies.get("next-auth.session-token") ||
+    req.cookies.get("__Secure-next-auth.session-token");
   const isApiAuthRoute = pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(pathname);
   const isAuthRoute = authRoutes.includes(pathname);
@@ -29,7 +27,7 @@ export default auth(req => {
   }
 
   if (isAuthRoute) {
-    if (isAuthenticated) {
+    if (token) {
       return NextResponse.redirect(
         new URL(DEFAULT_LOGIN_REDIRECT, req.nextUrl)
       );
@@ -37,7 +35,7 @@ export default auth(req => {
     return null;
   }
 
-  if (!isAuthenticated && !isPublicRoute) {
+  if (!token && !isPublicRoute) {
     return NextResponse.redirect(new URL("/signin", req.nextUrl));
   }
 
@@ -47,8 +45,8 @@ export default auth(req => {
     },
   });
 
-  // return null;
-});
+  // return null
+}
 
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],

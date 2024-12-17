@@ -23,6 +23,9 @@ module.exports = {
         customSemiMd2: "650px",
         customGrid3: "550px",
       },
+      backgroundImage: {
+        "login-cover": "url('/login-cover.png');",
+      },
       backgroundColor: {
         customTransparent: "rgba(0, 0, 0, 0.5);",
         customTransparent2: "rgba(0, 0, 0, 0.7);",
