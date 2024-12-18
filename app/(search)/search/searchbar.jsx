@@ -18,12 +18,6 @@ export default function SearchBar() {
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
 
-  const clearFilter = () => {
-    router.push("/search");
-    setAnimeAdvanceSearch(false);
-    if (inputRef.current) inputRef.current.value = "";
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -52,10 +46,16 @@ export default function SearchBar() {
   };
 
   const handleTypeChange = value => {
-    clearFilter();
     if (value === "Anime") {
       setAnimeAdvanceSearch(true);
+    } else {
+      setAnimeAdvanceSearch(false);
     }
+
+    if (inputRef.current) inputRef.current.value = "";
+
+    params.delete("query");
+    router.push(`?${params.toString()}`);
   };
 
   return (
@@ -87,7 +87,7 @@ export default function SearchBar() {
           </>
         )}
 
-        <ClearFilter clearFilter={clearFilter} params={params} />
+        <ClearFilter params={params} />
         <Button
           type="submit"
           className="w-full bg-blue-600 text-white hover:bg-blue-700"

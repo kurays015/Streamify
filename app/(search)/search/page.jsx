@@ -17,7 +17,7 @@ export function generateMetadata({ searchParams }) {
 
 export default async function Search({ searchParams }) {
   return (
-    <main className="text-white max-w-7xl mx-auto mb-24 px-4 md:px-6 lg:px-8 ">
+    <main className="text-white max-w-7xl mx-auto mb-24 px-4 md:px-6">
       <SearchBar />
       <div className="flex flex-wrap items-center gap-4 my-8">
         {Object.entries(searchParams).length > 1 && (
