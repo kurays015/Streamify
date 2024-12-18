@@ -17,10 +17,13 @@ export default function EmbeddedVideo({ queryParams, title }) {
       </div>
 
       <div className="mt-8 w-full max-w-5xl px-4">
+        <h1 className="lg:text-4xl font-bold customSm:text-xl mb-4  text-center text-white">
+          {decodeURIComponent(title)}
+        </h1>
         <div className="text-center mb-4">
-          <h1 className="text-lg md:text-xl font-bold text-yellow-300  ">
+          <h2 className="text-lg md:text-xl font-bold text-yellow-300  ">
             Select a source
-          </h1>
+          </h2>
           <p className="text-slate-300">
             If the video is buffering or doesn&apos;t work, try another source.
           </p>
@@ -46,10 +49,6 @@ export default function EmbeddedVideo({ queryParams, title }) {
           })}
         </div>
       </div>
-
-      <h1 className="text-4xl font-bold mt-12 mb-4 text-center text-white">
-        {decodeURIComponent(title)}
-      </h1>
     </div>
   );
 }
