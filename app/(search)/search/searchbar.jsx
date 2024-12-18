@@ -82,7 +82,7 @@ export default function SearchBar() {
         {animeAdvanceSearch && (
           <>
             {advanceSearch.types.map(advance => (
-              <QueriesSelect key={type} {...advance} />
+              <QueriesSelect key={advance.type} {...advance} />
             ))}
           </>
         )}
