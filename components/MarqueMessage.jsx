@@ -11,7 +11,6 @@ export default function MarqueMessage({ text, loop, speed }) {
       speed={speed}
       loop={loop}
       onFinish={() => setFinish(true)}
-      // className="absolute text-yellow-400"
       direction="right"
     >
       <p

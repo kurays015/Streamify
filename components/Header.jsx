@@ -35,7 +35,7 @@ export default function Header() {
           <MarqueMessage
             text={`Welcome ${session.data.user.name}!`}
             loop={3}
-            speed={20}
+            speed={100}
           />
         )}
       </div>
