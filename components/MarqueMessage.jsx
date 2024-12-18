@@ -14,7 +14,9 @@ export default function MarqueMessage({ text, loop, speed }) {
       direction="right"
     >
       <p
-        className={`bg-red-300 lg:text-lg font-bold bg-gradient-to-r from-red-500 via-green-500 to-yellow-500 bg-clip-text text-transparent customSm:text-xs `}
+        className={`${
+          finish ? "hidden" : ""
+        } bg-red-300 lg:text-lg font-bold bg-gradient-to-r from-red-500 via-green-500 to-yellow-500 bg-clip-text text-transparent customSm:text-xs `}
       >
         {text}
       </p>
