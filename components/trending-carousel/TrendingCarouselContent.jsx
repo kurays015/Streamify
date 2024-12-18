@@ -2,7 +2,6 @@ import { Button } from "../ui/button";
 import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import Link from "next/link";
-import titleHandler from "@/lib/titleHandler";
 
 export default function TrendingCarouselContent({
   id,
@@ -34,9 +33,9 @@ export default function TrendingCarouselContent({
         </p>
         <div className="flex items-center gap-3 my-5">
           <Link
-            href={`/embedded/${titleHandler(
-              title ? title : name
-            )}/${id}?type=${type}`}
+            href={`/embedded/${title ? title : name}/${
+              name ? "tv" : "movie"
+            }/${id}`}
           >
             <Button
               variant="secondary"

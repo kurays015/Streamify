@@ -2,10 +2,8 @@ import titleHandler from "@/lib/titleHandler";
 import watchType from "@/lib/watchType";
 import Link from "next/link";
 import getSeasonNumber from "@/lib/getSeasonNumber";
-// import EpisodesImages from "./EpisodesImages";
 import Image from "next/image";
 import tmdbImgHandler from "@/lib/tmdbImg";
-import { placeholder } from "@/lib/placeholderImg";
 
 async function getSeasons(id) {
   const seasonNumber = getSeasonNumber();
@@ -38,24 +36,12 @@ export default async function EpisodesPerSeason({ info }) {
         ({ id, season_number, episode_number, name, still_path }) => (
           <Link
             key={id}
-            href={`/embedded/${titleHandler(
-              info.title ? info.title : info.name
-            )}/${info.id}${
-              info.name
-                ? `?season=${season_number}&episode=${episode_number}&type=${watchType(
-                    info
-                  )}`
-                : ""
-            }`}
+            href={`/embedded/${info.name}/tv/${info.id}?season=${season_number}&episode=${episode_number}`}
           >
             <div className="relative">
               <div className="absolute top-2 left-2 font-bold bg-gray-800 bg-opacity-75 px-2 py-1 rounded customSm:text-sm lg:text-lg">
                 S{season_number}-E{episode_number}
               </div>
-              {/* <EpisodesImages
-                name={name}
-                imgUrl={still_path || info.backdrop_path || ""}
-              /> */}
               <Image
                 src={tmdbImgHandler(still_path || info.backdrop_path)}
                 className="w-full customSm:h-[100px] customSemiMd:h-[140px] rounded-lg text-white"

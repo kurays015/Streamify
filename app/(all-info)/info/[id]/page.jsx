@@ -1,5 +1,6 @@
-import MetaInfo, { getInfoData } from "@/components/infos/MetaInfo";
+import MetaInfo from "@/components/infos/MetaInfo";
 import PikachuLoading from "@/components/skeletons/PikachuLoading";
+import { getInfoData } from "@/lib/getInfoData";
 import infoMetadata from "@/lib/infoMetadata";
 import { Suspense } from "react";
 
