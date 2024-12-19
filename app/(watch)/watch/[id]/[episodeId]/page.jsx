@@ -10,7 +10,7 @@ export const generateMetadata = async ({ params }, parent) => {
 
   const previousImages = (await parent).openGraph?.images || [];
 
-  if (!watchInfo || !watchInfo.success) {
+  if (!watchInfo) {
     return {
       title: "Information not found",
       description: "The requested information could not be found.",

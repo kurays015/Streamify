@@ -62,26 +62,32 @@ export default function EpisodeDropdown({ info, currentEpisodeIndex }) {
           <CommandInput placeholder={`Search Episodes...`} className="h-9" />
           <CommandEmpty>No episode found.</CommandEmpty>
           <CommandGroup>
-            {info.episodes.map(episode => (
-              <CommandItem
-                className="cursor-pointer hover:bg-gray-300"
-                key={episode.id}
-                value={episode.id}
-                onSelect={currentValue => {
-                  setValue(currentValue);
-                  setOpen(false);
-                  router.push(`/watch/${info.id}/${episode.id}`);
-                }}
-              >
-                {info.episodes ? `Episode ${episode.number}` : episode.title}{" "}
-                <GiCheckMark
-                  className={cn(
-                    "ml-auto h-4 w-4",
-                    value === episode.id ? "opacity-100" : "opacity-0"
-                  )}
-                />
-              </CommandItem>
-            ))}
+            {info.episodes.map(episode => {
+              const watchPath = pathname.startsWith("/embedded")
+                ? `/embedded?id=${info.id}&episodeId=${episode.id}`
+                : `/watch/${info.id}/${episode.id}`;
+
+              return (
+                <CommandItem
+                  className="cursor-pointer hover:bg-gray-300"
+                  key={episode.id}
+                  value={episode.id}
+                  onSelect={currentValue => {
+                    setValue(currentValue);
+                    setOpen(false);
+                    router.push(watchPath);
+                  }}
+                >
+                  {info.episodes ? `Episode ${episode.number}` : episode.title}{" "}
+                  <GiCheckMark
+                    className={cn(
+                      "ml-auto h-4 w-4",
+                      value === episode.id ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                </CommandItem>
+              );
+            })}
           </CommandGroup>
         </Command>
       </PopoverContent>
