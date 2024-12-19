@@ -24,10 +24,17 @@ export default function SearchResultPagination({ result }) {
     router.push(`?${params.toString()}`);
     setPage(newPage);
   };
-
   const getDisplayedPages = () => {
+    // Function to get the pages to be displayed
+    // Example: if page is 3, startPage will be 1 (Math.max(1, 3 - 2))
+    // Example: if page is 5, startPage will be 3 (Math.max(1, 5 - 2))
     const startPage = Math.max(1, page - 2);
-    const endPage = Math.min(totalPages, startPage + 3);
+
+    // Example: if startPage is 1 and totalPages is 5, endPage will be 4 (Math.min(5, 1 + 4))
+    // Example: if startPage is 3 and totalPages is 10, endPage will be 6 (Math.min(10, 3 + 4))
+    const endPage = Math.min(totalPages, startPage + 4);
+
+    //getting only the pages that are between startPage and endPage, 5 elements of the array only
     return Array.from(
       { length: endPage - startPage + 1 },
       (_, i) => startPage + i
@@ -49,10 +56,8 @@ export default function SearchResultPagination({ result }) {
         {getDisplayedPages().map(displayedPage => (
           <PaginationItem key={displayedPage}>
             <PaginationLink
-              className={`text-sm sm:text-base lg:text-lg px-2 sm:px-3 py-1 rounded-md ${
-                page === displayedPage
-                  ? "bg-blue-500 text-white"
-                  : "hover:bg-blue-100"
+              className={`cursor-pointer text-sm sm:text-base lg:text-lg px-2 sm:px-3 py-1 rounded-md ${
+                page === displayedPage ? "bg-blue-500" : "hover:border"
               }`}
               isActive={page === displayedPage}
               onClick={() => handlePageChange(displayedPage)}
