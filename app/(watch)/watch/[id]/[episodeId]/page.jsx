@@ -7,11 +7,23 @@ import { Suspense } from "react";
 
 export const generateMetadata = async ({ params }, parent) => {
   const watchInfo = await getWatchPageInfo(params.id);
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  if (!watchInfo || !watchInfo.success) {
+    return {
+      title: "Information not found",
+      description: "The requested information could not be found.",
+      openGraph: {
+        images: previousImages,
+      },
+    };
+  }
+
   const currentPlayingEpisode = currentEpisodeUserWatching(
     watchInfo,
     params.episodeId
   );
-  const previousImages = (await parent).openGraph?.images || [];
 
   const image = watchInfo.image ? watchInfo.image : watchInfo.thumbnail;
 

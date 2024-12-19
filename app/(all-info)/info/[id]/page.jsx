@@ -8,6 +8,16 @@ export const generateMetadata = async ({ params, searchParams }, parent) => {
   const infoData = await getInfoData(params.id, searchParams);
   const previousImages = (await parent).openGraph?.images || [];
 
+  if (!infoData || !infoData.success) {
+    return {
+      title: "Information not found",
+      description: "The requested information could not be found.",
+      openGraph: {
+        images: previousImages,
+      },
+    };
+  }
+
   return infoMetadata(infoData, previousImages);
 };
 
