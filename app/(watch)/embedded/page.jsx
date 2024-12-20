@@ -30,7 +30,7 @@ export default async function EmbeddedAnime({ searchParams }) {
         ></iframe>
       </AspectRatio>
       <div className="text-center text-slate-300 font-semibold  customSm:mt-12 customSm:mb-5 lg:my-5">
-        <h1 className="customSm:text-xl lg:text-3xl">
+        <h1 className="customSm:text-xl lg:text-3xl mt-4">
           {capitalFirstLetter(searchParams?.episodeId.split("-").join(" "))}
         </h1>
         <p className="text-sm">(Bonus page)</p>
