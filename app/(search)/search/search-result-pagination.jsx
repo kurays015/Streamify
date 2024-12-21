@@ -41,6 +41,7 @@ export default function SearchResultPagination({ result }) {
     );
   };
 
+  console.log(getDisplayedPages());
   return (
     <Pagination>
       <PaginationContent className="flex flex-wrap justify-center items-center gap-2 lg:gap-4 pt-10 pb-10">
@@ -53,19 +54,20 @@ export default function SearchResultPagination({ result }) {
           </PaginationItem>
         )}
 
-        {getDisplayedPages().map(displayedPage => (
-          <PaginationItem key={displayedPage}>
-            <PaginationLink
-              className={`cursor-pointer text-sm sm:text-base lg:text-lg px-2 sm:px-3 py-1 rounded-md ${
-                page === displayedPage ? "bg-blue-500" : "hover:border"
-              }`}
-              isActive={page === displayedPage}
-              onClick={() => handlePageChange(displayedPage)}
-            >
-              {displayedPage}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
+        {getDisplayedPages().length > 1 &&
+          getDisplayedPages().map(displayedPage => (
+            <PaginationItem key={displayedPage}>
+              <PaginationLink
+                className={`cursor-pointer text-sm sm:text-base lg:text-lg px-2 sm:px-3 py-1 rounded-md ${
+                  page === displayedPage ? "bg-blue-500" : "hover:border"
+                }`}
+                isActive={page === displayedPage}
+                onClick={() => handlePageChange(displayedPage)}
+              >
+                {displayedPage}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
 
         {totalPages > 5 && page < totalPages - 2 && (
           <PaginationItem>
