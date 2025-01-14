@@ -45,7 +45,7 @@ export function GlobalWatchAndReadList() {
             Watch and Read List
           </SheetTitle>
         </SheetHeader>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2 max-h-[850px] overflow-auto">
           <List />
         </div>
       </SheetContent>
