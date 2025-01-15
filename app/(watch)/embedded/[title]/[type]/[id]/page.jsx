@@ -1,6 +1,5 @@
 import EmbeddedVideo from "@/components/EmbeddedVideo";
 import Seasons from "@/components/infos/Seasons";
-import MarqueMessage from "@/components/MarqueMessage";
 import { getInfoData } from "@/lib/getInfoData";
 
 export const generateMetadata = async ({ params }) => {
@@ -25,11 +24,6 @@ export default async function EmbeddedVideoPage({ params, searchParams }) {
   return (
     <main className="max-w-7xl mx-auto">
       <EmbeddedVideo queryParams={queryParams} title={title} />
-      <MarqueMessage
-        text="Merry Christmas and a Happy new year!"
-        loop={0}
-        speed={30}
-      />
       {type === "tv" && <Seasons info={info} />}
     </main>
   );
