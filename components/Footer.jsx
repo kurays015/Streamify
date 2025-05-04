@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const pathname = usePathname();
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer
       className={`max-w-7xl mx-auto text-slate-400 customSm:mt-16 customSm:mb-5 customSm:p-3 customSm:text-center lg:text-start lg:mt-32 lg:mb-8 lg:py-2 ${
@@ -14,7 +16,7 @@ export default function Footer() {
       } ${pathname.startsWith("/info") && "lg:px-0"}`}
     >
       <h5 className="customSm:text-xs lg:text-sm">
-        Copyright 2024 © Streamify.
+        Copyright {currentYear} © Streamify.
       </h5>
       <small>
         This site does not store any files on its server. All contents are
