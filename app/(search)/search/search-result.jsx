@@ -16,7 +16,7 @@ async function getSearchResult(searchParams, params) {
   try {
     const url =
       type === "Anime"
-        ? `${process.env.SOURCE_URL1}/meta/anilist/${queryParams}`
+        ? `${process.env.SOURCE_URL}/meta/anilist/${queryParams}`
         : `${process.env.TMDB_BASE_URL}/3/search/multi?query=${
             query ?? ""
           }&page=${page}&include_adult=true&api_key=${process.env.API_KEY}`;

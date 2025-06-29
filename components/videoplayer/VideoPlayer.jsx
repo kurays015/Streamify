@@ -88,7 +88,7 @@ const Player = ({ option, getInstance, ...rest }) => {
         art.destroy(false);
       }
     };
-  }, []);
+  }, [defaultQuality.quality, defaultQuality.url, getInstance, option]);
 
   return <div ref={artRef} {...rest}></div>;
 };

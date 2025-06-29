@@ -5,7 +5,7 @@ import currentEpisodeUserWatching from "@/lib/currentEpisodeUserWatching";
 export async function getWatchPageInfo(id) {
   try {
     const res = await fetch(
-      `${process.env.SOURCE_URL8}/meta/anilist/info/${id}`,
+      `${process.env.SOURCE_URL}/meta/anilist/info/${id}`,
       {
         cache: "no-store",
       }

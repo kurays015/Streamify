@@ -18,7 +18,8 @@ export default async function EmbeddedAnime({ searchParams }) {
     getInfoData(searchParams?.id, { type: "anime" }),
   ]);
 
-  if (!streamLinks || !infoData) return <WatchAndInfoError />;
+  if (!streamLinks || !streamLinks.length > 0 || !infoData)
+    return <WatchAndInfoError />;
 
   return (
     <main className="max-w-7xl mx-auto p-4">
