@@ -5,7 +5,19 @@ import React from "react";
 
 export default async function CardCarouselContainer() {
   const responses = await Promise.all(urls.map(url => fetch(url)));
-  const data = await Promise.all(responses.map(response => response.json()));
+  const data = await Promise.all(
+    responses.map(async response => {
+      if (!response.ok) {
+        return { statusCode: response.status };
+      }
+      try {
+        return await response.json();
+      } catch (error) {
+        return { statusCode: 500 };
+      }
+    })
+  );
+
   return (
     <div className="px-2">
       {data.map((d, index) => (
