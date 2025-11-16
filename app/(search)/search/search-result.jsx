@@ -19,7 +19,7 @@ async function getSearchResult(searchParams, params) {
         ? `${process.env.SOURCE_URL}/meta/anilist/${queryParams}`
         : `${process.env.TMDB_BASE_URL}/3/search/multi?query=${
             query ?? ""
-          }&page=${page}&include_adult=true&api_key=${process.env.API_KEY}`;
+          }&page=${page}&api_key=${process.env.API_KEY}`;
 
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) {
